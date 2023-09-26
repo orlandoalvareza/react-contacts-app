@@ -1,0 +1,22 @@
+.header {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.list {
+  font-size: 17px;
+  display: flex;
+  gap: 26px;
+  list-style: none;
+}
+
+.list a {
+  color: royalblue;
+}
+
+.list a:hover,
+.list a.active {
+  color: blueviolet;
+  text-decoration: underline;
+}

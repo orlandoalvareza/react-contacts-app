@@ -1,5 +1,7 @@
+import ContactsBody from "../components/Contatcs/ContactsBody";
+
 const ContactsPage = () => {
-  return <h1>ContactsPage</h1>
+  return <ContactsBody/>
 }
 
 export default ContactsPage;

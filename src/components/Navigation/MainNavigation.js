@@ -5,6 +5,7 @@ import classes from './MainNavigation.module.css';
 const MainNavigation = () => {
   return (
     <header className={classes.header}>
+      <h1>My Contacts</h1>
       <nav>
         <ul className={classes.list}>
           <li>

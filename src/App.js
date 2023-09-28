@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import RootLayout from './pages/Root';
 import HomePage from './pages/Home';
+import ContactsRootLayout from './pages/ContactsRoot';
 import ContactsPage, { loader as contactsLoader } from './pages/Contacts';
 import ContactDetailPage from './pages/ContactDetail';
 import NewContactPage from './pages/NewContact';
@@ -14,10 +15,16 @@ const router = createBrowserRouter([
     element: <RootLayout/>,
     children: [
       { index: true, element: <HomePage/> },
-      { path: '/contacts', element: <ContactsPage/>, loader: contactsLoader },
-      { path: '/contacts/:contactId', element: <ContactDetailPage/>},
-      { path: '/contacts/new', element: <NewContactPage/> },
-      { path: '/contacts/:contactId/edit', element: <EditContactPage/> },
+      { 
+        path: '/contacts', 
+        element: <ContactsRootLayout/>, 
+        children: [
+          { index: true, element: <ContactsPage/>, loader: contactsLoader },
+          { path: ':contactId', element: <ContactDetailPage/>},
+          { path: 'new', element: <NewContactPage/> },
+          { path: ':contactId/edit', element: <EditContactPage/> },
+        ]
+      },
       { path: '/favorites', element: <FavoritesContactsPage/> },
     ]
   }

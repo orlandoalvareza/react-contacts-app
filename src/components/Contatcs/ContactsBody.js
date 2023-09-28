@@ -2,7 +2,7 @@ import ContactsList from './ContactsList';
 import image from '../../images/ben-sweet-2LowviVHZ-E-unsplash.jpg';
 import classes from './ContactsBody.module.css';
 
-const ContactsBody = () => {
+const ContactsBody = ({ contacts }) => {
   return (
     <div className={classes["contacts-container"]}>
       <div className={classes["contacts-section"]}>
@@ -20,7 +20,7 @@ const ContactsBody = () => {
             <h3>My Card</h3>
           </div>
         </div>
-        <ContactsList/>
+        <ContactsList contacts={contacts}/>
       </div>
     </div>
   )

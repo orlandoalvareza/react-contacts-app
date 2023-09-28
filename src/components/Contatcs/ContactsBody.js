@@ -1,3 +1,4 @@
+import ContactsList from './ContactsList';
 import image from '../../images/ben-sweet-2LowviVHZ-E-unsplash.jpg';
 import classes from './ContactsBody.module.css';
 
@@ -19,13 +20,7 @@ const ContactsBody = () => {
             <h3>My Card</h3>
           </div>
         </div>
-        <ul className={classes["contact-list"]}>
-          <li>Anna</li>
-          <li>Beatriz</li>
-          <li>Fred</li>
-          <li>Michael</li>
-          <li>Leah</li>
-        </ul>
+        <ContactsList/>
       </div>
     </div>
   )

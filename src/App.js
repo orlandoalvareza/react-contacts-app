@@ -15,9 +15,9 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage/> },
       { path: '/contacts', element: <ContactsPage/> },
-      { path: '/contacts/contact-detail', element: <ContactDetailPage/> },
-      { path: '/contacts/new-contact', element: <NewContactPage/> },
-      { path: '/contacts/edit-contact', element: <EditContactPage/> },
+      { path: '/contacts/:contactId', element: <ContactDetailPage/> },
+      { path: '/contacts/new', element: <NewContactPage/> },
+      { path: '/contacts/:contactId/edit', element: <EditContactPage/> },
       { path: '/favorites', element: <FavoritesContactsPage/> },
     ]
   }

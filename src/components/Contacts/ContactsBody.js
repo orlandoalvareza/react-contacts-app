@@ -7,7 +7,7 @@ import NewContact from './NewContact';
 
 const ContactsBody = ({ contacts }) => {
   const [search, setSearch] = useState(contacts);
-  const [isAddNewContact, setIsAddNewContact] = useState(false);
+  const [isAddingContact, setIsAddingContact] = useState(false);
   
   const searchHandler = (event) => {
     const searchedName = event.target.value;
@@ -17,11 +17,11 @@ const ContactsBody = ({ contacts }) => {
   }
 
   const newContactHandler = () => {
-    setIsAddNewContact(true);
+    setIsAddingContact(true);
   }
 
-  const cancelNewContactHandler = () => {
-    setIsAddNewContact(false);
+  const stopNewContactHandler = () => {
+    setIsAddingContact(false);
   }
 
   return (
@@ -42,7 +42,7 @@ const ContactsBody = ({ contacts }) => {
           </div>
         </div>
         <ContactsList contacts={search}/>
-        {isAddNewContact && <NewContact onCancel={cancelNewContactHandler}/>}
+        {isAddingContact && <NewContact stopEditing={stopNewContactHandler}/>}
       </div>
     </div>
   )

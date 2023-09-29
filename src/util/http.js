@@ -15,3 +15,19 @@ export async function loader() {
     return contacts;
   }
 }
+
+export async function submitContacts(contactData) {
+  const response = await fetch('https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts.json', {
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(contactData)
+  })
+
+  if (!response.ok) {
+    console.log('Could not save contact');
+  } else {
+    console.log('Submitted');
+  }
+}

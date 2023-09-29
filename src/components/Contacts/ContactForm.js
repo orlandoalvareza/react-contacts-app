@@ -12,7 +12,7 @@ const initialInput = {
   date: '',
 };
 
-const ContactForm = (props) => {
+const ContactForm = ({ onSaveContact, stopEditing }) => {
   const [contactInput, setContactInput] = useState(initialInput)
 
   const inputChangeHandler = (input, value) => {
@@ -27,7 +27,7 @@ const ContactForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    props.onSaveContact(contactInput);
+    onSaveContact(contactInput);
   }
 
   return (
@@ -97,7 +97,7 @@ const ContactForm = (props) => {
         />
       </div>
       <div className={classes.actions}>
-        <button type='button' onClick={props.onCancel}>Cancel</button>
+        <button onClick={stopEditing} type='button'>Cancel</button>
         <button type='submit'>Done</button>
       </div>
     </form>

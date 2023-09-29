@@ -3,9 +3,11 @@ import { useState } from 'react';
 import ContactsList from './ContactsList';
 import image from '../../images/ben-sweet-2LowviVHZ-E-unsplash.jpg';
 import classes from './ContactsBody.module.css';
+import NewContact from './NewContact';
 
 const ContactsBody = ({ contacts }) => {
   const [search, setSearch] = useState(contacts);
+  const [isAddNewContact, setIsAddNewContact] = useState(false);
   
   const searchHandler = (event) => {
     const searchedName = event.target.value;
@@ -14,14 +16,22 @@ const ContactsBody = ({ contacts }) => {
     setSearch(filteredContacts);
   }
 
+  const newContactHandler = () => {
+    setIsAddNewContact(true);
+  }
+
+  const cancelNewContactHandler = () => {
+    setIsAddNewContact(false);
+  }
+
   return (
     <div className={classes["contacts-container"]}>
       <div className={classes["contacts-section"]}>
         <div className={classes["contact-header"]}>
           <h2>Contacts</h2>
           <div className={classes["contact-header__actions"]}>
-            <input type='search' id='search' onChange={searchHandler} placeholder='Search Contact'/>
-            <button type='button'>New Contact</button>
+            <input onChange={searchHandler} type='search' id='search' placeholder='Search Contact'/>
+            <button onClick={newContactHandler} type='button'>New Contact</button>
           </div>
         </div>
         <div className={classes["profile-contact"]}>
@@ -32,6 +42,7 @@ const ContactsBody = ({ contacts }) => {
           </div>
         </div>
         <ContactsList contacts={search}/>
+        {isAddNewContact && <NewContact onCancel={cancelNewContactHandler}/>}
       </div>
     </div>
   )

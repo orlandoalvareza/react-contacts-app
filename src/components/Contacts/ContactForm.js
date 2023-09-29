@@ -97,7 +97,7 @@ const ContactForm = (props) => {
         />
       </div>
       <div className={classes.actions}>
-        <button type='button'>Cancel</button>
+        <button type='button' onClick={props.onCancel}>Cancel</button>
         <button type='submit'>Done</button>
       </div>
     </form>

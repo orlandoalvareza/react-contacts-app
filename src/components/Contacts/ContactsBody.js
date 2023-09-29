@@ -20,7 +20,7 @@ const ContactsBody = ({ contacts }) => {
         <div className={classes["contact-header"]}>
           <h2>Contacts</h2>
           <div className={classes["contact-header__actions"]}>
-            <input type='search' id='search' onChange={searchHandler} placeholder='search contact'/>
+            <input type='search' id='search' onChange={searchHandler} placeholder='Search Contact'/>
             <button type='button'>New Contact</button>
           </div>
         </div>

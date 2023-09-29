@@ -1,10 +1,10 @@
 import classes from './ContactItem.module.css';
 
-const ContactItem = () => {
+const ContactItem = ({ contact }) => {
   return (
     <div className={classes['contact-container']}>
-      <h2>Name</h2>
-      <p>Phone Number</p>
+      <h2>{contact.name}</h2>
+      <p>{contact.phone}</p>
     </div>  
   )
 }

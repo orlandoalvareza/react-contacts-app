@@ -3,13 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import ContactsBody from "../components/Contacts/ContactsBody";
 
 const ContactsPage = () => {
-  const data = useLoaderData();
-
-  const contacts = Object.keys(data).map(key => ({
-    id: key,
-    name: data[key].name,
-    phone: data[key].phone,
-  }));
+  const contacts = useLoaderData();
   
   return <ContactsBody contacts={contacts}/>
 }
@@ -22,6 +16,14 @@ export async function loader() {
   if (!response.ok) {
     console.log('Error');
   } else {
-    return response;
+    const data = await response.json();
+
+    const contacts = Object.keys(data).map(key => ({
+      id: key,
+      name: data[key].name,
+      phone: data[key].phone,
+    }));
+
+    return contacts;
   }
 }

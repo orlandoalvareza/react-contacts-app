@@ -9,7 +9,11 @@ export async function loader() {
     const contacts = Object.keys(data).map(key => ({
       id: key,
       name: data[key].name,
+      company: data[key].company,
       phone: data[key].phone,
+      email: data[key].email,
+      address: data[key].address,
+      birthday: data[key].date,
     }));
 
     return contacts;

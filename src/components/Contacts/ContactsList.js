@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import classes from './ContactsList.module.css';
 
 const ContactsList = ({ contacts }) => {
-  console.log(contacts);
-
   return (
     <ul className={classes["contact-list"]}>
       {contacts.map(contact => 

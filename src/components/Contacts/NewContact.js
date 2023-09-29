@@ -6,10 +6,7 @@ import classes from './NewContact.module.css';
 const NewContact = ({ stopEditing }) => {
 
   const onSaveContactHandler = (enteredContact) => {    
-    const contactData = {
-      ...enteredContact,
-      id: Math.random().toString()
-    }
+    const contactData = {...enteredContact}
 
     submitContacts(contactData);
     stopEditing();

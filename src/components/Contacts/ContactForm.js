@@ -3,8 +3,7 @@ import { useState } from 'react';
 import classes from './ContactForm.module.css';
 
 const initialInput = {
-  'first-name': '',
-  'last-name': '',
+  name: '',
   company: '',
   phone: '',
   email: '',
@@ -34,21 +33,14 @@ const ContactForm = ({ onSaveContact, stopEditing }) => {
     <form onSubmit={submitHandler} className={classes["form"]}>
       <div className={classes["basic-information"]}>
         <input 
-          onChange={(event) => inputChangeHandler('first-name', event.target.value)} 
-          value={contactInput['first-name']}
+          onChange={(event) => inputChangeHandler('name', event.target.value)} 
+          value={contactInput['name']}
           type='text' 
-          id="first-name" 
-          name="first-name" 
-          placeholder="First name" 
+          id="name" 
+          name="name" 
+          placeholder="Name" 
+          autoFocus
           required
-        />
-        <input 
-          onChange={(event) => inputChangeHandler('last-name', event.target.value)} 
-          value={contactInput['last-name']}
-          type="text"  
-          id="last-name" 
-          name="last-name" 
-          placeholder="Last name" 
         />
         <input 
           onChange={(event) => inputChangeHandler('company', event.target.value)} 

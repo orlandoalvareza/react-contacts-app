@@ -6,14 +6,14 @@ import classes from './ContactsBody.module.css';
 import NewContact from './NewContact';
 
 const ContactsBody = ({ contacts }) => {
-  const [search, setSearch] = useState(contacts);
+  const [contactsData, setContactsData] = useState(contacts);
   const [isAddingContact, setIsAddingContact] = useState(false);
   
   const searchHandler = (event) => {
     const searchedName = event.target.value;
     const filteredContacts = contacts.filter(contacts => contacts.name.includes(searchedName));
 
-    setSearch(filteredContacts);
+    setContactsData(filteredContacts);
   }
 
   const newContactHandler = () => {
@@ -41,8 +41,8 @@ const ContactsBody = ({ contacts }) => {
             <h3>My Card</h3>
           </div>
         </div>
-        <ContactsList contacts={search}/>
-        {isAddingContact && <NewContact stopEditing={stopNewContactHandler}/>}
+        <ContactsList contacts={contactsData}/>
+        {isAddingContact && <NewContact onStopEditing={stopNewContactHandler} />}
       </div>
     </div>
   )

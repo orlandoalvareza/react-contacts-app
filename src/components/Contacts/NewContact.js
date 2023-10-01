@@ -1,20 +1,20 @@
 import Modal from '../UI/Modal';
 import ContactForm from "./ContactForm";
-import { submitContacts } from '../../util/http';
-import classes from './NewContact.module.css';
+import { submitContact } from '../../util/http';
+//import classes from './NewContact.module.css';
 
-const NewContact = ({ stopEditing }) => {
+const NewContact = ({ onStopEditing }) => {
 
   const onSaveContactHandler = (enteredContact) => {    
     const contactData = {...enteredContact}
 
-    submitContacts(contactData);
-    stopEditing();
+    submitContact(contactData);
+    onStopEditing();
   }
 
   return (
     <Modal>
-      <ContactForm onSaveContact={onSaveContactHandler} stopEditing={stopEditing}/>
+      <ContactForm onSaveContact={onSaveContactHandler} onStopEditing={onStopEditing}/>
     </Modal>
   )
 }

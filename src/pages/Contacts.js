@@ -4,8 +4,8 @@ import ContactsBody from "../components/Contacts/ContactsBody";
 
 const ContactsPage = () => {
   const contacts = useLoaderData();
-  
-  return <ContactsBody contacts={contacts}/>
+
+  return <ContactsBody contacts={contacts} />
 }
 
 export default ContactsPage;

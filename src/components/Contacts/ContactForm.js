@@ -11,7 +11,7 @@ const initialInput = {
   date: '',
 };
 
-const ContactForm = ({ onSaveContact, stopEditing }) => {
+const ContactForm = ({ onSaveContact, onStopEditing }) => {
   const [contactInput, setContactInput] = useState(initialInput)
 
   const inputChangeHandler = (input, value) => {
@@ -89,7 +89,7 @@ const ContactForm = ({ onSaveContact, stopEditing }) => {
         />
       </div>
       <div className={classes.actions}>
-        <button onClick={stopEditing} type='button'>Cancel</button>
+        <button onClick={onStopEditing} type='button'>Cancel</button>
         <button type='submit'>Done</button>
       </div>
     </form>

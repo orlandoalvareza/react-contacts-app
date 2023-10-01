@@ -1,3 +1,5 @@
+import { redirect } from "react-router-dom";
+
 const databaseURL = `https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts.json`;
 
 export async function fetchContactsList() {
@@ -56,12 +58,16 @@ export async function submitContact(contactData) {
   }
 }
 
-export async function deleteContact(id) {
+export async function deleteContact({params}) {
+  const id = params.contactId;
+  
   const response = await fetch(`https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts/${id}.json`, {
     method: 'DELETE',
   })
-
+  
   if (!response.ok) {
     console.log('Error');
   }
+
+  return redirect('/contacts')
 }

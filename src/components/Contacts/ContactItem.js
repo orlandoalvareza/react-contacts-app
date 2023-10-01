@@ -1,14 +1,12 @@
-import { useNavigate } from 'react-router-dom';
+import { useSubmit } from 'react-router-dom';
 
-import { deleteContact } from '../../util/http';
 import classes from './ContactItem.module.css';
 
 const ContactItem = ({ contact }) => {
-  const navigate = useNavigate();
+  const submit = useSubmit();
 
   const startDeleteHandler = () => {
-    deleteContact(contact.id);
-    navigate('..')
+    submit(null, { method: 'delete' });
   }
 
   return (

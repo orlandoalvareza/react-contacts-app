@@ -9,36 +9,32 @@ export async function fetchContactsData() {
     console.log('Error');
   } else {
     const data = await response.json();
+    const contacts = extractContactsData(data);
 
-    const contact = Object.keys(data).map(key => ({
-      id: key,
-      name: data[key].name,
-      company: data[key].company,
-      phone: data[key].phone,
-      email: data[key].email,
-      address: data[key].address,
-      birthday: data[key].date,
-    }));
-
-    return contact;
+    return contacts;
   }
 };
+
+function extractContactsData(data) {
+  return Object.keys(data).map(key => ({
+    id: key,
+    name: data[key].name,
+    company: data[key].company,
+    phone: data[key].phone,
+    email: data[key].email,
+    address: data[key].address,
+    birthday: data[key].date,
+  }));
+}
 
 export async function saveContact({ request, params }) {
   const method = request.method;
   const data = await request.formData();
-
-  const contactData = {
-    name: data.get('name'),
-    company: data.get('company'),
-    phone: data.get('phone'),
-    email: data.get('email'),
-    address: data.get('address'),
-    date: data.get('date'),
-  }
-
+  
+  const contactData = getContactDataForm(data);
+  
   let url = databaseURL;
-
+  
   if (method === 'PATCH') {
     const id = params.contactId;
 
@@ -58,6 +54,17 @@ export async function saveContact({ request, params }) {
   }
 
   return redirect('/contacts');
+}
+
+function getContactDataForm(data) {
+  return {
+    name: data.get('name'),
+    company: data.get('company'),
+    phone: data.get('phone'),
+    email: data.get('email'),
+    address: data.get('address'),
+    date: data.get('date'),
+  }
 }
 
 export async function deleteContact({ params }) {

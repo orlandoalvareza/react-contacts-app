@@ -1,4 +1,4 @@
-import { useSubmit } from 'react-router-dom';
+import { Link, useSubmit } from 'react-router-dom';
 
 import classes from './ContactItem.module.css';
 
@@ -15,7 +15,7 @@ const ContactItem = ({ contact }) => {
       <p>{contact.phone}</p>
       <div className={classes["actions"]}>
         <button type='button' onClick={startDeleteHandler}>Delete</button>
-        <button type='button'>Edit</button>
+        <Link to='edit'>Edit</Link>
       </div>
     </div>  
   )

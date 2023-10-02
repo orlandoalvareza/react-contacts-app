@@ -4,10 +4,17 @@ import RootLayout from './pages/Root';
 import HomePage from './pages/Home';
 import ContactsRootLayout from './pages/ContactsRoot';
 import ContactsPage from './pages/Contacts';
+import NewContactPage from './pages/NewContact';
 import ContactDetailPage from './pages/ContactDetail';
 import EditContactPage from './pages/EditContact';
 import FavoritesContactsPage from './pages/FavoritesContacts';
-import { fetchContactsList, fetchContactDetails, deleteContact } from './util/http';
+import { 
+  fetchContactsList, 
+  fetchContactDetails, 
+  submitContact, 
+  deleteContact, 
+  updateContact 
+} from './util/http';
 
 const router = createBrowserRouter([
   { 
@@ -20,13 +27,24 @@ const router = createBrowserRouter([
         element: <ContactsRootLayout/>, 
         children: [
           { index: true, element: <ContactsPage/>, loader: fetchContactsList },
+          { path: 'new', element: <NewContactPage/>, action: submitContact },
           { 
-            path: ':contactId', 
-            element: <ContactDetailPage/>, 
+            path: ':contactId',
+            id: 'contact-detail',
             loader: fetchContactDetails, 
-            action: deleteContact
+            children: [
+              {
+                index: true,
+                element: <ContactDetailPage/>, 
+                action: deleteContact,
+              },
+              {
+                path: 'edit',
+                element: <EditContactPage/>,
+                action: updateContact
+              }
+            ]
           },
-          { path: ':contactId/edit', element: <EditContactPage/> },
         ]
       },
       { path: '/favorites', element: <FavoritesContactsPage/> },

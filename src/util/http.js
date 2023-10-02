@@ -42,9 +42,21 @@ export async function fetchContactDetails() {
   }
 }
 
-export async function submitContact(contactData) {
+export async function submitContact({ request, params }) {
+  const method = request.method;
+  const data = await request.formData();
+
+  const contactData = {
+    name: data.get('name'),
+    company: data.get('company'),
+    phone: data.get('phone'),
+    email: data.get('email'),
+    address: data.get('address'),
+    date: data.get('date'),
+  }
+
   const response = await fetch(databaseURL, {
-    method: 'POST', 
+    method: method, 
     headers: {
       'Content-Type': 'application/json',
     },
@@ -52,13 +64,13 @@ export async function submitContact(contactData) {
   })
 
   if (!response.ok) {
-    console.log('Could not save contact');
-  } else {
-    console.log('Submitted');
+    console.log('Error');
   }
+
+  return redirect('/contacts');
 }
 
-export async function deleteContact({params}) {
+export async function deleteContact({ params }) {
   const id = params.contactId;
   
   const response = await fetch(`https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts/${id}.json`, {
@@ -69,5 +81,34 @@ export async function deleteContact({params}) {
     console.log('Error');
   }
 
-  return redirect('/contacts')
+  return redirect('/contacts');
+}
+
+export async function updateContact({ request, params }) {
+  const method = request.method;
+  const data = await request.formData();
+  const id = params.contactId;
+
+  const contactData = {
+    name: data.get('name'),
+    company: data.get('company'),
+    phone: data.get('phone'),
+    email: data.get('email'),
+    address: data.get('address'),
+    date: data.get('date'),
+  }
+
+  const response = await fetch(`https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts/${id}.json`, {
+    method: method, 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(contactData)
+  })
+
+  if (!response.ok) {
+    console.log('Error');
+  }
+
+  return redirect('/contacts');
 }

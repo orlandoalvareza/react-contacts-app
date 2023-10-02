@@ -2,25 +2,7 @@ import { redirect } from "react-router-dom";
 
 const databaseURL = `https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts.json`;
 
-export async function fetchContactsList() {
-  const response = await fetch(databaseURL);
-
-  if (!response.ok) {
-    console.error('Error:', response.status);
-    return [];
-  }
-
-  const data = await response.json();
-
-  const contacts = Object.keys(data).map((key) => ({
-    id: key,
-    name: data[key].name,
-  }));
-
-  return contacts;
-};
-
-export async function fetchContactDetails() {
+export async function fetchContactsData() {
   const response = await fetch(databaseURL);
 
   if (!response.ok) {
@@ -40,9 +22,9 @@ export async function fetchContactDetails() {
 
     return contact;
   }
-}
+};
 
-export async function submitContact({ request, params }) {
+export async function saveContact({ request, params }) {
   const method = request.method;
   const data = await request.formData();
 
@@ -55,7 +37,15 @@ export async function submitContact({ request, params }) {
     date: data.get('date'),
   }
 
-  const response = await fetch(databaseURL, {
+  let url = databaseURL;
+
+  if (method === 'PATCH') {
+    const id = params.contactId;
+
+    url = `https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts/${id}.json`
+  }
+
+  const response = await fetch(url, {
     method: method, 
     headers: {
       'Content-Type': 'application/json',
@@ -77,35 +67,6 @@ export async function deleteContact({ params }) {
     method: 'DELETE',
   })
   
-  if (!response.ok) {
-    console.log('Error');
-  }
-
-  return redirect('/contacts');
-}
-
-export async function updateContact({ request, params }) {
-  const method = request.method;
-  const data = await request.formData();
-  const id = params.contactId;
-
-  const contactData = {
-    name: data.get('name'),
-    company: data.get('company'),
-    phone: data.get('phone'),
-    email: data.get('email'),
-    address: data.get('address'),
-    date: data.get('date'),
-  }
-
-  const response = await fetch(`https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts/${id}.json`, {
-    method: method, 
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(contactData)
-  })
-
   if (!response.ok) {
     console.log('Error');
   }

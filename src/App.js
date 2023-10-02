@@ -8,13 +8,7 @@ import NewContactPage from './pages/NewContact';
 import ContactDetailPage from './pages/ContactDetail';
 import EditContactPage from './pages/EditContact';
 import FavoritesContactsPage from './pages/FavoritesContacts';
-import { 
-  fetchContactsList, 
-  fetchContactDetails, 
-  submitContact, 
-  deleteContact, 
-  updateContact 
-} from './util/http';
+import { fetchContactsData, saveContact, deleteContact } from './util/http';
 
 const router = createBrowserRouter([
   { 
@@ -26,12 +20,12 @@ const router = createBrowserRouter([
         path: '/contacts', 
         element: <ContactsRootLayout/>, 
         children: [
-          { index: true, element: <ContactsPage/>, loader: fetchContactsList },
-          { path: 'new', element: <NewContactPage/>, action: submitContact },
+          { index: true, element: <ContactsPage/>, loader: fetchContactsData },
+          { path: 'new', element: <NewContactPage/>, action: saveContact },
           { 
             path: ':contactId',
             id: 'contact-detail',
-            loader: fetchContactDetails, 
+            loader: fetchContactsData, 
             children: [
               {
                 index: true,
@@ -41,7 +35,7 @@ const router = createBrowserRouter([
               {
                 path: 'edit',
                 element: <EditContactPage/>,
-                action: updateContact
+                action: saveContact
               }
             ]
           },

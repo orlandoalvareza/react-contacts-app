@@ -1,6 +1,7 @@
 import { Form, useNavigate } from 'react-router-dom';
 
 import classes from './ContactForm.module.css';
+
 const ContactForm = ({method, contact}) => {
   const navigate = useNavigate();
 

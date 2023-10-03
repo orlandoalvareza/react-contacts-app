@@ -1,6 +1,6 @@
 import { redirect } from "react-router-dom";
 
-const databaseURL = `https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts.json`;
+const databaseURL = 'https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts.json';
 
 export async function fetchContactsData() {
   const response = await fetch(databaseURL);
@@ -79,4 +79,16 @@ export async function deleteContact({ params }) {
   }
 
   return redirect('/contacts');
+}
+
+export async function fetchTotalContacts() {
+  const response = await fetch('https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts.json');
+
+  if (!response.ok) {
+    console.log('Error');
+    return 0;
+  }
+  
+  const data = await response.json();
+  return Object.keys(data).length;
 }

@@ -8,14 +8,8 @@ import { fetchTotalContacts } from '../../util/http';
 
 const ContactsBody = ({ contacts }) => {
   const [contactsData, setContactsData] = useState(contacts);
+  const [searchByName, setSearchByName] = useState('');
   const [totalContacts, setTotalContacts] = useState(0);
-  
-  const searchHandler = (event) => {
-    const searchedName = event.target.value;
-    const filteredContacts = contacts.filter(contacts => contacts.name.includes(searchedName));
-
-    setContactsData(filteredContacts);
-  }
 
   useEffect(() => {
     async function getTotalContacts() {
@@ -29,6 +23,18 @@ const ContactsBody = ({ contacts }) => {
 
     getTotalContacts()
   }, []);
+  
+  const searchHandler = (event) => {
+    const searchedName = event.target.value;
+    const filteredContacts = contacts.filter(contacts => contacts.name.includes(searchedName));
+
+    if (filteredContacts.length === 0) {
+      setSearchByName(searchedName);
+      setContactsData(undefined);
+    } else {
+      setContactsData(filteredContacts);
+    }
+  }
 
   return (
     <div className={classes["contacts-container"]}>
@@ -47,7 +53,13 @@ const ContactsBody = ({ contacts }) => {
             <h3>My Card</h3>
           </div>
         </div>
-        <ContactsList contacts={contactsData}/>
+        {contactsData && <ContactsList contacts={contactsData}/>}
+        {!contactsData && (
+          <div className={classes['contact-no-found']}>
+            <h2>{`No results for "${searchByName}"`}</h2>
+            <p>Please, try a new search</p>
+          </div>
+        )}
         <div className={classes['total-contacts']}>{`You have ${totalContacts} contacts`}</div>
       </div>
     </div>

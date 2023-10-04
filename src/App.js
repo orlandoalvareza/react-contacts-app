@@ -41,7 +41,7 @@ const router = createBrowserRouter([
           },
         ]
       },
-      { path: '/favorites', element: <FavoritesContactsPage/> },
+      { path: '/favorites', element: <FavoritesContactsPage/>, loader: fetchContactsData },
     ]
   }
 ]);

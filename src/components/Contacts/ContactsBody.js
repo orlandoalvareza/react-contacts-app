@@ -1,28 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import ContactsList from './ContactsList';
 import image from '../../images/ben-sweet-2LowviVHZ-E-unsplash.jpg';
 import classes from './ContactsBody.module.css';
-import { fetchTotalContacts } from '../../util/http';
 
 const ContactsBody = ({ contacts }) => {
   const [contactsData, setContactsData] = useState(contacts);
   const [searchByName, setSearchByName] = useState('');
-  const [totalContacts, setTotalContacts] = useState(0);
-
-  useEffect(() => {
-    async function getTotalContacts() {
-      try {
-        const total = await fetchTotalContacts();
-        setTotalContacts(total);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    getTotalContacts()
-  }, []);
   
   const searchHandler = (event) => {
     const searchedName = event.target.value;
@@ -60,7 +45,7 @@ const ContactsBody = ({ contacts }) => {
             <p>Please, try a new search</p>
           </div>
         )}
-        <div className={classes['total-contacts']}>{`You have ${totalContacts} contacts`}</div>
+        <div className={classes['total-contacts']}>{`You have ${contacts.length} contacts`}</div>
       </div>
     </div>
   )

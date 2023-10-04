@@ -24,6 +24,7 @@ function extractContactsData(data) {
     email: data[key].email,
     address: data[key].address,
     birthday: data[key].date,
+    isFavorite: data[key].isFavorite
   }));
 }
 
@@ -64,6 +65,7 @@ function getContactDataForm(data) {
     email: data.get('email'),
     address: data.get('address'),
     date: data.get('date'),
+    isFavorite: data.get('favorite'),
   }
 }
 
@@ -79,16 +81,4 @@ export async function deleteContact({ params }) {
   }
 
   return redirect('/contacts');
-}
-
-export async function fetchTotalContacts() {
-  const response = await fetch(databaseURL);
-
-  if (!response.ok) {
-    console.log('Error');
-    return 0;
-  }
-  
-  const data = await response.json();
-  return Object.keys(data).length;
 }

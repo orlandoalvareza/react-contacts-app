@@ -61,6 +61,12 @@ const ContactForm = ({method, contact}) => {
           defaultValue={contact ? contact.date : ''}
           placeholder='Birthday' 
         />
+        <input 
+          type="checkbox"
+          id='favorite'
+          name='favorite'
+        />
+        <label htmlFor='favorite'>Add to favorites</label>
       </div>
       <div className={classes.actions}>
         <button onClick={cancelHandler} type='button'>Cancel</button>

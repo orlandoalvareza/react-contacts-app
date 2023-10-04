@@ -1,6 +1,15 @@
 .contact-list li {
+  display: flex;
+  justify-content: space-between;
   height: 35px;
   padding: 10px;
   margin-bottom: 5px;
   text-align: left;
+}
+
+.favorite-contact-indicator {
+  height: 15px;
+  width: 15px;
+  background-color: goldenrod;
+  border-radius: 50%;
 }

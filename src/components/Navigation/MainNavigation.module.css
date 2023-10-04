@@ -1,7 +1,7 @@
 .header {
   position: fixed;
   top: 0;
-  display: none;
+  display: flex;
   justify-content: space-between;
   background: antiquewhite;
   height: 80px;

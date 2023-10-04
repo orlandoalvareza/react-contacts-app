@@ -82,3 +82,17 @@ export async function deleteContact({ params }) {
 
   return redirect('/contacts');
 }
+
+export async function favoriteMarked(id, contactData) {
+  const response = await fetch(`https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts/${id}.json`, {
+    method: 'PATCH', 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(contactData)
+  })
+
+  if (!response.ok) {
+    console.log('Error');
+  }
+}

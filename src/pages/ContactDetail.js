@@ -7,12 +7,7 @@ const ContactDetailPage = () => {
   
   const filteredContact = contacts.filter(contact => contact.id === params.contactId);
 
-  return (
-    <>
-      <h1>ContactDetailPage</h1>
-      <ContactItem contact={filteredContact[0]}/>
-    </>
-  )
+  return <ContactItem contact={filteredContact[0]}/>
 }
 
 export default ContactDetailPage;

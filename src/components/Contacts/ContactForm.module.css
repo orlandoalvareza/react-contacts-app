@@ -1,3 +1,68 @@
 .form {
-  margin-top: 80px 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: aqua;
+  width: 620px;
+  height: 520px;
+  margin-top: 70px;
+  padding: 25px;
+  border-radius: 6px;
+}
+
+.basic-information, 
+.contact-information {
+  display: flex;
+  flex-direction: column;
+}
+
+.extra-information {
+  display: flex;
+  justify-content: space-between;
+}
+
+.extra-information-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.extra-information-content:first-child {
+  width: 355px;
+}
+
+.extra-information-content:last-child {
+  width: 180px;
+}
+
+label {
+  font-size: 17px;
+  margin-bottom: 3px;
+}
+
+input {
+  font-size: 16px;
+  height: 28px;
+  margin-bottom: 12px;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.favorite-marked {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  height: 25px;
+}
+
+.actions button {
+  font-size: 16px;
+  width: 70px;
+  border-radius: 6px;
+  cursor: pointer;
 }

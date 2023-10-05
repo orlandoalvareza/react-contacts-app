@@ -1,19 +1,10 @@
 .contacts-container {
-  display: flex;
-  /* flex-direction: column; */
-  justify-content: center;
-  align-items: center;
-  background: chocolate;
-  width: 100%;
-  height: 100vh;
-  padding-top: 80px;
-}
-
-.contacts-section {
   background: aliceblue;
   width: 1050px;
-  height: 600px;
+  height: 620px;
   padding: 15px;
+  margin-top: 70px;
+  border-radius: 6px;
 }
 
 .contact-header {
@@ -33,13 +24,14 @@
 
 .contact-header__actions input {
   font-size: 18px;
-  width: 400px;
-  height: 25px;
-  padding: 4px;
+  width: 430px;
+  height: 30px;
+  padding: 5px;
   border-radius: 5px;
 }
 
-.contact-header__actions button {
+.contact-header__actions a {
+  height: 30px;
   padding: 5px;
   border-radius: 5px;
 }
@@ -57,4 +49,12 @@
 
 .profile-contact__info {
   padding: 15px;
+}
+
+.contact-no-found {
+  text-align: center;
+}
+
+.total-contacts {
+  text-align: center;
 }

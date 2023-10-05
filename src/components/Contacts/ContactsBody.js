@@ -23,30 +23,28 @@ const ContactsBody = ({ contacts }) => {
 
   return (
     <div className={classes["contacts-container"]}>
-      <div className={classes["contacts-section"]}>
-        <div className={classes["contact-header"]}>
-          <h2>Contacts</h2>
-          <div className={classes["contact-header__actions"]}>
-            <input onChange={searchHandler} type='search' id='search' placeholder='Search Contact'/>
-            <Link to='/contacts/new'>New Contact</Link>
-          </div>
+      <div className={classes["contact-header"]}>
+        <h2>Contacts</h2>
+        <div className={classes["contact-header__actions"]}>
+          <input onChange={searchHandler} type='search' id='search' placeholder='Search Contact'/>
+          <Link to='/contacts/new'>New Contact</Link>
         </div>
-        <div className={classes["profile-contact"]}>
-          <img src={image} alt='Profile'/>
-          <div className={classes["profile-contact__info"]}>
-            <h2>Sam Williams</h2>
-            <h3>My Card</h3>
-          </div>
-        </div>
-        {contactsData && <ContactsList contacts={contactsData}/>}
-        {!contactsData && (
-          <div className={classes['contact-no-found']}>
-            <h2>{`No results for "${searchByName}"`}</h2>
-            <p>Please, try a new search</p>
-          </div>
-        )}
-        <div className={classes['total-contacts']}>{`You have ${contacts.length} contacts`}</div>
       </div>
+      <div className={classes["profile-contact"]}>
+        <img src={image} alt='Profile'/>
+        <div className={classes["profile-contact__info"]}>
+          <h2>Sam Williams</h2>
+          <h3>My Card</h3>
+        </div>
+      </div>
+      {contactsData && <ContactsList contacts={contactsData}/>}
+      {!contactsData && (
+        <div className={classes['contact-no-found']}>
+          <h2>{`No results for "${searchByName}"`}</h2>
+          <p>Please, try a new search</p>
+        </div>
+      )}
+      <div className={classes['total-contacts']}>{`You have ${contacts.length} contacts`}</div>
     </div>
   )
 }

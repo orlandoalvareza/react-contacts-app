@@ -35,9 +35,39 @@ const ContactItem = ({ contact }) => {
 
   return (
     <div className={classes['contact-container']}>
-      <h2>{contact.name}</h2>
-      <p>{contact.phone}</p>
-      <div className={classes["actions"]}>
+      <div className={classes["information-container"]}>
+        <div className={classes["basic-information"]}>
+          <h2>{contact.name}</h2>
+          <span>{contact.company}</span>
+        </div>
+        <div className={classes["contact-links"]}>
+          <Link>Call</Link>
+          <Link>Message</Link>
+          <Link>Video</Link>
+          <Link>Email</Link>
+        </div>
+        <div className={classes["contact-information"]}>
+          <div className={classes["contact-info-section"]}>
+            <span>Phone number</span>
+            <p>{contact.phone}</p>
+          </div>
+          <div className={classes["contact-info-section"]}>
+            <span>Email</span>
+            <p>{contact.email}</p>
+          </div>
+        </div>
+        <div className={classes["extra-information"]}>
+          <div className={classes["extra-info-section"]}>
+            <span>Address</span>
+            <address>{contact.address}</address>
+          </div>
+          <div className={classes["extra-info-section"]}>
+            <span>Birthday</span>
+            <p>{contact.birthday}</p>
+          </div>
+        </div>
+      </div>
+      <div className={classes["contact-actions"]}>
         <button type='button' onClick={startDeleteHandler}>Delete</button>
         <Link to='edit'>Edit</Link>
       </div>

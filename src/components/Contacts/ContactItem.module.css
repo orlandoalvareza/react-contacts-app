@@ -1,3 +1,82 @@
 .contact-container {
-  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: goldenrod;
+  width: 620px;
+  height: 520px;
+  margin-top: 70px;
+  padding: 25px;
+  border-radius: 6px;
+}
+
+.information-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.basic-information {
+  text-align: center;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.contact-links a {
+  background-color: salmon;
+  width: 80px;
+  height: 30px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.contact-information {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: grey;
+}
+
+.contact-info-section p {
+  margin-top: 5px;
+}
+
+.extra-information {
+  display: flex;
+  justify-content: space-between;
+}
+
+.extra-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 230px;
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  height: 25px;
+}
+
+.contact-actions button, 
+.contact-actions a {
+  font-size: 16px;
+  width: 70px;
+  border-radius: 6px;
+}
+
+.contact-actions a {
+  background: aliceblue;
+  text-align: center;
+  padding: 3px;
+}
+
+.contact-actions button {
+  cursor: pointer;
 }

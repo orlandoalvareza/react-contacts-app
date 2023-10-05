@@ -1,5 +1,7 @@
 import { Form, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
 import classes from './ContactForm.module.css';
 
 const ContactForm = ({method, contact}) => {
@@ -11,6 +13,7 @@ const ContactForm = ({method, contact}) => {
 
   return (
     <Form method={method} className={classes["form"]}>
+      <FontAwesomeIcon icon={faCircleUser} className={classes["contact-icon"]}/>
       <div className={classes["information-container"]}>
         <div className={classes["basic-information"]}>
           <label htmlFor='name'>Name</label>

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Link, useSubmit } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Modal from '../UI/Modal';
+import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
 import classes from './ContactItem.module.css';
 
 const ContactItem = ({ contact }) => {
@@ -42,6 +44,7 @@ const ContactItem = ({ contact }) => {
   return (
     <div className={classes['contact-container']}>
       <div className={classes["information-container"]}>
+        <FontAwesomeIcon icon={faCircleUser} className={classes["contact-icon"]}/>
         <div className={classes["basic-information"]}>
           <h2>{contact.name}</h2>
           <span>{contact.company}</span>

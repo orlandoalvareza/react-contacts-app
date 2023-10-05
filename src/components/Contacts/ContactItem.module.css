@@ -80,3 +80,31 @@
 .contact-actions button {
   cursor: pointer;
 }
+
+.delete-information h2, 
+.delete-information p {
+  text-align: center;
+}
+
+.delete-information h2 {
+  background: coral;
+  padding: 15px;
+}
+
+.delete-information p {
+  margin-top: 15px;
+}
+
+.delete-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 12px;
+}
+
+.delete-actions button {
+  width: 60px;
+  height: 24px;
+  border-radius: 5px;
+  cursor: pointer;
+}

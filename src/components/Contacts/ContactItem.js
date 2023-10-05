@@ -8,6 +8,12 @@ const ContactItem = ({ contact }) => {
   const [isDeleting, setIsDeleting] = useState(false);
   const submit = useSubmit();
 
+  const formattedDate = new Date(contact.birthday).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+
   const cancelDeleteHandler = () => {
     setIsDeleting(false);
   }
@@ -52,18 +58,18 @@ const ContactItem = ({ contact }) => {
             <p>{contact.phone}</p>
           </div>
           <div className={classes["contact-info-section"]}>
-            <span>Email</span>
+            <span>{contact.email && 'Email'}</span>
             <p>{contact.email}</p>
           </div>
         </div>
         <div className={classes["extra-information"]}>
           <div className={classes["extra-info-section"]}>
-            <span>Address</span>
+            <span>{contact.address && 'Address'}</span>
             <address>{contact.address}</address>
           </div>
           <div className={classes["extra-info-section"]}>
-            <span>Birthday</span>
-            <p>{contact.birthday}</p>
+            <span>{contact.birthday && 'Birthday'}</span>
+            <p>{contact.birthday && formattedDate}</p>
           </div>
         </div>
       </div>

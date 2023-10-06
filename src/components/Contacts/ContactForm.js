@@ -82,7 +82,7 @@ const ContactForm = ({method, contact}) => {
       </div>  
       <div className={classes.actions}>
         <button onClick={cancelHandler} type='button'>Cancel</button>
-        <button type='submit'>Done</button>
+        <button type='submit'>Save</button>
       </div>
     </Form>
   )

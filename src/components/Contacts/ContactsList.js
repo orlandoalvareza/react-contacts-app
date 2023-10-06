@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { favoriteMarked } from '../../util/http';
+import { faStar as regularStar } from '@fortawesome/free-regular-svg-icons';
+import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
 import classes from './ContactsList.module.css';
 
 const ContactsList = ({ contacts }) => {
@@ -25,10 +28,12 @@ const ContactsList = ({ contacts }) => {
           <Link to={contact.id}>
             {contact.name}
           </Link>
-          <div 
-            className={classes["favorite-contact-indicator"]} 
-            onClick={() => addFavoriteContactHandler(contact.id)}
-          ></div>
+          <div onClick={() => addFavoriteContactHandler(contact.id)}>
+            <FontAwesomeIcon 
+              className={classes["favorite-icon"]} 
+              icon={contact.isFavorite === 'on' ? solidStar : regularStar} 
+            />
+          </div>
         </li>)}
     </ul>
   )

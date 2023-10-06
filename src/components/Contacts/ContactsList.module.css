@@ -14,9 +14,6 @@
   text-align: left;
 }
 
-.favorite-contact-indicator {
-  height: 15px;
-  width: 15px;
-  background-color: goldenrod;
-  border-radius: 50%;
+.favorite-icon {
+  color: red;
 }

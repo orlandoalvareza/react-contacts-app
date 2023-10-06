@@ -4,6 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Modal from '../UI/Modal';
 import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
+import { 
+  faArrowLeft, 
+  faTrash, 
+  faPenToSquare, 
+  faPhone, 
+  faMessage, 
+  faVideo, 
+  faEnvelope 
+} from '@fortawesome/free-solid-svg-icons';
 import classes from './ContactItem.module.css';
 
 const ContactItem = ({ contact }) => {
@@ -43,6 +52,19 @@ const ContactItem = ({ contact }) => {
 
   return (
     <div className={classes['contact-container']}>
+      <div className={classes["contact-actions"]}>
+        <Link to='..'>
+          <FontAwesomeIcon className={classes["back-icon"]} icon={faArrowLeft}/>
+        </Link>
+        <div className={classes["contact-actions__manipulate"]}>
+          <button type='button' onClick={startDeleteHandler}>
+            <FontAwesomeIcon icon={faTrash}/>
+          </button>
+          <Link to='edit'>
+            <FontAwesomeIcon icon={faPenToSquare}/>
+          </Link>
+        </div>
+      </div>
       <div className={classes["information-container"]}>
         <FontAwesomeIcon icon={faCircleUser} className={classes["contact-icon"]}/>
         <div className={classes["basic-information"]}>
@@ -50,10 +72,18 @@ const ContactItem = ({ contact }) => {
           <span>{contact.company}</span>
         </div>
         <div className={classes["contact-links"]}>
-          <Link>Call</Link>
-          <Link>Message</Link>
-          <Link>Video</Link>
-          <Link>Email</Link>
+          <Link>
+            <FontAwesomeIcon icon={faPhone}/>
+          </Link>
+          <Link>
+            <FontAwesomeIcon icon={faMessage}/>
+          </Link>
+          <Link>
+            <FontAwesomeIcon icon={faVideo}/>
+          </Link>
+          <Link>
+            <FontAwesomeIcon icon={faEnvelope}/> 
+          </Link>
         </div>
         <div className={classes["contact-information"]}>
           <div className={classes["contact-info-section"]}>
@@ -75,10 +105,6 @@ const ContactItem = ({ contact }) => {
             <p>{contact.birthday && formattedDate}</p>
           </div>
         </div>
-      </div>
-      <div className={classes["contact-actions"]}>
-        <button type='button' onClick={startDeleteHandler}>Delete</button>
-        <Link to='edit'>Edit</Link>
       </div>
       {isDeleting && deleteModal}
     </div>  

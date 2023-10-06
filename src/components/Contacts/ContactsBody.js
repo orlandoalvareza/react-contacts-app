@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import ContactsList from './ContactsList';
 import image from '../../images/ben-sweet-2LowviVHZ-E-unsplash.jpg';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import classes from './ContactsBody.module.css';
 
 const ContactsBody = ({ contacts }) => {
@@ -40,11 +42,14 @@ const ContactsBody = ({ contacts }) => {
       {contactsData && <ContactsList contacts={contactsData}/>}
       {!contactsData && (
         <div className={classes['contact-no-found']}>
+          <FontAwesomeIcon className={classes["search-icon"]} icon={faMagnifyingGlass}/>
           <h2>{`No results for "${searchByName}"`}</h2>
           <p>Please, try a new search</p>
         </div>
       )}
-      <div className={classes['total-contacts']}>{`You have ${contacts.length} contacts`}</div>
+      <div className={classes['total-contacts']}>
+        {`You have ${contacts.length} contacts`}
+      </div>
     </div>
   )
 }

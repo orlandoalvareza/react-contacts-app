@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -7,9 +8,9 @@ import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
 import classes from './ContactsList.module.css';
 
 const ContactsList = ({ contacts }) => {
-  const sortedContacts = contacts.sort((firstItem, secondItem) => firstItem.name.localeCompare(secondItem.name));
+  const [contactsList, setContactsList] = useState(contacts);
 
-  const addFavoriteContactHandler = (id) => {
+  const addFavoriteContactHandler = async (id) => {
     const selectedContact = contacts.filter(contact => contact.id === id);
 
     if (selectedContact[0].isFavorite === 'on') {
@@ -18,8 +19,19 @@ const ContactsList = ({ contacts }) => {
       selectedContact[0].isFavorite = 'on';
     }
     
-    favoriteMarked(id, selectedContact[0]);
+    const editedContact = await favoriteMarked(id, selectedContact[0]);
+
+    setContactsList((prevContacts) => {
+      const filteredContacts = prevContacts.filter(contact => (
+        contact.id !== editedContact.id
+      ));
+      return [...filteredContacts, editedContact]
+    });
   }
+
+  const sortedContacts = contactsList.sort((firstItem, secondItem) => (
+    firstItem.name.localeCompare(secondItem.name)
+  ));
 
   return (
     <ul className={classes["contact-list"]}>

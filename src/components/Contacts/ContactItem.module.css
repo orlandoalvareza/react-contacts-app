@@ -71,6 +71,7 @@
   height: 30px;
   padding: 5px 10px;
   border-radius: 5px;
+  /* cursor: not-allowed; */
 }
 
 .contact-information {

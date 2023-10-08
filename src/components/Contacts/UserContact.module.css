@@ -1,0 +1,14 @@
+.profile-contact {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.profile-contact img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.profile-contact__info {
+  padding: 15px;
+}

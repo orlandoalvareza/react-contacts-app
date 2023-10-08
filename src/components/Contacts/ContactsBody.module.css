@@ -7,22 +7,22 @@
   border-radius: 6px;
 }
 
-.contact-header {
+.contacts-header {
   margin-bottom: 20px;
 }
 
-.contact-header h2 {
+.contacts-header h2 {
   padding: 5px 0;
   text-align: left;
 }
 
-.contact-header__actions {
+.contacts-header__actions {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
 }
 
-.contact-header__actions input {
+.contacts-header__actions input {
   font-size: 18px;
   width: 430px;
   height: 30px;
@@ -30,25 +30,10 @@
   border-radius: 5px;
 }
 
-.contact-header__actions a {
+.contacts-header__actions a {
   height: 30px;
   padding: 5px;
   border-radius: 5px;
-}
-
-.profile-contact {
-  display: flex;
-  margin-bottom: 25px;
-}
-
-.profile-contact img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-}
-
-.profile-contact__info {
-  padding: 15px;
 }
 
 .contact-no-found {

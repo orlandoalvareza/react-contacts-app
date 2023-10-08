@@ -95,4 +95,6 @@ export async function favoriteMarked(id, contactData) {
   if (!response.ok) {
     console.log('Error');
   }
+  
+  return await response.json();
 }

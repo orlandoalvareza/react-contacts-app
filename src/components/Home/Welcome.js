@@ -1,7 +1,7 @@
 import Hero from './Hero';
 import Description from './Description';
-import classes from './Welcome.module.css';
 import Footer from './Footer';
+import classes from './Welcome.module.css';
 
 const Welcome = () => {
   return (

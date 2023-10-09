@@ -1,12 +1,12 @@
 import { useLoaderData } from "react-router-dom";
-import ContactsList from "../components/Contacts/ContactsList";
+import Favorites from "../components/Favorites/Favorites";
 
 const FavoritesContactsPage = () => {
   const contacts = useLoaderData();
 
   const favoritesContacts = contacts.filter(contact => contact.isFavorite === 'on');
 
-  return <ContactsList contacts={favoritesContacts}/>
+  return <Favorites contacts={favoritesContacts}/>
 }
 
 export default FavoritesContactsPage;

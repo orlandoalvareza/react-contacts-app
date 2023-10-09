@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import classes from './Hero.module.css';
 
 const Hero = () => {
@@ -6,7 +7,7 @@ const Hero = () => {
       <div className={classes["hero-content"]}>
         <h1>Welcome to TouchBase</h1>
         <h3>Where Contacts Become Connections</h3>
-        <button>Get Started</button>
+        <Link to='/contacts'>Get Started</Link>
       </div>
     </div>
   )

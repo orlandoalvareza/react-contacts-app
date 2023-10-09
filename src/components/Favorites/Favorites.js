@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
+import classes from './Favorites.module.css';
 
 const Favorites = ({ contacts }) => {
   const sortedContacts = contacts.sort((firstItem, secondItem) => (
@@ -9,18 +10,17 @@ const Favorites = ({ contacts }) => {
   ));
 
   return (
-    <div>
-      <div>
+    <div className={classes["favorites-container"]}>
+      <div className={classes["favorites-header"]}>
         <h2>Favorites</h2>
         <button>Edit</button>
       </div>
-      <ul>
+      <ul className={classes["favorites-list"]}>
         {sortedContacts.map(contact => 
           <li key={contact.id}>
-            <FontAwesomeIcon icon={faCircleUser}/>
+            <FontAwesomeIcon className={classes["contact-icon"]} icon={faCircleUser}/>
             <Link to={contact.id}>
               {contact.name}
-              {contact.phone}
             </Link>
           </li>)}
       </ul>

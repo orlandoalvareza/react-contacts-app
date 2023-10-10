@@ -66,7 +66,16 @@ const ContactItem = ({ contact }) => {
         </div>
       </div>
       <div className={classes["information-container"]}>
-        <FontAwesomeIcon icon={faCircleUser} className={classes["contact-icon"]}/>
+        <div className={classes["photo-container"]}>
+          {!contact.photo && <FontAwesomeIcon icon={faCircleUser} className={classes["contact-icon"]}/>}
+          {contact.photo && (
+            <img 
+              className={classes["contact-image"]} 
+              src={contact.photo} 
+              alt='contact'
+            />
+          )}
+        </div>
         <div className={classes["basic-information"]}>
           <h2>{contact.name}</h2>
           <span>{contact.company}</span>

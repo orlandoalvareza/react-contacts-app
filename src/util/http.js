@@ -18,6 +18,7 @@ export async function fetchContactsData() {
 function extractContactsData(data) {
   return Object.keys(data).map(key => ({
     id: key,
+    photo: data[key].photo,
     name: data[key].name,
     company: data[key].company,
     phone: data[key].phone,
@@ -59,6 +60,7 @@ export async function saveContact({ request, params }) {
 
 function getContactDataForm(data) {
   return {
+    photo: data.get('photo'),
     name: data.get('name'),
     company: data.get('company'),
     phone: data.get('phone'),

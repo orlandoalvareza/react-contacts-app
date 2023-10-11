@@ -6,7 +6,7 @@ import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
 import classes from './ContactForm.module.css';
 
 const ContactForm = ({method, contact}) => {
-  const [addPhoto, setAddPhoto] = useState(false);
+  const [isAddingContactPhoto, setIsAddingContactPhoto] = useState(false);
   const navigate = useNavigate();
 
   const cancelHandler = () => {
@@ -14,15 +14,29 @@ const ContactForm = ({method, contact}) => {
   }
 
   const addPhotoHandler = () => {
-    setAddPhoto((addPhoto) => !addPhoto)
+    setIsAddingContactPhoto((isAddingContactPhoto) => !isAddingContactPhoto)
   }
 
   return (
     <Form method={method} className={classes["form"]}>
-      <div className={classes["contact-photo-container"]}>
-        {!addPhoto && <FontAwesomeIcon icon={faCircleUser} className={classes["contact-icon"]}/>}
-        {addPhoto && <input type='text' name="photo" placeholder='add photo url'/>}
-        <button onClick={addPhotoHandler}>Add Photo</button>
+      <div 
+        className={
+          isAddingContactPhoto 
+            ? classes["contact-photo-container"] 
+            : classes["contact-icon-container"]
+        }
+      >
+        <FontAwesomeIcon 
+          onClick={addPhotoHandler} 
+          icon={faCircleUser} 
+          className={classes["contact-icon"]}
+        />
+        {isAddingContactPhoto && (
+          <div className={classes["contact-photo-container__input"]}>
+            <label htmlFor='photo'>Photo URL</label>
+            <input type='text' id='photo' name="photo"/>
+          </div>
+        )}
       </div>
       <div className={classes["information-container"]}>
         <div className={classes["basic-information"]}>

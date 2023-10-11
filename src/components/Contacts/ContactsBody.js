@@ -12,11 +12,11 @@ const ContactsBody = ({ contacts }) => {
   const [searchByName, setSearchByName] = useState('');
   
   const searchHandler = (event) => {
-    const searchedName = event.target.value;
-    const filteredContacts = contacts.filter(contacts => contacts.name.includes(searchedName));
+    const enteredName = event.target.value;
+    const filteredContacts = contacts.filter(contacts => contacts.name.includes(enteredName));
 
     if (filteredContacts.length === 0) {
-      setSearchByName(searchedName);
+      setSearchByName(enteredName);
       setContactsData(undefined);
     } else {
       setContactsData(filteredContacts);

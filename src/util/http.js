@@ -1,12 +1,15 @@
-import { redirect } from "react-router-dom";
+import { json, redirect } from "react-router-dom";
 
-const databaseURL = 'https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts.json';
+const databaseURL = 'https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts/.json';
 
 export async function fetchContactsData() {
   const response = await fetch(databaseURL);
 
   if (!response.ok) {
-    console.log('Error');
+    throw json(
+      {message: 'Could not fetch contacts.'},
+      {status: 500}
+    )
   } else {
     const data = await response.json();
     const contacts = extractContactsData(data);
@@ -52,7 +55,10 @@ export async function saveContact({ request, params }) {
   })
 
   if (!response.ok) {
-    console.log('Error');
+    throw json(
+      { message: 'Could not save contact.' }, 
+      { status: 500 }
+    );
   }
 
   return redirect('/contacts');
@@ -79,7 +85,10 @@ export async function deleteContact({ params }) {
   })
   
   if (!response.ok) {
-    console.log('Error');
+    throw json(
+      { message: 'Could not delete contact.' },
+      {status: 500}
+    );
   }
 
   return redirect('/contacts');
@@ -95,7 +104,10 @@ export async function favoriteMarked(id, contactData) {
   })
 
   if (!response.ok) {
-    console.log('Error');
+    throw json(
+      { message: 'Could not change contact.' }, 
+      { status: 500 }
+    );
   }
   
   return await response.json();

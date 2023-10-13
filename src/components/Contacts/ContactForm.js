@@ -7,6 +7,8 @@ import classes from './ContactForm.module.css';
 
 const ContactForm = ({method, contact}) => {
   const [isAddingContactPhoto, setIsAddingContactPhoto] = useState(false);
+  const [nameIsValid, setNameIsValid] = useState(false);
+  const [phoneIsValid, setPhoneIsValid] = useState(false);
   const navigate = useNavigate();
 
   const cancelHandler = () => {
@@ -15,6 +17,27 @@ const ContactForm = ({method, contact}) => {
 
   const addPhotoHandler = () => {
     setIsAddingContactPhoto((isAddingContactPhoto) => !isAddingContactPhoto)
+  }
+
+  const enteredNameHandler = (event) => {
+    const enteredName = event.target.value;
+
+    if (enteredName.trim() !== '') {
+      setNameIsValid(true)
+    } else {
+      setNameIsValid(false)
+    }
+  }
+
+  const enteredPhoneHandler = (event) => {
+    const enteredPhone = event.target.value;
+    const phoneNumberRegex = /^(\d{10}|\d{3}-\d{3}-\d{4}|\(\d{3}\)\s?\d{3}-\d{4}|\d{3}\s\d{3}\s\d{4})$/;
+
+    if (phoneNumberRegex.test(enteredPhone.trim())) {
+      setPhoneIsValid(true);
+    } else {
+      setPhoneIsValid(false);
+    }
   }
 
   return (
@@ -45,6 +68,7 @@ const ContactForm = ({method, contact}) => {
             type='text' 
             id="name" 
             name="name"
+            onChange={enteredNameHandler}
             defaultValue={contact ? contact.name : ''}
             autoFocus
             required
@@ -62,7 +86,8 @@ const ContactForm = ({method, contact}) => {
           <input 
             type="tel" 
             id="phone" 
-            name="phone" 
+            name="phone"
+            onChange={enteredPhoneHandler}
             defaultValue={contact ? contact.phone : ''}
             required 
           />
@@ -106,7 +131,7 @@ const ContactForm = ({method, contact}) => {
       </div>  
       <div className={classes.actions}>
         <button onClick={cancelHandler} type='button'>Cancel</button>
-        <button type='submit'>Save</button>
+        <button type='submit' disabled={!(nameIsValid && phoneIsValid)}>Save</button>
       </div>
     </Form>
   )

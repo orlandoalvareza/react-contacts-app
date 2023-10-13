@@ -4,7 +4,7 @@ const Description = () => {
   return (
     <div className={classes["description-container"]}>
       <div className={classes["introduction-container"]}>
-        <h2>Why Choose TouchBase?</h2>
+        <h2>Why choose TouchBase?</h2>
         <p>
           TouchBase is the perfect tool to help you organize
           and manage your contacts effortlessly. Whether you're
@@ -51,33 +51,33 @@ const Description = () => {
       </div>
       <div className={classes["testimonials"]}>
         <h2>Testimonials</h2>
-        <div className={classes["testimonials-container"]}>
-          <ul>
+        <div>
+          <ul className={classes["testimonials-container"]}>
             <li>
-              <h5>New York, NY</h5>
+              <h4>New York, NY</h4>
               "I used to dread managing my contacts, but with TouchBase,
               it's a breeze! It's made my professional life so much easier."
               <span>Sarah M.</span>
             </li>
             <li>
-              <h5>Madrid, Spain</h5>
+              <h4>Madrid, Spain</h4>
               "¡Increíble! TouchBase ha simplificado la gestión
                 de mis contactos."
               <span>Maria S.</span>
             </li>
             <li>
-              <h5>Tokyo, Japan</h5>
+              <h4>Tokyo, Japan</h4>
               "日本語でも使いやすいアプリです。TouchBaseを使って、連絡先を整理しやすくなりました。"
               <span>Kenji Y.</span>
             </li>
             <li>
-              <h5>Sydney, Australia</h5>
+              <h4>Sydney, Australia</h4>
               "I'm loving TouchBase! It keeps my contacts organized
                 whether I'm at the beach or in the office. Highly recommended."
               <span>Isabella L.</span>
             </li>
             <li>
-              <h5>Rome, Italy</h5>
+              <h4>Rome, Italy</h4>
               "Con TouchBase, la gestione dei miei
               contatti è diventata un gioco da ragazzi! È davvero un'app versatile."
               <span>Luca M.</span>

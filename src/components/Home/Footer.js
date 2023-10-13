@@ -1,22 +1,50 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import classes from './Footer.module.css';
 
 const Footer = () => {
   return (
-    <footer class={classes["footer-container"]}>
-      <div>
-        <h2>Contact Us</h2>
-        <ul>
-          <li>Phone</li>
-          <li>Email</li>
-        </ul>
-      </div>
-      <div>
-        <h2>Social Media</h2>
-        <ul>
-          <li>LinkedIn</li>
-          <li>GitHub</li>
-        </ul>
-      </div>    
+    <footer className={classes["footer"]}>
+      <div className={classes["footer-container"]}>
+        <div className={classes["footer-section"]}>
+          <h2>Contact Us</h2>
+          <ul>
+            <li>
+              <FontAwesomeIcon className={classes["contact-icon"]} icon={faPhone}/>
+              <a href='tel:+1 (123) 456-7890'>+1 (123) 456 7890</a>
+            </li>
+            <li>
+              <FontAwesomeIcon className={classes["contact-icon"]} icon={faEnvelope}/>
+              <a href='mailto:oalvarezalarcon0304@gmail.com'>Send me an email</a>
+            </li>
+          </ul>
+        </div>
+        <div className={classes["footer-section"]}>
+          <h2>Social</h2>
+          <ul className={classes["social-container-list"]}>
+            <li>
+              <a 
+                href='https://www.linkedin.com/in/orlando-alvarez-5a705727a/' 
+                target='_blank' 
+                rel="noreferrer noopener"
+              >
+                <FontAwesomeIcon className={classes["social-icon"]} icon={faLinkedinIn}/>
+              </a>
+            </li>
+            <li>
+              <a 
+                href='https://github.com/orlandoalvareza'
+                target='_blank'
+                rel="noreferrer noopener"
+              >
+                <FontAwesomeIcon className={classes["social-icon"]} icon={faGithub}/>
+              </a>
+            </li>
+          </ul>
+        </div>   
+      </div>   
       <p className={classes["copyright"]}>
         &copy; <b>Orlando Alvarez</b> 2023. All rights reserved
       </p>

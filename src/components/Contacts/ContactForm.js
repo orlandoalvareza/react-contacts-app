@@ -40,6 +40,8 @@ const ContactForm = ({method, contact}) => {
     }
   }
 
+  const canSubmit = nameIsValid && phoneIsValid;
+
   return (
     <Form method={method} className={classes["form"]}>
       <div 
@@ -131,7 +133,7 @@ const ContactForm = ({method, contact}) => {
       </div>  
       <div className={classes.actions}>
         <button onClick={cancelHandler} type='button'>Cancel</button>
-        <button type='submit' disabled={!(nameIsValid && phoneIsValid)}>Save</button>
+        <button type='submit' disabled={!canSubmit}>Save</button>
       </div>
     </Form>
   )

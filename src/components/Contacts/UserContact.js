@@ -1,5 +1,5 @@
 
-import image from '../../images/ben-sweet-2LowviVHZ-E-unsplash.jpg';
+import image from '../../images/vicky-hladynets-uyaTT9u6AvI-unsplash.jpg';
 import classes from './UserContact.module.css';
 
 const UserContact = () => {

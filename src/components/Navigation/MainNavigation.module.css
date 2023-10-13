@@ -3,26 +3,33 @@
   top: 0;
   display: flex;
   justify-content: space-between;
-  background: antiquewhite;
+  background: #112D4E;
   height: 80px;
   width: 100%;
   padding: 20px;
   z-index: 15;
-  /* opacity: 0.3; */
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 20px 20px -20px;
+}
+
+.header h1 {
+  color: #F9F7F7;
 }
 
 .list {
-  font-size: 17px;
+  font-size: 19px;
   display: flex;
+  align-items: center;
   gap: 26px;
+  height: 100%;
 }
 
 .list a {
-  color: royalblue;
+  color: #DBE2EF;
+  padding: 0 5px;
 }
 
 .list a:hover,
 .list a.active {
-  color: blueviolet;
+  color: #E3C4A8;
   text-decoration: underline;
 }

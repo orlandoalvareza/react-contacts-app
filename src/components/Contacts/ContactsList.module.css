@@ -5,16 +5,53 @@
   overflow-x: hidden;
 }
 
-.contact-list li {
+.list-item {
   display: flex;
   justify-content: space-between;
   height: 35px;
-  padding: 10px;
+  padding: 10px 12px 10px 5px;
   margin-bottom: 5px;
   text-align: left;
 }
 
+.list-item:not(:last-child) {
+  border-bottom: 1px solid #112D4E;
+}
+
+.list-item a {
+  font-size: 1.1rem;
+  color: #112D4E;
+}
+
+.list-item a:hover {
+  color: #3F72AF;
+}
+
 .favorite-icon {
-  color: red;
+  color: #F0A04B;
   cursor: pointer;
+}
+
+.favorite-icon:hover {
+  color: #F57B51;
+}
+
+.total-contacts {
+  color: #112D4E;
+  text-align: center;
+  margin-top: 15px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #DBE2EF;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9BA4B4; 
+  border-radius: 5px;
 }

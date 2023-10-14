@@ -33,3 +33,8 @@
   border-radius: 6px;
   box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
+
+.hero-content a:hover {
+  background: linear-gradient(40deg, #112D4E 45%, #3F72AF);
+  border: 1px solid #D6E4F0;
+}

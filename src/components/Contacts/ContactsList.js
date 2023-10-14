@@ -36,7 +36,7 @@ const ContactsList = ({ contacts }) => {
   return (
     <ul className={classes["contact-list"]}>
       {sortedContacts.map(contact => 
-        <li key={contact.id}>
+        <li className={classes["list-item"]} key={contact.id}>
           <Link to={contact.id}>
             {contact.name}
           </Link>
@@ -47,6 +47,9 @@ const ContactsList = ({ contacts }) => {
             />
           </div>
         </li>)}
+        <li className={classes['total-contacts']}>
+          {`You have ${contacts.length} contacts.`}
+        </li>
     </ul>
   )
 }

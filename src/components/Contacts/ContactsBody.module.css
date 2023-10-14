@@ -1,10 +1,11 @@
 .contacts-container {
-  background: aliceblue;
+  background: #F9F7F7;
   width: 1050px;
-  height: 620px;
+  height: 625px;
   padding: 15px;
   margin-top: 70px;
   border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .contacts-header {
@@ -12,6 +13,7 @@
 }
 
 .contacts-header h2 {
+  font-size: 1.8rem;
   padding: 5px 0;
   text-align: left;
 }
@@ -19,11 +21,13 @@
 .contacts-header__actions {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 12px 0 0;
 }
 
 .contacts-header__actions input {
   font-size: 18px;
+  color:#112D4E;
+  background: #DBE2EF;
   width: 430px;
   height: 30px;
   padding: 5px;
@@ -31,20 +35,24 @@
 }
 
 .contacts-header__actions a {
+  font-size: 1.1rem;
+  color: #fff;
+  background-color: #112D4E;
   height: 30px;
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 5px;
 }
 
+.contacts-header__actions a:hover {
+  background: linear-gradient(40deg, #112D4E 35%, #3F72AF);
+}
+
 .contact-no-found {
+  color: #112D4E;
+  height: 310px;
   text-align: center;
 }
 
 .search-icon {
   font-size: 45px;
-  margin-bottom: 10px;
-}
-
-.total-contacts {
-  text-align: center;
 }

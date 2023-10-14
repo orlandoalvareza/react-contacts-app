@@ -42,9 +42,6 @@ const ContactsBody = ({ contacts }) => {
       <UserContact/>
       {contactsData && <ContactsList contacts={contactsData}/>}
       {!contactsData && contactNoFound}
-      <div className={classes['total-contacts']}>
-        {`You have ${contacts.length} contacts`}
-      </div>
     </div>
   )
 }

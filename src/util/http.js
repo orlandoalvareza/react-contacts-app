@@ -7,7 +7,7 @@ export async function fetchContactsData() {
 
   if (!response.ok) {
     throw json(
-      {message: 'Could not fetch contacts.'},
+      {message: "We're sorry, contacts could not be loaded."},
       {status: 500}
     )
   } else {
@@ -105,7 +105,7 @@ export async function favoriteMarked(id, contactData) {
 
   if (!response.ok) {
     throw json(
-      { message: 'Could not change contact.' }, 
+      { message: 'Could not change contact status.' }, 
       { status: 500 }
     );
   }

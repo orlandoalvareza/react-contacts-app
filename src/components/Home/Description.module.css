@@ -1,15 +1,17 @@
+@import url('../../base.css');
+
 .description-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  background: #DBE2EF;
+  background: var(--theme-one-second-color);
   text-align: center;
 }
 
 .description-container h2 {
   font-size: 29px;
-  color: #112D4E;
+  color: var(--theme-one-fourth-color);
   margin-bottom: 10px;
 }
 
@@ -29,7 +31,7 @@
 }
 
 .benefits-section {
-  background: #F9F7F7;
+  background: var(--theme-one-first-color);
   width: 280px;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
@@ -44,7 +46,7 @@
 
 .benefits-section p {
   font-size: 1.1rem;
-  color: #112D4E;
+  color: var(--theme-one-fourth-color);
   padding: 12px;
 }
 
@@ -65,7 +67,7 @@
   display: flex;
   flex-direction: column;
   gap: 3px;
-  background: #F9F7F7;
+  background: var(--theme-one-first-color);
   padding: 10px 15px;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;

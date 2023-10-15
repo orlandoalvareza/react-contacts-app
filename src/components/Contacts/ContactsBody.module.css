@@ -1,3 +1,5 @@
+@import url('../../base.css');
+
 .contacts-container {
   background: #F9F7F7;
   width: 1050px;
@@ -26,8 +28,8 @@
 
 .contacts-header__actions input {
   font-size: 18px;
-  color:#112D4E;
-  background: #DBE2EF;
+  color: var(--theme-one-fourth-color);
+  background: var(--theme-one-second-color);
   width: 430px;
   height: 30px;
   padding: 5px;
@@ -36,19 +38,19 @@
 
 .contacts-header__actions a {
   font-size: 1.1rem;
-  color: #fff;
-  background-color: #112D4E;
+  color: var(--theme-one-first-color);
+  background-color: var(--theme-one-fourth-color);
   height: 30px;
   padding: 5px 10px;
   border-radius: 5px;
 }
 
 .contacts-header__actions a:hover {
-  background: linear-gradient(40deg, #112D4E 35%, #3F72AF);
+  background: linear-gradient(40deg, var(--theme-one-fourth-color) 35%, var(--theme-one-third-color));
 }
 
 .contact-no-found {
-  color: #112D4E;
+  color: var(--theme-one-fourth-color);
   height: 310px;
   text-align: center;
 }

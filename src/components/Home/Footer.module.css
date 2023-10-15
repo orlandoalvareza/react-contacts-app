@@ -1,5 +1,7 @@
+@import url('../../base.css');
+
 .footer {
-  background: #112D4E;
+  background: var(--theme-one-fourth-color);
   width: 100%;
   padding: 20px 60px 25px;
   text-align: center;
@@ -17,7 +19,7 @@
 
 .footer-section h2 {
   font-size: 1.6rem;
-  color: #E3C4A8;
+  color: var(--theme-one-fifth-color);
   margin-bottom: 5px;
 }
 
@@ -31,12 +33,12 @@
 }
 
 .footer-section a:hover {
-  color: #F9F7F7;
+  color: var(--theme-one-first-color);
 }
 
 .contact-icon {
   font-size: 18px;
-  color: #99A8B2;
+  color: var(--theme-one-sixth-color);
   margin-right: 8px;
 }
 
@@ -62,5 +64,5 @@
 }
 
 .copyright b {
-  color: #E3C4A8;
+  color: var(--theme-one-fifth-color);
 }

@@ -1,3 +1,5 @@
+@import url('base.css');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,7 +18,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #DBE2EF;
+  background: var(--theme-one-second-color);
   height: 100vh;
 }
 

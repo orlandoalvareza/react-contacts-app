@@ -1,9 +1,11 @@
+@import url('../../base.css');
+
 .header {
   position: fixed;
   top: 0;
   display: flex;
   justify-content: space-between;
-  background: #112D4E;
+  background: var(--theme-one-fourth-color);
   height: 80px;
   width: 100%;
   padding: 20px;
@@ -12,7 +14,7 @@
 }
 
 .header h1 {
-  color: #F9F7F7;
+  color: var(--theme-one-first-color);
 }
 
 .list {
@@ -24,12 +26,12 @@
 }
 
 .list a {
-  color: #DBE2EF;
+  color: var(--theme-one-second-color);
   padding: 0 5px;
 }
 
 .list a:hover,
 .list a.active {
-  color: #E3C4A8;
+  color: var(--theme-one-fifth-color);
   text-decoration: underline;
 }

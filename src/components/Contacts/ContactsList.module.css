@@ -1,3 +1,5 @@
+@import url('../../base.css');
+
 .contact-list {
   width: 100%;
   height: 310px;
@@ -15,16 +17,16 @@
 }
 
 .list-item:not(:last-child) {
-  border-bottom: 1px solid #112D4E;
+  border-bottom: 1px solid var(--theme-one-fourth-color);
 }
 
 .list-item a {
   font-size: 1.1rem;
-  color: #112D4E;
+  color: var(--theme-one-fourth-color);
 }
 
 .list-item a:hover {
-  color: #3F72AF;
+  color: var(--theme-one-third-color);
 }
 
 .favorite-icon {
@@ -37,7 +39,7 @@
 }
 
 .total-contacts {
-  color: #112D4E;
+  color: var(--theme-one-fourth-color);
   text-align: center;
   margin-top: 15px;
 }
@@ -47,11 +49,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #DBE2EF;
+  background: var(--theme-one-second-color);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #9BA4B4; 
+  background: var(--theme-one-sixth-color); 
   border-radius: 5px;
 }

@@ -1,33 +1,40 @@
+@import url('../../base.css');
+
 .form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: aqua;
+  background-color: var(--theme-one-first-color);
   width: 620px;
   height: 520px;
   margin-top: 70px;
-  padding: 25px;
+  padding: 20px 25px;
   border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
-.contact-photo-container, .contact-icon-container {
+.contact-photo-container, 
+.contact-icon-container {
   display: flex;
   align-items: center;
+  padding: 5px 0;
 }
 
 .contact-icon-container {
   flex-direction: column;
+  background: var(--theme-one-seventh-color);
 }
 
 .contact-icon {
   font-size: 70px;
+  color: var(--theme-one-fourth-color);
   margin-bottom: 5px;
   text-align: center;
   cursor: pointer;
 }
 
 .contact-icon:hover {
-  color: slateblue;
+  color: var(--theme-one-third-color);
 }
 
 .contact-photo-container__input {
@@ -69,16 +76,23 @@
 }
 
 label {
-  font-size: 17px;
+  font-size: 18px;
+  color: var(--theme-one-fourth-color);
   margin-bottom: 3px;
 }
 
 input {
   font-size: 16px;
+  color: var(--theme-one-fourth-color);
   height: 28px;
   margin-bottom: 12px;
   padding: 2px 5px;
   border-radius: 3px;
+  border: 1px solid var(--theme-one-fourth-color);
+}
+
+input:focus {
+  background: var(--theme-one-seventh-color);
 }
 
 .favorite-marked {
@@ -91,12 +105,31 @@ input {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  height: 25px;
+  height: 28px;
 }
 
 .actions button {
   font-size: 16px;
+  color: var(--theme-one-fourth-color);
   width: 70px;
   border-radius: 6px;
   cursor: pointer;
+  border: none;
+}
+
+.actions button:first-child {
+  background: transparent;
+}
+
+.actions button:first-child:hover {
+  color: var(--theme-one-third-color);
+}
+
+.actions button:last-child {
+  color: var(--theme-one-first-color);
+  background: var(--theme-one-fourth-color);
+}
+
+.actions button:last-child:hover {
+  background: var(--theme-one-third-color);
 }

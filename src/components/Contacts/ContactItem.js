@@ -82,18 +82,25 @@ const ContactItem = ({ contact }) => {
           <span>{contact.company}</span>
         </div>
         <div className={classes["contact-links"]}>
-          <Link>
+          <a href={`tel:${contact.phone}`}>
             <FontAwesomeIcon icon={faPhone}/>
-          </Link>
-          <Link>
+          </a>
+          <a href={`whatsapp://send?phone=${contact.phone}`}>
             <FontAwesomeIcon icon={faMessage}/>
-          </Link>
-          <Link>
+          </a>
+          <a 
+            href='https://web.skype.com/'
+            target='_blank'
+            rel="noreferrer noopener"
+          >
             <FontAwesomeIcon icon={faVideo}/>
-          </Link>
-          <Link>
+          </a>
+          <a 
+            className={contact.email.length === 0 && classes['email-disabled']}
+            href={contact.email.length === 0 ? '#' : `mailto:${contact.email}`}
+          >
             <FontAwesomeIcon icon={faEnvelope}/> 
-          </Link>
+          </a>
         </div>
         <div className={classes["contact-information"]}>
           <div className={classes["contact-info-section"]}>

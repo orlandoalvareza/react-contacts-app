@@ -13,7 +13,7 @@ const Footer = () => {
           <ul>
             <li>
               <FontAwesomeIcon className={classes["contact-icon"]} icon={faPhone}/>
-              <a href='tel:+1 (123) 456-7890'>+1 (123) 456 7890</a>
+              <a href='tel:+1 (786) 580-1439'>+1 (786) 580 1439</a>
             </li>
             <li>
               <FontAwesomeIcon className={classes["contact-icon"]} icon={faEnvelope}/>

@@ -109,6 +109,14 @@
   padding: 5px 10px;
 }
 
+.contact-links .email-disabled,
+.contact-links .email-disabled:hover {
+  color: var(--theme-one-first-color);
+  background: var(--theme-one-sixth-color);
+  border: none;
+  cursor: not-allowed;
+}
+
 .contact-information {
   display: flex;
   flex-direction: column;

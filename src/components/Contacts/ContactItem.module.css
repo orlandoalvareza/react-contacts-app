@@ -1,12 +1,15 @@
+@import url('../../base.css');
+
 .contact-container {
   display: flex;
   flex-direction: column;
-  background-color: goldenrod;
+  background-color: var(--theme-one-first-color);
   width: 620px;
   height: 520px;
   margin-top: 70px;
-  padding: 20px;
+  padding: 15px;
   border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .contact-actions {
@@ -23,17 +26,32 @@
 }
 
 .contact-actions button, 
-.contact-actions a {
-  font-size: 16px;
-  height: 100%;
+.contact-actions a,
+.contact-links a {
+  color: var(--theme-one-fourth-color);
+  background-color: var(--theme-one-second-color);
+  border: 1.5px solid var(--theme-one-fourth-color);  
   border-radius: 6px;
 }
 
+.contact-actions button:hover, 
+.contact-actions a:hover,
+.contact-links a:hover {
+  color: var(--theme-one-third-color);
+  border: 1.5px solid var(--theme-one-third-color);
+}
+
+.contact-actions button, 
 .contact-actions a {
-  background: aliceblue;
+  font-size: 16px;
+  height: 100%;
+}
+
+.contact-actions a {
+  background-color: var(--theme-one-second-color);
   width: 60px;
   text-align: center;
-  padding-top: 5px;
+  padding-top: 4px;
 }
 
 .contact-actions button {
@@ -58,6 +76,7 @@
 
 .contact-icon {
   font-size: 90px;
+  color: var(--theme-one-fourth-color);
 }
 
 .contact-image {
@@ -68,7 +87,14 @@
 }
 
 .basic-information {
+  background: rgba(219, 226, 239, 0.4);
   text-align: center;
+  padding: 5px 0;
+}
+
+.basic-information h2 {
+  font-size: 2rem;
+  color: var(--theme-one-fourth-color);
 }
 
 .contact-links {
@@ -78,19 +104,23 @@
 }
 
 .contact-links a {
-  background-color: salmon;
   width: 80px;
   height: 30px;
   padding: 5px 10px;
-  border-radius: 5px;
-  /* cursor: not-allowed; */
 }
 
 .contact-information {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  background: grey;
+  background: rgba(219, 226, 239, 0.4);
+  padding: 10px;
+}
+
+.contact-info-section span,
+.extra-info-section span {
+  font-size: 18px;
+  color: var(--theme-one-fourth-color);
 }
 
 .contact-info-section p {
@@ -107,6 +137,7 @@
   flex-direction: column;
   gap: 5px;
   width: 230px;
+  padding: 0 10px;
 }
 
 .delete-information h2, 
@@ -115,12 +146,17 @@
 }
 
 .delete-information h2 {
-  background: coral;
-  padding: 15px;
+  font-size: 1.8rem;
+  color: var(--theme-one-first-color);
+  background: #921224;
+  padding: 10px 0;
+  margin-bottom: 15px;
+  border-radius: 6px 6px 0 0;
 }
 
 .delete-information p {
-  margin-top: 15px;
+  font-size: 18px;
+  line-height: 21px;
 }
 
 .delete-actions {
@@ -131,8 +167,24 @@
 }
 
 .delete-actions button {
-  width: 60px;
-  height: 24px;
-  border-radius: 5px;
+  font-size: 15px;
+  width: 65px;
+  height: 26px;
+  border-radius: 6px;
+  border: none;
   cursor: pointer;
+}
+
+.delete-actions button:first-child {
+  background: transparent;
+}
+
+.delete-actions button:last-child {
+  color: #fff;
+  background: #921224;
+}
+
+.delete-actions button:last-child:hover {
+  background: linear-gradient(20deg,#921224 45%, #FF7777);
+  border: 1px solid #921224;
 }

@@ -41,7 +41,8 @@ const ContactItem = ({ contact }) => {
     <Modal>
       <div className={classes['delete-information']}>
         <h2>Are you sure?</h2>
-        <p>This action is irreversible</p>
+        <p>Do you really want to delete this contact?</p>
+        <p>This process cannot be undone.</p>
       </div>
       <div className={classes['delete-actions']}>
         <button onClick={cancelDeleteHandler}>Cancel</button>

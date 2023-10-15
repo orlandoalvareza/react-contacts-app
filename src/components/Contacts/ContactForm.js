@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Form, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import Modal from '../UI/Modal';
 import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
 import classes from './ContactForm.module.css';
 
@@ -9,6 +10,7 @@ const ContactForm = ({method, contact}) => {
   const [isAddingContactPhoto, setIsAddingContactPhoto] = useState(false);
   const [nameIsValid, setNameIsValid] = useState(false);
   const [phoneIsValid, setPhoneIsValid] = useState(false);
+  const [isSendingInvalidForm, setIsSendingInvalidForm] = useState(false);
   const navigate = useNavigate();
 
   const cancelHandler = () => {
@@ -40,7 +42,36 @@ const ContactForm = ({method, contact}) => {
     }
   }
 
+  const invalidFormHandler = () => {
+    setIsSendingInvalidForm(true);
+  }
+
+  const closeModalHandler = () => {
+    setIsSendingInvalidForm(false);
+  }
+
   const canSubmit = nameIsValid && phoneIsValid;
+  let invalidFormMessage;
+
+  if (!nameIsValid && !phoneIsValid) {
+    invalidFormMessage = 'Name and phone number are invalid.';
+  } else if (!nameIsValid) {
+    invalidFormMessage = 'The name should not be empty.';
+  } else if (!phoneIsValid) {
+    invalidFormMessage = 'The phone number should be 10 digits.';
+  }
+
+  const modalContent = (
+    <Modal>
+      <div className={classes['invalid-form-information']}>
+        <h2>Form error</h2>
+        <p>{invalidFormMessage}</p>
+      </div>
+      <div className={classes['invalid-form-action']}>
+        <button onClick={closeModalHandler}>Ok</button>
+      </div>
+    </Modal>
+  );
 
   return (
     <Form method={method} className={classes["form"]}>
@@ -133,8 +164,12 @@ const ContactForm = ({method, contact}) => {
       </div>  
       <div className={classes.actions}>
         <button onClick={cancelHandler} type='button'>Cancel</button>
-        <button type='submit' disabled={!canSubmit}>Save</button>
+        {canSubmit && <button type='submit'>Save</button>}
+        {!canSubmit && (
+          <button type='button' onClick={invalidFormHandler}>...</button>
+        )}
       </div>
+      {isSendingInvalidForm && modalContent}
     </Form>
   )
 }

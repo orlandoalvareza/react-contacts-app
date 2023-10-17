@@ -13,27 +13,3 @@
   padding: 5px 0;
   margin-bottom: 20px;
 }
-
-.favorites-list {
-  width: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.favorites-list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  height: 55px;
-  padding: 10px;
-  margin-bottom: 10px;
-  text-align: left;
-}
-
-.contact-icon {
-  font-size: 38px;
-}
-
-.favorites-list a {
-  font-size: 19px;
-}

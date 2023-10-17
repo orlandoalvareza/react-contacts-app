@@ -1,0 +1,36 @@
+.favorites-list {
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.favorites-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  height: 55px;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.contact-info-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-icon {
+  font-size: 38px;
+}
+
+.contact-info-container a {
+  font-size: 19px;
+  padding: 10px;
+}
+
+.x-mark-icon {
+  font-size: 28px;
+  cursor: pointer;
+}

@@ -8,7 +8,8 @@ import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
 import classes from './ContactsList.module.css';
 
 const ContactsList = ({ contacts }) => {
-  const [contactsList, setContactsList] = useState(contacts);
+  // const [contactsList, setContactsList] = useState(contacts);
+  const setContactsList = useState(contacts)[1];
 
   const addFavoriteContactHandler = async (id) => {
     const selectedContact = contacts.filter(contact => contact.id === id);
@@ -29,7 +30,7 @@ const ContactsList = ({ contacts }) => {
     });
   }
 
-  const sortedContacts = contactsList.sort((firstItem, secondItem) => (
+  const sortedContacts = contacts.sort((firstItem, secondItem) => (
     firstItem.name.localeCompare(secondItem.name)
   ));
 

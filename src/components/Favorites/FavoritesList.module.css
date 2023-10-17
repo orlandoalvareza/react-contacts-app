@@ -28,8 +28,15 @@
   gap: 5px;
 }
 
+.contact-info-container img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 .contact-icon {
-  font-size: 38px;
+  font-size: 45px;
   color: var(--theme-one-fourth-color);
 }
 

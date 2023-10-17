@@ -21,16 +21,18 @@ const FavoritesList = ({ contacts, isEditing }) => {
       return [...filteredContacts]
     });
   }
-
   return (
     <ul className={classes["favorites-list"]}>
       {contactsList.map(contact => 
         <li key={contact.id}>
           <div className={classes["contact-info-container"]}>
-            <FontAwesomeIcon 
-              className={classes["contact-icon"]} 
-              icon={faCircleUser}
-            />
+            {contact.photo && <img src={contact.photo} alt='contact'/>}
+            {!contact.photo && (
+               <FontAwesomeIcon 
+                className={classes["contact-icon"]} 
+                icon={faCircleUser}
+              />
+            )}
             <Link to={{
               pathname: `/contacts/${contact.id}`,
               search: `?from=favorites`

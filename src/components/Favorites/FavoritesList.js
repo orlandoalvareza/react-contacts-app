@@ -22,23 +22,28 @@ const FavoritesList = ({ contacts, isEditing }) => {
     });
   }
 
-  // const sortedContacts = contactsList.sort((firstItem, secondItem) => (
-  //   firstItem.name.localeCompare(secondItem.name)
-  // ));
-
   return (
     <ul className={classes["favorites-list"]}>
       {contactsList.map(contact => 
         <li key={contact.id}>
           <div className={classes["contact-info-container"]}>
-            <FontAwesomeIcon className={classes["contact-icon"]} icon={faCircleUser}/>
-            <Link to={contact.id}>
+            <FontAwesomeIcon 
+              className={classes["contact-icon"]} 
+              icon={faCircleUser}
+            />
+            <Link to={{
+              pathname: `/contacts/${contact.id}`,
+              search: `?from=favorites`
+            }}>
               {contact.name}
             </Link>
           </div>
           <div onClick={() => addFavoriteContactHandler(contact.id)}>
             {isEditing && (
-              <FontAwesomeIcon className={classes["x-mark-icon"]} icon={faCircleXmark}/>
+              <FontAwesomeIcon 
+                className={classes["x-mark-icon"]} 
+                icon={faCircleXmark}
+              />
             )}
           </div>
         </li>)}

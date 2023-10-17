@@ -14,7 +14,9 @@ const Favorites= ({ contacts }) => {
     <div className={classes["favorites-container"]}>
       <div className={classes["favorites-header"]}>
         <h2>Favorites</h2>
-        <button onClick={editStatusHandler}>{isEditing ? 'Cancel' : 'Edit'}</button>
+        <button onClick={editStatusHandler}>
+          {isEditing ? 'Cancel' : 'Edit'}
+        </button>
       </div>
       <FavoritesList contacts={contacts} isEditing={isEditing}/>
     </div>

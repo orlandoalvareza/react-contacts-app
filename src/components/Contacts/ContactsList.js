@@ -22,15 +22,14 @@ const ContactsList = ({ contacts }) => {
     });
   }
 
-  // const sortedContacts = contacts.sort((firstItem, secondItem) => (
-  //   firstItem.name.localeCompare(secondItem.name)
-  // ));
-
   return (
     <ul className={classes["contact-list"]}>
       {contacts.map(contact => 
         <li className={classes["list-item"]} key={contact.id}>
-          <Link to={contact.id}>
+          <Link to={{
+            pathname: `/contacts/${contact.id}`,
+            search: `?from=contacts`
+          }}>
             {contact.name}
           </Link>
           <div onClick={() => addFavoriteContactHandler(contact.id)}>

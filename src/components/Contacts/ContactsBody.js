@@ -25,7 +25,10 @@ const ContactsBody = ({ contacts }) => {
 
   const contactNoFound = 
   <div className={classes['contact-no-found']}>
-    <FontAwesomeIcon className={classes["search-icon"]} icon={faMagnifyingGlass}/>
+    <FontAwesomeIcon 
+      className={classes["search-icon"]} 
+      icon={faMagnifyingGlass}
+    />
     <h2>{`No results for "${searchByName}"`}</h2>
     <p>Please, try a new search</p>
   </div>;
@@ -35,7 +38,12 @@ const ContactsBody = ({ contacts }) => {
       <div className={classes["contacts-header"]}>
         <h2>Contacts</h2>
         <div className={classes["contacts-header__actions"]}>
-          <input onChange={searchHandler} type='search' id='search' placeholder='Search Contact'/>
+          <input 
+            onChange={searchHandler} 
+            type='search' 
+            id='search' 
+            placeholder='Search Contact'
+          />
           <Link to='/contacts/new'>New Contact</Link>
         </div>
       </div>

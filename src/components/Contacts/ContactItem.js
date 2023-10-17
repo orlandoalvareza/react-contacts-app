@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useSubmit } from 'react-router-dom';
+import { Link, useLocation, useSubmit } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Modal from '../UI/Modal';
@@ -18,6 +18,10 @@ import classes from './ContactItem.module.css';
 const ContactItem = ({ contact }) => {
   const [isDeleting, setIsDeleting] = useState(false);
   const submit = useSubmit();
+  
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const from = searchParams.get('from');
 
   const formattedDate = new Date(contact.birthday).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -54,8 +58,11 @@ const ContactItem = ({ contact }) => {
   return (
     <div className={classes['contact-container']}>
       <div className={classes["contact-actions"]}>
-        <Link to='..'>
-          <FontAwesomeIcon className={classes["back-icon"]} icon={faArrowLeft}/>
+        <Link to={from === 'contacts' ? '/contacts' : '/favorites'}>
+          <FontAwesomeIcon 
+            className={classes["back-icon"]} 
+            icon={faArrowLeft}
+          />
         </Link>
         <div className={classes["contact-actions__manipulate"]}>
           <button type='button' onClick={startDeleteHandler}>
@@ -68,7 +75,12 @@ const ContactItem = ({ contact }) => {
       </div>
       <div className={classes["information-container"]}>
         <div className={classes["photo-container"]}>
-          {!contact.photo && <FontAwesomeIcon icon={faCircleUser} className={classes["contact-icon"]}/>}
+          {!contact.photo && (
+            <FontAwesomeIcon 
+              icon={faCircleUser} 
+              className={classes["contact-icon"]}
+            />
+          )}
           {contact.photo && (
             <img 
               className={classes["contact-image"]} 

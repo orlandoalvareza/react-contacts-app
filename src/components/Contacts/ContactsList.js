@@ -8,19 +8,11 @@ import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
 import classes from './ContactsList.module.css';
 
 const ContactsList = ({ contacts }) => {
-  // const [contactsList, setContactsList] = useState(contacts);
   const setContactsList = useState(contacts)[1];
 
   const addFavoriteContactHandler = async (id) => {
     const selectedContact = contacts.filter(contact => contact.id === id);
-
-    if (selectedContact[0].isFavorite === 'on') {
-      selectedContact[0].isFavorite = 'off';
-    } else {
-      selectedContact[0].isFavorite = 'on';
-    }
-    
-    const editedContact = await favoriteMarked(id, selectedContact[0]);
+    const editedContact = await favoriteMarked(id, selectedContact[0]);    
 
     setContactsList((prevContacts) => {
       const filteredContacts = prevContacts.filter(contact => (

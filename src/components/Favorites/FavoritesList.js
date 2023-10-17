@@ -12,8 +12,6 @@ const FavoritesList = ({ contacts, isEditing }) => {
 
   const addFavoriteContactHandler = async (id) => {
     const selectedContact = contacts.filter(contact => contact.id === id);
-    selectedContact[0].isFavorite = 'off';
-    
     const editedContact = await favoriteMarked(id, selectedContact[0]);
 
     setContactsList((prevContacts) => {

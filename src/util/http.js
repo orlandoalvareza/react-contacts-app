@@ -14,7 +14,9 @@ export async function fetchContactsData() {
     const data = await response.json();
     const contacts = extractContactsData(data);
 
-    return contacts;
+    return contacts.sort((firstItem, secondItem) => (
+      firstItem.name.localeCompare(secondItem.name)
+    ));
   }
 };
 
@@ -100,7 +102,7 @@ export async function favoriteMarked(id, contactData) {
   } else {
     contactData.isFavorite = 'on';
   }
-  
+
   const response = await fetch(`https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts/${id}.json`, {
     method: 'PATCH', 
     headers: {

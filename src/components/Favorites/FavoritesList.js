@@ -22,13 +22,13 @@ const FavoritesList = ({ contacts, isEditing }) => {
     });
   }
 
-  const sortedContacts = contactsList.sort((firstItem, secondItem) => (
-    firstItem.name.localeCompare(secondItem.name)
-  ));
+  // const sortedContacts = contactsList.sort((firstItem, secondItem) => (
+  //   firstItem.name.localeCompare(secondItem.name)
+  // ));
 
   return (
     <ul className={classes["favorites-list"]}>
-      {sortedContacts.map(contact => 
+      {contactsList.map(contact => 
         <li key={contact.id}>
           <div className={classes["contact-info-container"]}>
             <FontAwesomeIcon className={classes["contact-icon"]} icon={faCircleUser}/>

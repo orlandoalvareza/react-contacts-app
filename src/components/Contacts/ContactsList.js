@@ -22,13 +22,13 @@ const ContactsList = ({ contacts }) => {
     });
   }
 
-  const sortedContacts = contacts.sort((firstItem, secondItem) => (
-    firstItem.name.localeCompare(secondItem.name)
-  ));
+  // const sortedContacts = contacts.sort((firstItem, secondItem) => (
+  //   firstItem.name.localeCompare(secondItem.name)
+  // ));
 
   return (
     <ul className={classes["contact-list"]}>
-      {sortedContacts.map(contact => 
+      {contacts.map(contact => 
         <li className={classes["list-item"]} key={contact.id}>
           <Link to={contact.id}>
             {contact.name}

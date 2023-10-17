@@ -1,5 +1,7 @@
+@import url('../../base.css');
+
 .favorites-container {
-  background: aliceblue;
+  background: var(--theme-one-first-color);
   width: 1050px;
   height: 620px;
   padding: 15px;
@@ -12,4 +14,24 @@
   justify-content: space-between;
   padding: 5px 0;
   margin-bottom: 20px;
+}
+
+.favorites-header h2 {
+  font-size: 1.8rem;
+  color: var(--theme-one-fourth-color);
+}
+
+.favorites-header button {
+  font-size: 17px;
+  color: var(--theme-one-first-color);
+  background-color: var(--theme-one-fourth-color);
+  height: 30px;
+  width: 70px;
+  border-radius: 5px;
+  border: none;
+}
+
+.favorites-header button:hover {
+  background: linear-gradient(40deg, var(--theme-one-fourth-color) 35%, var(--theme-one-third-color));
+  cursor: pointer;
 }

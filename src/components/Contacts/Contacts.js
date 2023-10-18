@@ -25,14 +25,14 @@ const Contacts = ({ contacts }) => {
   }
 
   const contactNoFound = 
-  <div className={classes['contact-no-found']}>
-    <FontAwesomeIcon 
-      className={classes["search-icon"]} 
-      icon={faMagnifyingGlass}
-    />
-    <h2>{`No results for "${searchByName}"`}</h2>
-    <p>Please, try a new search</p>
-  </div>;
+    <div className={classes['contact-no-found']}>
+      <FontAwesomeIcon 
+        className={classes["search-icon"]}
+        icon={faMagnifyingGlass}
+      />
+      <h2>{`No results for "${searchByName}"`}</h2>
+      <p>Please, try a new search</p>
+    </div>;
 
   return (
     <motion.div 
@@ -51,7 +51,12 @@ const Contacts = ({ contacts }) => {
             id='search' 
             placeholder='Search Contact'
           />
-          <Link to='/contacts/new'>New Contact</Link>
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: 'spring', stiffness: 600 }} 
+          >
+            <Link to='/contacts/new'>New Contact</Link>
+          </motion.div>
         </div>
       </div>
       <UserContact/>

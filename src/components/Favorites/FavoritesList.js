@@ -1,5 +1,6 @@
 import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { favoriteMarked } from '../../util/http';
@@ -22,37 +23,52 @@ const FavoritesList = ({ contacts, isEditing }) => {
     });
   }
 
+  let animationDelay = 0;
+
   return (
     <Fragment>
       {contactsList.length !== 0 && (
         <ul className={classes["favorites-list"]}>
-          {contactsList.map(contact => 
-            <li key={contact.id}>
-              <div className={classes["contact-info-container"]}>
-                {contact.photo && <img src={contact.photo} alt='contact'/>}
-                {!contact.photo && (
-                  <FontAwesomeIcon 
-                    className={classes["contact-icon"]} 
-                    icon={faCircleUser}
-                  />
-                )}
-                <Link to={{
-                  pathname: `/contacts/${contact.id}`,
-                  search: `?from=favorites`
-                }}>
-                  {contact.name}
-                </Link>
-              </div>
-              <div onClick={() => addFavoriteContactHandler(contact.id)}>
-                {isEditing && (
-                  <FontAwesomeIcon 
-                    className={classes["x-mark-icon"]} 
-                    icon={faCircleXmark}
-                  />
-                )}
-              </div>
-            </li>
-          )}
+          {contactsList.map(contact => {
+            animationDelay += 0.12;
+            return (
+              <motion.li
+                key={contact.id}
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ type: 'spring', delay: animationDelay }}
+              >
+                <div className={classes["contact-info-container"]}>
+                  {contact.photo && <img src={contact.photo} alt='contact'/>}
+                  {!contact.photo && (
+                    <FontAwesomeIcon 
+                      className={classes["contact-icon"]} 
+                      icon={faCircleUser}
+                    />
+                  )}
+                  <Link to={{
+                    pathname: `/contacts/${contact.id}`,
+                    search: `?from=favorites`
+                  }}>
+                    {contact.name}
+                  </Link>
+                </div>
+                <motion.div 
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ rotate: 45 }}
+                  transition={{ type: 'spring', stiffness: 500 }}
+                  onClick={() => addFavoriteContactHandler(contact.id)}
+                >
+                  {isEditing && (
+                    <FontAwesomeIcon 
+                      className={classes["x-mark-icon"]} 
+                      icon={faCircleXmark}
+                    />
+                  )}
+                </motion.div>
+              </motion.li>
+            )
+          })}
         </ul>
       )}
       {contactsList.length === 0 && (

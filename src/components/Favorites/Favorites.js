@@ -21,9 +21,13 @@ const Favorites= ({ contacts }) => {
     >
       <div className={classes["favorites-header"]}>
         <h2>Favorites</h2>
-        <button onClick={editStatusHandler}>
+        <motion.button 
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: 'spring', stiffness: 600 }}
+          onClick={editStatusHandler}
+        >
           {isEditing ? 'Cancel' : 'Edit'}
-        </button>
+        </motion.button>
       </div>
       <FavoritesList contacts={contacts} isEditing={isEditing}/>
     </motion.div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Form, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Modal from '../UI/Modal';
@@ -164,7 +165,15 @@ const ContactForm = ({method, contact}) => {
       </div>  
       <div className={classes.actions}>
         <button onClick={cancelHandler} type='button'>Cancel</button>
-        {canSubmit && <button type='submit'>Save</button>}
+        {canSubmit && (
+          <motion.button 
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: 'spring', stiffness: 500 }} 
+            type='submit'
+          >
+            Save
+          </motion.button>
+        )}
         {!canSubmit && (
           <button type='button' onClick={invalidFormHandler}>...</button>
         )}

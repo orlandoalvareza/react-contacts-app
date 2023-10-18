@@ -26,7 +26,12 @@ const Hero = () => {
       <motion.div style={{ scale: scaleText, y: yText }} className={classes["hero-content"]}>
         <h1>Welcome to TouchBase</h1>
         <h3>Where Contacts Become Connections</h3>
-        <Link to='/contacts'>Get Started</Link>
+        <motion.div 
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: 'spring', stiffness: 500 }} 
+        >
+          <Link to='/contacts'>Get Started</Link>
+        </motion.div>
       </motion.div>
     </motion.div>
   )

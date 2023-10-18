@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { favoriteMarked } from '../../util/http';
@@ -22,26 +23,42 @@ const ContactsList = ({ contacts }) => {
     });
   }
 
+  let animationDelay = 0;
+
   return (
     <ul className={classes["contact-list"]}>
-      {contacts.map(contact => 
-        <li className={classes["list-item"]} key={contact.id}>
-          <Link to={{
-            pathname: `/contacts/${contact.id}`,
-            search: `?from=contacts`
-          }}>
-            {contact.name}
-          </Link>
-          <div onClick={() => addFavoriteContactHandler(contact.id)}>
-            <FontAwesomeIcon 
-              className={classes["favorite-icon"]} 
-              icon={contact.isFavorite === 'on' ? solidStar : regularStar} 
-            />
-          </div>
-        </li>)}
-        <li className={classes['total-contacts']}>
-          {`You have ${contacts.length} contacts.`}
-        </li>
+      {contacts.map(contact => {
+        animationDelay += 0.08;
+        return (
+          <motion.li 
+            className={classes["list-item"]} 
+            key={contact.id}
+            initial={{ opacity: 0, x: 15 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ type: 'spring', delay: animationDelay }}
+          >
+            <Link to={{
+              pathname: `/contacts/${contact.id}`,
+              search: `?from=contacts`
+            }}>
+              {contact.name}
+            </Link>
+            <motion.div 
+              whileHover={{ scale: 1.15 }}
+              transition={{ type: 'spring', stiffness: 600 }}
+              onClick={() => addFavoriteContactHandler(contact.id)}
+            >
+              <FontAwesomeIcon 
+                className={classes["favorite-icon"]} 
+                icon={contact.isFavorite === 'on' ? solidStar : regularStar} 
+              />
+            </motion.div>
+          </motion.li>
+        )
+      })}
+      <li className={classes['total-contacts']}>
+        {`You have ${contacts.length} contacts.`}
+      </li>
     </ul>
   )
 }

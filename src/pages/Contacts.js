@@ -1,11 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 
-import ContactsBody from "../components/Contacts/ContactsBody";
+import Contacts from "../components/Contacts/Contacts";
 
 const ContactsPage = () => {
   const contacts = useLoaderData();
 
-  return <ContactsBody contacts={contacts}/>
+  return <Contacts contacts={contacts}/>
 }
 
 export default ContactsPage;

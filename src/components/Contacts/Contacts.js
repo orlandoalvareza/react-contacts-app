@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import UserContact from './UserContact';
 import ContactsList from './ContactsList';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import classes from './ContactsBody.module.css';
-import UserContact from './UserContact';
+import classes from './Contacts.module.css';
 
-const ContactsBody = ({ contacts }) => {
+const Contacts = ({ contacts }) => {
   const [contactsData, setContactsData] = useState(contacts);
   const [searchByName, setSearchByName] = useState('');
   
   const searchHandler = (event) => {
-    const enteredName = event.target.value;
-    const filteredContacts = contacts.filter(contacts => contacts.name.includes(enteredName));
+    const enteredName = event.target.value.toLowerCase();
+    const filteredContacts = contacts.filter(contacts => contacts.name.toLowerCase().includes(enteredName));
 
     if (filteredContacts.length === 0) {
       setSearchByName(enteredName);
@@ -61,4 +61,4 @@ const ContactsBody = ({ contacts }) => {
   )
 }
 
-export default ContactsBody;
+export default Contacts;

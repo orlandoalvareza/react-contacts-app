@@ -1,11 +1,11 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import classes from './MainNavigation.module.css';
 
 const MainNavigation = () => {
   return (
     <header className={classes.header}>
-      <h1>TouchBase</h1>
+      <Link to='/' className={classes["app-name"]}>TouchBase</Link>
       <nav>
         <ul className={classes.list}>
           <li>

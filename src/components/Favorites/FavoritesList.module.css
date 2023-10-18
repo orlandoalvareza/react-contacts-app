@@ -55,3 +55,10 @@
   color: var(--theme-error-first-color);
   cursor: pointer;
 }
+
+.empty-list {
+  font-size: 18px;
+  background: var(--theme-one-seventh-color);
+  padding: 10px;
+  text-align: center;
+}

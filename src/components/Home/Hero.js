@@ -15,7 +15,14 @@ const Hero = () => {
   );
 
   return (
-    <motion.div style={{ opacity: opacityHero }} className={classes["hero-container"]}>
+    <motion.div 
+      className={classes["hero-container"]}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      style={{ opacity: opacityHero }} 
+    >
       <motion.div style={{ scale: scaleText, y: yText }} className={classes["hero-content"]}>
         <h1>Welcome to TouchBase</h1>
         <h3>Where Contacts Become Connections</h3>

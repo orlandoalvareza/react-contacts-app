@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -21,35 +21,44 @@ const FavoritesList = ({ contacts, isEditing }) => {
       return [...filteredContacts]
     });
   }
+
   return (
-    <ul className={classes["favorites-list"]}>
-      {contactsList.map(contact => 
-        <li key={contact.id}>
-          <div className={classes["contact-info-container"]}>
-            {contact.photo && <img src={contact.photo} alt='contact'/>}
-            {!contact.photo && (
-               <FontAwesomeIcon 
-                className={classes["contact-icon"]} 
-                icon={faCircleUser}
-              />
-            )}
-            <Link to={{
-              pathname: `/contacts/${contact.id}`,
-              search: `?from=favorites`
-            }}>
-              {contact.name}
-            </Link>
-          </div>
-          <div onClick={() => addFavoriteContactHandler(contact.id)}>
-            {isEditing && (
-              <FontAwesomeIcon 
-                className={classes["x-mark-icon"]} 
-                icon={faCircleXmark}
-              />
-            )}
-          </div>
-        </li>)}
-    </ul>
+    <Fragment>
+      {contactsList.length !== 0 && (
+        <ul className={classes["favorites-list"]}>
+          {contactsList.map(contact => 
+            <li key={contact.id}>
+              <div className={classes["contact-info-container"]}>
+                {contact.photo && <img src={contact.photo} alt='contact'/>}
+                {!contact.photo && (
+                  <FontAwesomeIcon 
+                    className={classes["contact-icon"]} 
+                    icon={faCircleUser}
+                  />
+                )}
+                <Link to={{
+                  pathname: `/contacts/${contact.id}`,
+                  search: `?from=favorites`
+                }}>
+                  {contact.name}
+                </Link>
+              </div>
+              <div onClick={() => addFavoriteContactHandler(contact.id)}>
+                {isEditing && (
+                  <FontAwesomeIcon 
+                    className={classes["x-mark-icon"]} 
+                    icon={faCircleXmark}
+                  />
+                )}
+              </div>
+            </li>
+          )}
+        </ul>
+      )}
+      {contactsList.length === 0 && (
+        <p className={classes["empty-list"]}>No favorite contacts found.</p>
+      )}
+    </Fragment>
   )
 }
 

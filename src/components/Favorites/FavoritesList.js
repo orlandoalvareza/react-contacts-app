@@ -1,15 +1,22 @@
-import { Fragment, useState } from "react";
+import { Fragment, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import ThemeContext from "../../context/theme-context";
 import { favoriteMarked } from '../../util/http';
-import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { 
+  faCircleUser, 
+  faCircleXmark as  xMarkDark
+} from '@fortawesome/free-regular-svg-icons';
+import { faCircleXmark as xMarkLight } from '@fortawesome/free-solid-svg-icons';
 import classes from './FavoritesList.module.css';
 
 const FavoritesList = ({ contacts, isEditing }) => {
   const [contactsList, setContactsList] = useState(contacts);
+  const { isLightTheme } = useContext(ThemeContext);
+
+  const themeMode = isLightTheme ? 'light' : 'dark';
 
   const addFavoriteContactHandler = async (id) => {
     const selectedContact = contacts.filter(contact => contact.id === id);
@@ -33,6 +40,7 @@ const FavoritesList = ({ contacts, isEditing }) => {
             animationDelay += 0.12;
             return (
               <motion.li
+                className={classes[`list-item__${themeMode}`]}
                 key={contact.id}
                 initial={{ opacity: 0, x: 10 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -42,7 +50,7 @@ const FavoritesList = ({ contacts, isEditing }) => {
                   {contact.photo && <img src={contact.photo} alt='contact'/>}
                   {!contact.photo && (
                     <FontAwesomeIcon 
-                      className={classes["contact-icon"]} 
+                      className={classes[`contact-icon__${themeMode}`]} 
                       icon={faCircleUser}
                     />
                   )}
@@ -61,8 +69,8 @@ const FavoritesList = ({ contacts, isEditing }) => {
                 >
                   {isEditing && (
                     <FontAwesomeIcon 
-                      className={classes["x-mark-icon"]} 
-                      icon={faCircleXmark}
+                      className={classes[`x-mark-icon__${themeMode}`]} 
+                      icon={themeMode === 'light' ? xMarkLight : xMarkDark}
                     />
                   )}
                 </motion.div>
@@ -72,7 +80,9 @@ const FavoritesList = ({ contacts, isEditing }) => {
         </ul>
       )}
       {contactsList.length === 0 && (
-        <p className={classes["empty-list"]}>No favorite contacts found.</p>
+        <p className={classes[`empty-list__${themeMode}`]}>
+          No favorite contacts found.
+        </p>
       )}
     </Fragment>
   )

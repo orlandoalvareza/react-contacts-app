@@ -14,7 +14,7 @@
 }
 
 .favorites-container__dark {
-  background: var(--theme-dark-fourth-color);
+  background: var(--theme-two-first-color);
 }
 
 .favorites-header__light,
@@ -28,22 +28,41 @@
 .favorites-header__light h2,
 .favorites-header__dark h2 {
   font-size: 1.8rem;
+}
+
+.favorites-header__light h2 {
   color: var(--theme-one-fourth-color);
+}
+
+.favorites-header__dark h2 {
+  color: var(--theme-one-second-color);
 }
 
 .favorites-header__light button,
 .favorites-header__dark button {
   font-size: 17px;
-  color: var(--theme-one-first-color);
-  background-color: var(--theme-one-fourth-color);
   height: 30px;
   width: 70px;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
 }
 
-.favorites-header__light button:hover,
-.favorites-header__dark button:hover {
+.favorites-header__light button {
+  color: var(--theme-one-first-color);
+  background-color: var(--theme-one-fourth-color);
+}
+
+.favorites-header__dark button {
+  color: var(--theme-one-second-color);
+  background: var(--theme-two-fourth-color);
+}
+
+.favorites-header__light button:hover {
   background: linear-gradient(40deg, var(--theme-one-fourth-color) 35%, var(--theme-one-third-color));
-  cursor: pointer;
+}
+
+.favorites-header__dark button:hover {
+  background: linear-gradient(40deg, var(--theme-two-fourth-color) 45%, var(--theme-two-third-color));
+  border: 1px solid var(--theme-one-sixth-color);
 }

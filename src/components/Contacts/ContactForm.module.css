@@ -142,7 +142,7 @@ input:focus {
 .invalid-form-information h2 {
   font-size: 1.8rem;
   color: var(--theme-one-first-color);
-  background: var(--theme-error-first-color);
+  background: var(--theme-three-first-color);
   padding: 10px 0;
   margin-bottom: 15px;
   border-radius: 6px 6px 0 0;
@@ -161,7 +161,7 @@ input:focus {
 .invalid-form-action button {
   font-size: 15px;
   color: #fff;
-  background: var(--theme-error-first-color);
+  background: var(--theme-three-first-color);
   width: 65px;
   height: 26px;
   border-radius: 6px;
@@ -170,6 +170,6 @@ input:focus {
 }
 
 .invalid-form-action button:hover {
-  background: linear-gradient(20deg, var(--theme-error-first-color) 45%, var(--theme-error-second-color));
-  border: 1px solid var(--theme-error-first-color);
+  background: linear-gradient(20deg, var(--theme-three-first-color) 45%, var(--theme-three-second-color));
+  border: 1px solid var(--theme-three-first-color);
 }

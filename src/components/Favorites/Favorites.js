@@ -6,8 +6,10 @@ import ThemeContext from "../../context/theme-context";
 import classes from './Favorites.module.css';
 
 const Favorites= ({ contacts }) => {
-  const themeCtx = useContext(ThemeContext);
+  const { isLightTheme } = useContext(ThemeContext);
   const [isEditing, setIsEditing] = useState(false);
+
+  const themeMode = isLightTheme ? 'light' : 'dark';
 
   const editStatusHandler = () => {
     setIsEditing(isEditing => !isEditing);
@@ -15,23 +17,13 @@ const Favorites= ({ contacts }) => {
 
   return (
     <motion.div
-      className={
-        themeCtx.isLightTheme
-        ? classes["favorites-container__light"]
-        : classes["favorites-container__dark"]
-      }
+      className={classes[`favorites-container__${themeMode}`]}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div 
-        className={
-          themeCtx.isLightTheme
-          ? classes["favorites-header__light"]
-          : classes["favorites-header__dark"]
-        }
-      >
+      <div className={classes[`favorites-header__${themeMode}`]}>
         <h2>Favorites</h2>
         <motion.button 
           whileHover={{ scale: 1.05 }}

@@ -16,14 +16,21 @@
 }
 
 .error-container__dark {
-  background-color: var(--theme-two-first-color);
+  background-color: var(--theme-two-second-color);
 }
 
 .error-container__light h1,
 .error-container__dark h1 {
   font-size: 4.8rem;
-  color: var(--theme-one-third-color);
   margin-bottom: 20px;
+}
+
+.error-container__light h1 {
+  color: var(--theme-one-third-color);
+}
+
+.error-container__dark h1 {
+  color: var(--theme-one-sixth-color);
 }
 
 .error-container__light h2,
@@ -40,7 +47,7 @@
 
 .error-container__dark h2,
 .error-container__dark p {
-  color: var(--theme-two-sixth-color);
+  color: var(--theme-one-second-color);
 }
 
 .error-container__light h2,

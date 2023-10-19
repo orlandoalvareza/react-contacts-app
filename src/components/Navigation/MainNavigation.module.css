@@ -32,7 +32,11 @@
 }
 
 .app-name__dark {
-  color: var(--theme-two-third-color)
+  color: var(--theme-two-third-color);
+}
+
+.app-name__dark:hover {
+  color: var(--theme-one-second-color)
 }
 
 .list {
@@ -52,4 +56,26 @@
 .list a.active {
   color: var(--theme-one-fifth-color);
   text-decoration: underline;
+}
+
+.theme-button {
+  background: transparent;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.sun-icon,
+.moon-icon {
+  font-size: 20px;
+}
+
+.sun-icon {
+  color: var(--theme-one-fifth-color);
+}
+
+.moon-icon {
+  color: var(--theme-two-sixth-color);
 }

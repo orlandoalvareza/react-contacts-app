@@ -16,7 +16,7 @@
 }
 
 .hero-container__dark {
-  background: linear-gradient(var(--theme-two-fourth-color), var(--theme-two-first-color));
+  background: linear-gradient(var(--theme-two-fourth-color), var(--theme-two-seventh-color));
 }
 
 .hero-content__light,

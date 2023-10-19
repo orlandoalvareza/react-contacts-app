@@ -1,6 +1,7 @@
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
 import ReactDOM from 'react-dom';
 
+import ThemeContext from '../../context/theme-context';
 import classes from './Modal.module.css';
 
 const BackDrop = () => {
@@ -10,10 +11,19 @@ const BackDrop = () => {
 const portalElement = document.getElementById('overlays');
 
 const Modal = (props) => {
+  const { isLightTheme } = useContext(ThemeContext);
+
+  const themeMode = isLightTheme ? 'light' : 'dark';
+
   return (
     <Fragment>
       {ReactDOM.createPortal(<BackDrop/>, portalElement)}
-      {ReactDOM.createPortal(<div className={classes.modal}>{props.children}</div>, portalElement)}
+      {ReactDOM.createPortal(
+        <div className={classes[`modal__${themeMode}`]}>
+          {props.children}
+        </div>, 
+        portalElement
+      )}
     </Fragment>
   )
 }

@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Form, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import ThemeContext from '../../context/theme-context';
 import Modal from '../UI/Modal';
 import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
 import classes from './ContactForm.module.css';
@@ -12,7 +13,10 @@ const ContactForm = ({method, contact}) => {
   const [nameIsValid, setNameIsValid] = useState(false);
   const [phoneIsValid, setPhoneIsValid] = useState(false);
   const [isSendingInvalidForm, setIsSendingInvalidForm] = useState(false);
+  const { isLightTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
+
+  const themeMode = isLightTheme ? 'light' : 'dark';
 
   const cancelHandler = () => {
     navigate('../');
@@ -64,29 +68,29 @@ const ContactForm = ({method, contact}) => {
 
   const modalContent = (
     <Modal>
-      <div className={classes['invalid-form-information']}>
+      <div className={classes[`invalid-form-information__${themeMode}`]}>
         <h2>Form error</h2>
         <p>{invalidFormMessage}</p>
       </div>
-      <div className={classes['invalid-form-action']}>
+      <div className={classes[`invalid-form-action__${themeMode}`]}>
         <button onClick={closeModalHandler}>Ok</button>
       </div>
     </Modal>
   );
 
   return (
-    <Form method={method} className={classes["form"]}>
+    <Form method={method} className={classes[`form__${themeMode}`]}>
       <div 
         className={
           isAddingContactPhoto 
             ? classes["contact-photo-container"] 
-            : classes["contact-icon-container"]
+            : classes[`contact-icon-container__${themeMode}`]
         }
       >
         <FontAwesomeIcon 
           onClick={addPhotoHandler} 
           icon={faCircleUser} 
-          className={classes["contact-icon"]}
+          className={classes[`contact-icon__${themeMode}`]}
         />
         {isAddingContactPhoto && (
           <div className={classes["contact-photo-container__input"]}>
@@ -163,7 +167,7 @@ const ContactForm = ({method, contact}) => {
           <label htmlFor='favorite'>Add to favorites</label>
         </div>
       </div>  
-      <div className={classes.actions}>
+      <div className={classes[`actions__${themeMode}`]}>
         <button onClick={cancelHandler} type='button'>Cancel</button>
         {canSubmit && (
           <motion.button 

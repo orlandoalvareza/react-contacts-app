@@ -17,7 +17,7 @@ const Hero = () => {
     [1, 0.8, 0.8, 0.6, 0]
   );
 
-  const themeMode = isLightTheme ? 'light' : 'dark'
+  const themeMode = isLightTheme ? 'light' : 'dark';
 
   return (
     <motion.div 

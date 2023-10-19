@@ -56,7 +56,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <ThemeContextProvider>
-      <RouterProvider router={router}/>
+        <RouterProvider router={router}/>
     </ThemeContextProvider>
   )
 }

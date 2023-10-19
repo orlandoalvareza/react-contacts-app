@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import { ThemeContextProvider } from './context/theme-context';
 import RootLayout from './pages/Root';
 import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
@@ -43,13 +44,21 @@ const router = createBrowserRouter([
           },
         ]
       },
-      { path: '/favorites', element: <FavoritesContactsPage/>, loader: fetchContactsData },
+      { 
+        path: '/favorites', 
+        element: <FavoritesContactsPage/>, 
+        loader: fetchContactsData 
+      },
     ]
   }
 ]);
 
 function App() {
-  return <RouterProvider router={router}/>
+  return (
+    <ThemeContextProvider>
+      <RouterProvider router={router}/>
+    </ThemeContextProvider>
+  )
 }
 
 export default App;

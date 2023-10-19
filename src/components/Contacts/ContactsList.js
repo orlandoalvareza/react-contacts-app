@@ -28,7 +28,7 @@ const ContactsList = ({ contacts }) => {
   return (
     <ul className={classes["contact-list"]}>
       {contacts.map(contact => {
-        animationDelay += 0.08;
+        animationDelay += 0.05;
         return (
           <motion.li 
             className={classes["list-item"]} 

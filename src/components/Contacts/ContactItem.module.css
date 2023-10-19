@@ -1,15 +1,23 @@
 @import url('../../base.css');
 
-.contact-container {
+.contact-container__light,
+.contact-container__dark {
   display: flex;
   flex-direction: column;
-  background-color: var(--theme-one-first-color);
   width: 620px;
   height: 520px;
   margin-top: 70px;
   padding: 15px;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.contact-container__light {
+  background-color: var(--theme-one-first-color);
+}
+
+.contact-container__dark {
+  background-color: var(--theme-two-first-color);
 }
 
 .contact-actions {
@@ -25,20 +33,32 @@
   width: 128px;
 }
 
-.contact-actions button, 
-.contact-actions a,
-.contact-links a {
+.contact-container__light button, 
+.contact-container__light a {
   color: var(--theme-one-fourth-color);
   background-color: var(--theme-one-second-color);
   border: 1.5px solid var(--theme-one-fourth-color);  
   border-radius: 6px;
 }
 
-.contact-actions button:hover, 
-.contact-actions a:hover,
-.contact-links a:hover {
+.contact-container__dark button, 
+.contact-container__dark a {
+  color: var(--theme-one-sixth-color);
+  background-color: var(--theme-two-second-color);
+  border: none;  
+  border-radius: 6px;
+}
+
+.contact-container__light button:hover, 
+.contact-container__light a:hover {
   color: var(--theme-one-third-color);
   border: 1.5px solid var(--theme-one-third-color);
+}
+
+.contact-container__dark button:hover, 
+.contact-container__dark a:hover {
+  color: var(--theme-two-sixth-color);
+  border: 0.5px solid var(--theme-two-sixth-color);
 }
 
 .contact-actions button, 
@@ -47,11 +67,19 @@
   height: 100%;
 }
 
-.contact-actions a {
-  background-color: var(--theme-one-second-color);
+.contact-container__light a,
+.contact-container__dark a {
   width: 60px;
   text-align: center;
   padding-top: 4px;
+}
+
+.contact-container__light a {
+  background-color: var(--theme-one-second-color);
+}
+
+.contact-container__dark a {
+  background-color: var(--theme-two-second-color);
 }
 
 .contact-actions button {
@@ -74,9 +102,17 @@
   justify-content: center;
 }
 
-.contact-icon {
+.contact-icon__light,
+.contact-icon__dark {
   font-size: 90px;
+}
+
+.contact-icon__light {
   color: var(--theme-one-fourth-color);
+}
+
+.contact-icon__dark {
+  color: var(--theme-two-sixth-color);
 }
 
 .contact-image {
@@ -86,15 +122,35 @@
   object-fit: cover;
 }
 
-.basic-information {
-  background: var(--theme-one-seventh-color);
+.basic-information__light,
+.basic-information__dark {
   text-align: center;
   padding: 5px 0;
 }
 
-.basic-information h2 {
+.basic-information__light {
+  background: var(--theme-one-seventh-color);
+}
+
+.basic-information__dark {
+  background: var(--theme-two-seventh-color);
+}
+
+.basic-information__light h2,
+.basic-information__dark h2 {
   font-size: 2rem;
+}
+
+.basic-information__light h2 {
   color: var(--theme-one-fourth-color);
+}
+
+.basic-information__dark h2 {
+  color: var(--theme-two-sixth-color);
+}
+
+.basic-information__dark span {
+  color: var(--theme-one-second-color);
 }
 
 .contact-links {
@@ -117,22 +173,44 @@
   cursor: not-allowed;
 }
 
-.contact-information {
+.contact-information__light,
+.contact-information__dark {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  background: var(--theme-one-seventh-color);
   padding: 10px;
 }
 
-.contact-info-section span,
-.extra-info-section span {
+.contact-information__light {
+  background: var(--theme-one-seventh-color);
+}
+
+.contact-information__dark {
+  background: var(--theme-two-seventh-color);
+}
+
+.contact-information__light span,
+.contact-information__dark span {
   font-size: 18px;
+}
+
+.contact-information__light span {
   color: var(--theme-one-fourth-color);
+}
+
+.contact-information__dark span,
+.extra-info-section__dark span {
+  color: var(--theme-two-sixth-color);
 }
 
 .contact-info-section p {
   margin-top: 5px;
+}
+
+.contact-information__dark p,
+.extra-info-section__dark p,
+.extra-info-section__dark address {
+  color: var(--theme-one-second-color);
 }
 
 .extra-information {
@@ -140,7 +218,8 @@
   justify-content: space-between;
 }
 
-.extra-info-section {
+.extra-info-section__light,
+.extra-info-section__dark {
   display: flex;
   flex-direction: column;
   gap: 5px;

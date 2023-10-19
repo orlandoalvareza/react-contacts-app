@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useLocation, useSubmit } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import ThemeContext from '../../context/theme-context';
 import Modal from '../UI/Modal';
 import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
 import { 
@@ -16,12 +17,15 @@ import {
 import classes from './ContactItem.module.css';
 
 const ContactItem = ({ contact }) => {
+  const { isLightTheme } = useContext(ThemeContext);
   const [isDeleting, setIsDeleting] = useState(false);
   const submit = useSubmit();
-  
+
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const from = searchParams.get('from');
+
+  const themeMode = isLightTheme ? 'light' : 'dark';
 
   const formattedDate = new Date(contact.birthday).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -56,7 +60,7 @@ const ContactItem = ({ contact }) => {
   )
 
   return (
-    <div className={classes['contact-container']}>
+    <div className={classes[`contact-container__${themeMode}`]}>
       <div className={classes["contact-actions"]}>
         <Link to={from === 'contacts' ? '/contacts' : '/favorites'}>
           <FontAwesomeIcon 
@@ -78,7 +82,7 @@ const ContactItem = ({ contact }) => {
           {!contact.photo && (
             <FontAwesomeIcon 
               icon={faCircleUser} 
-              className={classes["contact-icon"]}
+              className={classes[`contact-icon__${themeMode}`]}
             />
           )}
           {contact.photo && (
@@ -89,7 +93,7 @@ const ContactItem = ({ contact }) => {
             />
           )}
         </div>
-        <div className={classes["basic-information"]}>
+        <div className={classes[`basic-information__${themeMode}`]}>
           <h2>{contact.name}</h2>
           <span>{contact.company}</span>
         </div>
@@ -114,22 +118,22 @@ const ContactItem = ({ contact }) => {
             <FontAwesomeIcon icon={faEnvelope}/> 
           </a>
         </div>
-        <div className={classes["contact-information"]}>
-          <div className={classes["contact-info-section"]}>
+        <div className={classes[`contact-information__${themeMode}`]}>
+          <div>
             <span>Phone number</span>
             <p>{contact.phone}</p>
           </div>
-          <div className={classes["contact-info-section"]}>
+          <div>
             <span>{contact.email && 'Email'}</span>
             <p>{contact.email}</p>
           </div>
         </div>
         <div className={classes["extra-information"]}>
-          <div className={classes["extra-info-section"]}>
+          <div className={classes[`extra-info-section__${themeMode}`]}>
             <span>{contact.address && 'Address'}</span>
             <address>{contact.address}</address>
           </div>
-          <div className={classes["extra-info-section"]}>
+          <div className={classes[`extra-info-section__${themeMode}`]}>
             <span>{contact.birthday && 'Birthday'}</span>
             <p>{contact.birthday && formattedDate}</p>
           </div>

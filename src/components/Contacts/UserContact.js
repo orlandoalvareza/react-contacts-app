@@ -1,10 +1,16 @@
+import { useContext } from 'react';
 
+import ThemeContext from '../../context/theme-context';
 import image from '../../images/vicky-hladynets-uyaTT9u6AvI-unsplash.jpg';
 import classes from './UserContact.module.css';
 
 const UserContact = () => {
+  const { isLightTheme } = useContext(ThemeContext);
+
+  const themeMode = isLightTheme ? 'light' : 'dark';
+
   return (
-    <div className={classes["profile-contact"]}>
+    <div className={classes[`profile-contact__${themeMode}`]}>
       <img src={image} alt='Profile'/>
       <div className={classes["profile-contact__info"]}>
         <h2>Sam Williams</h2>

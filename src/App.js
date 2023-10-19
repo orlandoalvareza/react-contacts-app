@@ -1,6 +1,7 @@
+import { useContext } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { ThemeContextProvider } from './context/theme-context';
+import ThemeContext from './context/theme-context';
 import RootLayout from './pages/Root';
 import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
@@ -54,11 +55,15 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const { isLightTheme } = useContext(ThemeContext);
+  
+  const themeMode = isLightTheme ? 'light' : 'dark';
+
   return (
-    <ThemeContextProvider>
-        <RouterProvider router={router}/>
-    </ThemeContextProvider>
-  )
+    <div className={`background-${themeMode}`}>
+      <RouterProvider router={router} />
+    </div>
+  );
 }
 
 export default App;

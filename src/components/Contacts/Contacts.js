@@ -1,16 +1,20 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import UserContact from './UserContact';
 import ContactsList from './ContactsList';
+import ThemeContext from '../../context/theme-context';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import classes from './Contacts.module.css';
 
 const Contacts = ({ contacts }) => {
   const [contactsData, setContactsData] = useState(contacts);
   const [searchByName, setSearchByName] = useState('');
+  const { isLightTheme } = useContext(ThemeContext);
+
+  const themeMode = isLightTheme ? 'light' : 'dark';
   
   const searchHandler = (event) => {
     const enteredName = event.target.value.toLowerCase();
@@ -25,9 +29,9 @@ const Contacts = ({ contacts }) => {
   }
 
   const contactNoFound = 
-    <div className={classes['contact-no-found']}>
+    <div className={classes[`contact-no-found__${themeMode}`]}>
       <FontAwesomeIcon 
-        className={classes["search-icon"]}
+        className={classes[`search-icon__${themeMode}`]}
         icon={faMagnifyingGlass}
       />
       <h2>{`No results for "${searchByName}"`}</h2>
@@ -36,15 +40,15 @@ const Contacts = ({ contacts }) => {
 
   return (
     <motion.div 
-      className={classes["contacts-container"]}
+      className={classes[`contacts-container__${themeMode}`]}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className={classes["contacts-header"]}>
+      <div className={classes[`contacts-header__${themeMode}`]}>
         <h2>Contacts</h2>
-        <div className={classes["contacts-header__actions"]}>
+        <div className={classes[`contacts-header__actions__${themeMode}`]}>
           <input 
             onChange={searchHandler} 
             type='search' 

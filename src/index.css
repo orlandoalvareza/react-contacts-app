@@ -18,8 +18,13 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: var(--theme-one-second-color); */
-  background: var(--theme-two-second-color);
   height: 100vh;
 }
 
+.background-light {
+  background: var(--theme-one-second-color);
+}
+
+.background-dark {
+  background: var(--theme-two-second-color);
+}

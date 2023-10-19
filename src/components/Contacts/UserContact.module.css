@@ -1,14 +1,28 @@
 @import url('../../base.css');
 
-.profile-contact {
+.profile-contact__light,
+.profile-contact__dark {
   display: flex;
-  color: var(--theme-one-fourth-color);
-  background: var(--theme-one-seventh-color);
   margin-bottom: 25px;
   padding: 5px;
 }
 
-.profile-contact img {
+.profile-contact__light {
+  color: var(--theme-one-fourth-color);
+  background: var(--theme-one-seventh-color);
+}
+
+.profile-contact__dark {
+  color: var(--theme-one-second-color);
+  background: var(--theme-two-seventh-color);
+}
+
+.profile-contact__dark h2 {
+  color: var(--theme-two-sixth-color)
+}
+
+.profile-contact__light img,
+.profile-contact__dark img {
   width: 120px;
   height: 120px;
   object-fit: cover;

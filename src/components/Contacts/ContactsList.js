@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import ThemeContext from '../../context/theme-context';
 import { favoriteMarked } from '../../util/http';
 import { faStar as regularStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
@@ -10,6 +11,9 @@ import classes from './ContactsList.module.css';
 
 const ContactsList = ({ contacts }) => {
   const setContactsList = useState(contacts)[1];
+  const { isLightTheme } = useContext(ThemeContext);
+
+  const themeMode = isLightTheme ? 'light' : 'dark';
 
   const addFavoriteContactHandler = async (id) => {
     const selectedContact = contacts.filter(contact => contact.id === id);
@@ -31,7 +35,7 @@ const ContactsList = ({ contacts }) => {
         animationDelay += 0.05;
         return (
           <motion.li 
-            className={classes["list-item"]} 
+            className={classes[`list-item__${themeMode}`]} 
             key={contact.id}
             initial={{ opacity: 0, x: 15 }}
             animate={{ opacity: 1, x: 0 }}
@@ -56,7 +60,7 @@ const ContactsList = ({ contacts }) => {
           </motion.li>
         )
       })}
-      <li className={classes['total-contacts']}>
+      <li className={classes[`total-contacts__${themeMode}`]}>
         {`You have ${contacts.length} contacts.`}
       </li>
     </ul>

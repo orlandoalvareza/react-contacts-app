@@ -1,11 +1,11 @@
 @import url('../../base.css');
 
-.header {
+.header__light,
+.header__dark {
   position: fixed;
   top: 0;
   display: flex;
   justify-content: space-between;
-  background: var(--theme-one-fourth-color);
   height: 80px;
   width: 100%;
   padding: 20px;
@@ -13,10 +13,26 @@
   box-shadow: rgba(0, 0, 0, 0.45) 0px 20px 20px -20px;
 }
 
-.app-name {
+.header__light {
+  background: var(--theme-one-fourth-color);
+}
+
+.header__dark {
+  background: var(--theme-two-fourth-color);
+}
+
+.app-name__light,
+.app-name__dark {
   font-size: 2rem;
   font-weight: 600;
+}
+
+.app-name__light {
   color: var(--theme-one-first-color);
+}
+
+.app-name__dark {
+  color: var(--theme-two-third-color)
 }
 
 .list {

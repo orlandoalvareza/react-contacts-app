@@ -1,28 +1,22 @@
 import React, { useState } from "react";
 
 const ThemeContext = React.createContext({
-  isDarkTheme: false,
-  onDarkTheme: () => {},
-  onLightTheme: () => {},
+  isLightTheme: true,
+  onChangeTheme: () => {}
 });
 
 export const ThemeContextProvider = (props) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isLightTheme, setIsLightTheme] = useState(true);
 
-  const darkThemeHandler = () => {
-    setIsDarkTheme(true);
-  }
-
-  const lightThemeHandler = () => {
-    setIsDarkTheme(false);
+  const changeThemeHandler = () => {
+    setIsLightTheme(isLightTheme => !isLightTheme);
   }
 
   return (
     <ThemeContext.Provider
       value={{
-        isDarkTheme: isDarkTheme,
-        onDarkTheme: darkThemeHandler,
-        onLightTheme: lightThemeHandler
+        isLightTheme: isLightTheme,
+        onChangeTheme: changeThemeHandler,
       }}
     >
       {props.children}

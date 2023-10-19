@@ -1,9 +1,16 @@
+import { useContext } from 'react';
+
+import ThemeContext from '../../context/theme-context';
 import classes from './Description.module.css';
 
 const Description = () => {
+  const { isLightTheme } = useContext(ThemeContext);
+
+  const themeMode = isLightTheme ? 'light' : 'dark';
+
   return (
-    <div className={classes["description-container"]}>
-      <div className={classes["introduction-container"]}>
+    <div className={classes[`description-container__${themeMode}`]}>
+      <div className={classes[`introduction-container__${themeMode}`]}>
         <h2>Why choose TouchBase?</h2>
         <p>
           TouchBase is the perfect tool to help you organize
@@ -12,10 +19,10 @@ const Description = () => {
           to keep your contacts in order, our app has you covered.
         </p>
       </div>
-      <div className={classes["benefits"]}>
+      <div>
         <h2>Benefits</h2>
-        <div className={classes["benefits-container"]}>
-          <div className={classes["benefits-section"]}>
+        <div className={classes[`benefits-container__${themeMode}`]}>
+          <div className={classes[`benefits-section__${themeMode}`]}>
             <h3>Simplified Contact Management</h3>
             <p>
               Say goodbye to the chaos of disorganized contacts.
@@ -23,7 +30,7 @@ const Description = () => {
               easy to find, edit, and stay connected with your contacts.
             </p>
           </div>
-          <div className={classes["benefits-section"]}>
+          <div className={classes[`benefits-section__${themeMode}`]}>
             <h3>Instant Favorites Access</h3>
             <p>
               With TouchBase, you can mark your favorite contacts with a
@@ -31,7 +38,7 @@ const Description = () => {
               saving you time and hassle.
             </p>
           </div>
-          <div className={classes["benefits-section"]}>
+          <div className={classes[`benefits-section__${themeMode}`]}>
             <h3>Accessibility</h3>
             <p>
               Access your contacts from anywhere, anytime, whether you're on
@@ -39,7 +46,7 @@ const Description = () => {
               up to date.
             </p>
           </div>
-          <div className={classes["benefits-section"]}>
+          <div className={classes[`benefits-section__${themeMode}`]}>
             <h3>Secure and Private</h3>
             <p>
               Rest easy knowing your contact data is safe and private with
@@ -52,7 +59,7 @@ const Description = () => {
       <div className={classes["testimonials"]}>
         <h2>Testimonials</h2>
         <div>
-          <ul className={classes["testimonials-container"]}>
+          <ul className={classes[`testimonials-container__${themeMode}`]}>
             <li>
               <h4>New York, NY</h4>
               "I used to dread managing my contacts, but with TouchBase,

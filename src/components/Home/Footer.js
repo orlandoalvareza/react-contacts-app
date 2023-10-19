@@ -1,12 +1,18 @@
+import { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import ThemeContext from '../../context/theme-context';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import classes from './Footer.module.css';
 
 const Footer = () => {
+  const { isLightTheme } = useContext(ThemeContext);
+
+  const themeMode = isLightTheme ? 'light' : 'dark';
+
   return (
-    <footer className={classes["footer"]}>
+    <footer className={classes[`footer__${themeMode}`]}>
       <div className={classes["footer-container"]}>
         <div className={classes["footer-section"]}>
           <h2>Contact Us</h2>

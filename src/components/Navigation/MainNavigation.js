@@ -5,50 +5,42 @@ import ThemeContext from '../../context/theme-context';
 import classes from './MainNavigation.module.css';
 
 const MainNavigation = () => {
-  const themeCtx = useContext(ThemeContext);
+  const { isLightTheme, onChangeTheme } = useContext(ThemeContext);
 
   const changeThemeHandler = () => {
-    if (themeCtx.isDarkTheme) {
-      themeCtx.onLightTheme();
-    } else {
-      themeCtx.onDarkTheme();
-    }
+    onChangeTheme();
   }
 
+  const themeMode = isLightTheme ? 'light' : 'dark';
+
+  const linkclass = ({isActive}) => isActive ? classes["active"] : undefined;
+
   return (
-    <header className={classes.header}>
-      <Link to='/' className={classes["app-name"]}>TouchBase</Link>
+    <header className={classes[`header__${themeMode}`]}>
+      <Link to='/' className={classes[`app-name__${themeMode}`]}>
+        TouchBase
+      </Link>
       <nav>
         <ul className={classes.list}>
           <li>
-            <NavLink 
-              to='/' 
-              className={({isActive}) => isActive ? classes.active : undefined}
-              end
-            >
+            <NavLink to='/' className={linkclass} end >
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink 
-              to='/contacts' 
-              className={({isActive}) => isActive ? classes.active : undefined}
-              end
-            >
+            <NavLink to='/contacts' className={linkclass} end >
               Contacts
             </NavLink>
           </li>
           <li>
-            <NavLink 
-              to='/favorites' 
-              className={({isActive}) => isActive ? classes.active : undefined}
-              end
-            >
+            <NavLink to='/favorites' className={linkclass} end >
               Favorites
             </NavLink>
           </li>
           <li>
-            <button onClick={changeThemeHandler}>{themeCtx.isDarkTheme ? 'Dark' : 'Light'}</button>
+            <button onClick={changeThemeHandler}>
+              {themeMode}
+            </button>
           </li>
         </ul>
       </nav>

@@ -7,6 +7,12 @@
   --theme-one-sixth-color: #9BA4B4;
   --theme-one-seventh-color: rgba(219, 226, 239, 0.4);
 
+  --theme-two-first-color: #1A1A1A; 
+  --theme-two-second-color: #393E46;
+  --theme-two-third-color: #4277B6; 
+  --theme-two-fourth-color: hsl(208, 82%, 7%); 
+  --theme-two-sixth-color: #92B9E0;
+
   --theme-error-first-color: #921224;
   --theme-error-second-color: #FF7777;
 } 

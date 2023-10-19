@@ -1,7 +1,7 @@
 @import url('../../base.css');
 
-.favorites-container {
-  background: var(--theme-one-first-color);
+.favorites-container__light,
+.favorites-container__dark {
   width: 1050px;
   height: 620px;
   padding: 15px;
@@ -9,19 +9,30 @@
   border-radius: 6px;
 }
 
-.favorites-header {
+.favorites-container__light {
+  background: var(--theme-one-first-color);
+}
+
+.favorites-container__dark {
+  background: var(--theme-dark-fourth-color);
+}
+
+.favorites-header__light,
+.favorites-header__dark {
   display: flex;
   justify-content: space-between;
   padding: 5px 0;
   margin-bottom: 20px;
 }
 
-.favorites-header h2 {
+.favorites-header__light h2,
+.favorites-header__dark h2 {
   font-size: 1.8rem;
   color: var(--theme-one-fourth-color);
 }
 
-.favorites-header button {
+.favorites-header__light button,
+.favorites-header__dark button {
   font-size: 17px;
   color: var(--theme-one-first-color);
   background-color: var(--theme-one-fourth-color);
@@ -31,7 +42,8 @@
   border: none;
 }
 
-.favorites-header button:hover {
+.favorites-header__light button:hover,
+.favorites-header__dark button:hover {
   background: linear-gradient(40deg, var(--theme-one-fourth-color) 35%, var(--theme-one-third-color));
   cursor: pointer;
 }

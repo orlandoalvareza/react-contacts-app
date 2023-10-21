@@ -1,14 +1,20 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import ThemeContext from '../../context/theme-context';
+import DropdownMenu from './DropdownMenu';
 import { faSun, faMoon } from '@fortawesome/free-regular-svg-icons';
 import classes from './MainNavigation.module.css';
 
 const MainNavigation = () => {
   const { isLightTheme, onChangeTheme } = useContext(ThemeContext);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const dropdownMenuHandler = () => {
+    setIsMenuOpen(isMenuOpen => !isMenuOpen);
+  }
 
   const changeThemeHandler = () => {
     onChangeTheme();
@@ -23,7 +29,9 @@ const MainNavigation = () => {
       <Link to='/' className={classes[`app-name__${themeMode}`]}>
         TouchBase
       </Link>
-      <nav>
+      {isMenuOpen && <DropdownMenu />}
+      <button onClick={dropdownMenuHandler}>{isMenuOpen ? 'Open Menu' : 'Close Menu'}</button>
+      {/* <nav>
         <ul className={classes.list}>
           <li>
             <NavLink to='/' className={linkclass} end >
@@ -63,7 +71,7 @@ const MainNavigation = () => {
             </motion.button>
           </li>
         </ul>
-      </nav>
+      </nav> */}
     </header>
   )
 }

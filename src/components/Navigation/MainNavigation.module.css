@@ -83,7 +83,6 @@
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .header__light,
   .header__dark {
-    background: violet;
     height: 70px;
   }
 
@@ -107,6 +106,5 @@
   .header__light,
   .header__dark {
     height: 70px;
-    background: red;
   }
 }

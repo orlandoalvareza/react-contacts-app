@@ -23,7 +23,7 @@ const Description = () => {
         <h2>Benefits</h2>
         <div className={classes[`benefits-container__${themeMode}`]}>
           <div className={classes[`benefits-section__${themeMode}`]}>
-            <h3>Simplified Contact Management</h3>
+            <h3>Contact Management</h3>
             <p>
               Say goodbye to the chaos of disorganized contacts.
               TouchBase simplifies contact management, making it

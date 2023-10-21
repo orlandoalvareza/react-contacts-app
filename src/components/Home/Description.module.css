@@ -156,5 +156,42 @@
 
 .testimonials-container__light span,
 .testimonials-container__dark span {
+  margin-top: 5px;
   text-align: right;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .description-container__light h2,
+  .description-container__dark h2 {
+    font-size: 27px;
+  }
+
+  .introduction-container__light,
+  .introduction-container__dark {
+    width: 900px;
+  }
+  
+  .introduction-container__light p,
+  .introduction-container__dark p {
+    font-size: 1.2rem;
+  }
+
+  .benefits-section__light,
+  .benefits-section__dark {
+    width: 220px;
+  }
+
+  .benefits-section__light p,
+  .benefits-section__dark p {
+    font-size: 1.05rem;
+  }
+
+  .testimonials {
+    width: 900px;
+  }
+
+  .testimonials-container__light span,
+  .testimonials-container__dark span {
+    font-size: 16px;
+  }
 }

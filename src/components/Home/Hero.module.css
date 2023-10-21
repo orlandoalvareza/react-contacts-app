@@ -80,3 +80,22 @@
   background: linear-gradient(40deg, var(--theme-two-fourth-color) 45%, var(--theme-two-third-color));
   border: 1px solid var(--theme-one-sixth-color);
 }
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .hero-content__light h1,
+  .hero-content__dark h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+
+  .hero-content__light h3,
+  .hero-content__dark h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-content__light a,
+  .hero-content__dark a {
+    font-size: 18px;
+  }
+}

@@ -118,3 +118,10 @@
 .search-icon__dark {
   color: var(--theme-two-sixth-color);
 }
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .contacts-container__light,
+  .contacts-container__dark {
+    width: 950px;
+  }
+}

@@ -119,6 +119,47 @@
   color: var(--theme-two-sixth-color);
 }
 
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .contacts-container__light,
+  .contacts-container__dark {
+    width: 730px;
+    padding: 10px 15px;
+  }
+
+  .contacts-header__light h2,
+  .contacts-header__dark h2 {
+    font-size: 1.7rem;
+  }
+
+  .contacts-header__actions__light,
+  .contacts-header__actions__dark {
+    padding: 8px 0 0;
+  }
+
+  .contacts-header__actions__light input,
+  .contacts-header__actions__dark input {
+    font-size: 16px;
+    width: 320px;
+    height: 28px;
+  }
+
+  .contacts-header__actions__light a,
+  .contacts-header__actions__dark a {
+    font-size: 1rem;
+    padding: 6px 8px;
+  }
+
+  .search-icon__light,
+  .search-icon__dark {
+    font-size: 38px;
+  }
+
+  .contact-no-found__light h2,
+  .contact-no-found__dark h2 {
+    font-size: 20px;
+  }
+}
+
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
   .contacts-container__light,
   .contacts-container__dark {

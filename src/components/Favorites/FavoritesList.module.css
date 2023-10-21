@@ -12,7 +12,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
   height: 55px;
   padding: 10px;
   margin-bottom: 10px;
@@ -98,4 +97,41 @@
 
 .empty-list__dark {
   color: var(--theme-one-second-color);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  
+  .list-item__light,
+  .list-item__dark {
+    height: 50px;
+  }
+  
+  .contact-info-container {
+    gap: 3px;
+  }
+
+  .contact-info-container img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .contact-icon__light,
+  .contact-icon__dark {
+    font-size: 42px;
+  }
+  
+  .list-item__light a,
+  .list-item__dark a {
+    font-size: 18px;
+  }
+
+  .x-mark-icon__light,
+  .x-mark-icon__dark {
+    font-size: 22px;
+  }
+  
+  .empty-list__light,
+  .empty-list__dark {
+    font-size: 17px;
+  }
 }

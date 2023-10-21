@@ -80,9 +80,33 @@
   color: var(--theme-two-sixth-color);
 }
 
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .header__light,
+  .header__dark {
+    background: violet;
+    height: 70px;
+  }
+
+  .app-name__light,
+  .app-name__dark {
+    font-size: 1.8rem;
+  }
+
+  .list {
+    font-size: 18px;
+    gap: 15px;
+  }
+
+  .sun-icon,
+  .moon-icon {
+    font-size: 18px;
+  }
+}
+
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
   .header__light,
   .header__dark {
     height: 70px;
+    background: red;
   }
 }

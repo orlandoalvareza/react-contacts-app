@@ -80,3 +80,27 @@
 ::-webkit-scrollbar-thumb {
   background: var(--theme-one-sixth-color);
 }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {  
+  .contact-list {
+    height: 350px;
+  }
+  
+  .list-item__light,
+  .list-item__dark {
+    height: 33px;
+  }
+  
+  .list-item__light a,
+  .list-item__dark a {
+    font-size: 1rem; 
+  }
+
+  .favorite-icon {
+    font-size: 15px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+}

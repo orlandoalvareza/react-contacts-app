@@ -67,6 +67,26 @@
   border: 1px solid var(--theme-one-sixth-color);
 }
 
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .favorites-container__light,
+  .favorites-container__dark {
+    width: 730px;
+    padding: 10px 15px;
+  }
+
+  .favorites-header__light h2,
+  .favorites-header__dark h2 {
+    font-size: 1.7rem;
+  }
+
+  .favorites-header__light button,
+  .favorites-header__dark button {
+    font-size: 16px;
+    height: 25px;
+    margin-top: 4px;
+  }
+}
+
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
   .favorites-container__light,
   .favorites-container__dark {

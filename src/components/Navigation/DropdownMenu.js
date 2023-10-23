@@ -1,35 +1,36 @@
 // import { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // import ThemeContext from '../../context/theme-context';
+// import MenuContext from '../../context/dropdown-menu-context';
 import { faHouse, faUsers, faStar } from '@fortawesome/free-solid-svg-icons';
 import classes from './DropdownMenu.module.css';
 
 const DropdownMenu = () => {
   // const { isLightTheme } = useContext(ThemeContext);
-
+  // const { onDropdownMenu } = useContext(MenuContext);
   // const themeMode = isLightTheme ? 'light' : 'dark';
 
   return (
     <ul className={classes.list}>
       <li>
         <FontAwesomeIcon icon={faHouse} className={classes["home-icon"]}/>
-        <NavLink to='/' end >
+        <Link href='/' end >
           Home
-        </NavLink>
+        </Link>
       </li>
       <li>
         <FontAwesomeIcon icon={faUsers} className={classes["contacts-icon"]}/>
-        <NavLink to='/contacts' end >
+        <Link to='/contacts' end >
           Contacts
-        </NavLink>
+        </Link>
       </li>
       <li>
         <FontAwesomeIcon icon={faStar} className={classes["favorites-icon"]}/>
-        <NavLink to='/favorites' end >
+        <Link to='/favorites' end >
           Favorites
-        </NavLink>
+        </Link>
       </li>
     </ul>
   )

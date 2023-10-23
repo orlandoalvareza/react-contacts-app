@@ -81,6 +81,35 @@
   background: var(--theme-one-sixth-color);
 }
 
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .contact-list {
+    height: 55vh;
+  }
+  
+  .list-item__light,
+  .list-item__dark {
+    height: 32px;
+  }
+  
+  .list-item__light a,
+  .list-item__dark a {
+    font-size: 17px; 
+  }
+
+  .favorite-icon {
+    font-size: 14px;
+  }
+
+  .total-contacts__light,
+  .total-contacts__dark {
+    font-size: 14px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {  
   .contact-list {
     height: 350px;

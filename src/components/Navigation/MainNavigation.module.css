@@ -6,6 +6,7 @@
   top: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 80px;
   width: 100%;
   padding: 20px;
@@ -19,6 +20,13 @@
 
 .header__dark {
   background: var(--theme-two-fourth-color);
+}
+
+.header__light > div,
+.header__dark > div {
+  display: flex;
+  align-items: center;
+  gap: 18px
 }
 
 .app-name__light,
@@ -81,13 +89,25 @@
 }
 
 .navigation-menu {
+  background: transparent;
+  width: 25px;
+  height: 30px;
+  border: none;
+  border-radius: 6px;
   z-index: 25;
+}
+
+.close-menu-icon, 
+.open-menu-icon {
+  font-size: 20px;
+  color: var(--theme-one-first-color);
 }
 
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .header__light,
   .header__dark {
-    background: sandybrown;
+    height: 60px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   }
 }
 

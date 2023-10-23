@@ -75,6 +75,37 @@
   color: var(--theme-one-fifth-color);
 }
 
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .footer__light,
+  .footer__dark {
+    padding: 15px 0 12px;
+  }
+  
+  .footer-container {
+    justify-content: space-around;
+  }
+  
+  .footer-section h2 {
+    font-size: 1.4rem;
+  }
+  
+  .footer-section li {
+    font-size: 15px;
+  }
+  
+  .social-container-list {
+    width: 68px;
+  }
+  
+  .social-icon {
+    font-size: 30px;
+  }
+
+  .copyright {
+    font-size: 15px;
+  }
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .footer__light,
   .footer__dark {

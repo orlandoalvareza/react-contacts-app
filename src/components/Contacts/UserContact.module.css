@@ -33,6 +33,28 @@
   padding: 15px;
 }
 
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .profile-contact__light,
+  .profile-contact__dark {
+    margin-bottom: 15px;
+    border-radius: 6px;
+  }
+
+  .profile-contact__light img,
+  .profile-contact__dark img {
+    width: 95px;
+    height: 95px;
+  }
+
+  .profile-contact__info h2 {
+    font-size: 20px;
+  }
+
+  .profile-contact__info h3 {
+    font-size: 17px;
+  }
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {  
   .profile-contact__light img,
   .profile-contact__dark img {

@@ -42,57 +42,60 @@ const MainNavigation = () => {
   return (
     <header className={classes[`header__${themeMode}`]}>
       <Link to='/' className={classes[`app-name__${themeMode}`]}>
-        TouchBase
+        {isMobile ? 'TB' : 'TouchBase'}
       </Link>
-      {!isMobile && (
-        <nav>
-          <ul className={classes.list}>
-            <li>
-              <NavLink to='/' className={linkclass} end >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/contacts' className={linkclass} end >
-                Contacts
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/favorites' className={linkclass} end >
-                Favorites
-              </NavLink>
-            </li>
-            <li>
-              <motion.button 
-                className={classes["theme-button"]} 
-                onClick={changeThemeHandler}
-                whileHover={{ scale: 1.3 }}
-                whileTap={{ rotate: 90 }}
-                transition={{ type: 'spring', stiffness: 500 }} 
-              >
-                {themeMode === 'light' && (
-                  <FontAwesomeIcon 
-                    icon={faSun} 
-                    className={classes["sun-icon"]}
-                  />
-                )}
-                {themeMode === 'dark' && (
-                  <FontAwesomeIcon 
-                    icon={faMoon} 
-                    className={classes["moon-icon"]}
-                  />
-                )}
-              </motion.button>
-            </li>
-          </ul>
-        </nav>
-      )}
-      {isMobile && (
-        <button onClick={dropdownMenuHandler} className={classes["navigation-menu"]}>
-          {isMenuOpen ? <FontAwesomeIcon icon={faX}/> : <FontAwesomeIcon icon={faBars}/>}
-        </button>
-      )}
-      {isMenuOpen && <DropdownMenu/>}
+      <div>
+        {!isMobile && (
+          <nav>
+            <ul className={classes.list}>
+              <li>
+                <NavLink to='/' className={linkclass} end >
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to='/contacts' className={linkclass} end >
+                  Contacts
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to='/favorites' className={linkclass} end >
+                  Favorites
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+        )}
+        <motion.button 
+          className={classes["theme-button"]} 
+          onClick={changeThemeHandler}
+          whileHover={{ scale: 1.3 }}
+          whileTap={{ rotate: 90 }}
+          transition={{ type: 'spring', stiffness: 500 }} 
+        >
+          {themeMode === 'light' && (
+            <FontAwesomeIcon 
+              icon={faSun} 
+              className={classes["sun-icon"]}
+            />
+          )}
+          {themeMode === 'dark' && (
+            <FontAwesomeIcon 
+              icon={faMoon} 
+              className={classes["moon-icon"]}
+            />
+          )}
+        </motion.button>
+        {isMobile && (
+          <button onClick={dropdownMenuHandler} className={classes["navigation-menu"]}>
+            {isMenuOpen 
+              ? <FontAwesomeIcon icon={faX} className={classes["close-menu-icon"]}/> 
+              : <FontAwesomeIcon icon={faBars} className={classes["open-menu-icon"]}/>
+            }
+          </button>
+        )}
+      </div>
+      {isMenuOpen && <DropdownMenu />}
     </header>
   )
 }

@@ -1,0 +1,32 @@
+.list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.list li {
+  width: 120px;
+  background: skyblue;
+}
+
+.list a {
+  font-size: 22px;
+  margin-left: 12px;
+  color: white;
+}
+
+.home-icon,
+.contacts-icon,
+.favorites-icon {
+  font-size: 22px;
+  color: aliceblue;
+}

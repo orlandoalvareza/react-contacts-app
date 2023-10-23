@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import UserContact from './UserContact';
 import ContactsList from './ContactsList';
 import ThemeContext from '../../context/theme-context';
+import useScreenSize from '../../hooks/use-screen-size';
 import { faMagnifyingGlass, faPlus } from '@fortawesome/free-solid-svg-icons';
 import classes from './Contacts.module.css';
 
@@ -13,19 +14,7 @@ const Contacts = ({ contacts }) => {
   const [contactsData, setContactsData] = useState(contacts);
   const [searchByName, setSearchByName] = useState('');
   const { isLightTheme } = useContext(ThemeContext);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    window.addEventListener('resize', resizeHandler);
-    
-    return () => {
-      window.removeEventListener('resize', resizeHandler);
-    };
-  }, []);
-
-  const resizeHandler = () => {
-    setIsMobile(window.innerWidth < 768);
-  };
+  const isMobile = useScreenSize();
 
   const themeMode = isLightTheme ? 'light' : 'dark';
   

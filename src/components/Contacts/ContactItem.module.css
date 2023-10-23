@@ -246,6 +246,10 @@
   line-height: 21px;
 }
 
+.delete-info__dark {
+  color: var(--theme-one-first-color);
+}
+
 .delete-actions {
   display: flex;
   justify-content: flex-end;

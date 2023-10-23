@@ -174,7 +174,7 @@
 
   .introduction-container__light,
   .introduction-container__dark {
-    width: 360px;
+    width: 90%;
     margin-top: 80px;
   }
 
@@ -191,7 +191,7 @@
 
   .benefits-section__light,
   .benefits-section__dark {
-    width: 360px;
+    width: 100%;
   }
 
   .benefits-section__light h3,
@@ -206,7 +206,7 @@
   }
 
   .testimonials {
-    width: 360px;
+    width: 90%;
   }
 
   .testimonials-container__light,

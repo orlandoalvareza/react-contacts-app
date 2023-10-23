@@ -49,8 +49,12 @@ const ContactItem = ({ contact }) => {
     <Modal>
       <div className={classes['delete-information']}>
         <h2>Are you sure?</h2>
-        <p>Do you really want to delete this contact?</p>
-        <p>This process cannot be undone.</p>
+        <p className={classes[`delete-info__${themeMode}`]}>
+          Do you really want to delete this contact?
+        </p>
+        <p className={classes[`delete-info__${themeMode}`]}>
+          This process cannot be undone.
+        </p>
       </div>
       <div className={classes['delete-actions']}>
         <button onClick={cancelDeleteHandler}>Cancel</button>

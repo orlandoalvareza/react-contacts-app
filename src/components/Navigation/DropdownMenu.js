@@ -1,37 +1,56 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import ThemeContext from '../../context/theme-context';
-// import MenuContext from '../../context/dropdown-menu-context';
+import MenuContext from '../../context/dropdown-menu-context';
 import { faHouse, faUsers, faStar } from '@fortawesome/free-solid-svg-icons';
 import classes from './DropdownMenu.module.css';
 
 const DropdownMenu = () => {
   const { isLightTheme } = useContext(ThemeContext);
-  // const { onDropdownMenu } = useContext(MenuContext);
+  const { onDropdownMenu } = useContext(MenuContext);
+
+  const closeMenuHandler = () => {
+    onDropdownMenu();
+  }
 
   const themeMode = isLightTheme ? 'light' : 'dark';
+
+  const linkClass = ({isActive}) => isActive ? classes["active"] : undefined;
 
   return (
     <ul className={classes[`list__${themeMode}`]}>
       <li>
-        <FontAwesomeIcon icon={faHouse} className={classes["home-icon"]}/>
-        <Link href='/' end >
+        <NavLink 
+          to='/' 
+          onClick={closeMenuHandler} 
+          className={linkClass} 
+          end 
+        >
+          <FontAwesomeIcon icon={faHouse}/>
           Home
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <FontAwesomeIcon icon={faUsers} className={classes["contacts-icon"]}/>
-        <Link to='/contacts' end >
+        <NavLink 
+          to='/contacts' 
+          onClick={closeMenuHandler} 
+          className={linkClass}
+        >
+          <FontAwesomeIcon icon={faUsers}/>
           Contacts
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <FontAwesomeIcon icon={faStar} className={classes["favorites-icon"]}/>
-        <Link to='/favorites' end >
+        <NavLink 
+          to='/favorites' 
+          onClick={closeMenuHandler} 
+          className={linkClass}
+        >
+          <FontAwesomeIcon icon={faStar}/>
           Favorites
-        </Link>
+        </NavLink>
       </li>
     </ul>
   )

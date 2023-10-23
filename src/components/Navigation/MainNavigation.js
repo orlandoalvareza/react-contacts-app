@@ -37,7 +37,30 @@ const MainNavigation = () => {
 
   const themeMode = isLightTheme ? 'light' : 'dark';
 
-  const linkclass = ({isActive}) => isActive ? classes["active"] : undefined;
+  const linkClass = ({isActive}) => isActive ? classes["active"] : undefined;
+
+  const themeButton = (
+    <motion.button 
+      className={classes["theme-button"]} 
+      onClick={changeThemeHandler}
+      whileHover={{ scale: 1.3 }}
+      whileTap={{ rotate: 90 }}
+      transition={{ type: 'spring', stiffness: 500 }} 
+    >
+      {themeMode === 'light' && (
+        <FontAwesomeIcon 
+          icon={faSun} 
+          className={classes["sun-icon"]}
+        />
+      )}
+      {themeMode === 'dark' && (
+        <FontAwesomeIcon 
+          icon={faMoon} 
+          className={classes["moon-icon"]}
+        />
+      )}
+    </motion.button>
+  )
 
   return (
     <header className={classes[`header__${themeMode}`]}>
@@ -49,43 +72,24 @@ const MainNavigation = () => {
           <nav>
             <ul className={classes.list}>
               <li>
-                <NavLink to='/' className={linkclass} end >
+                <NavLink to='/' className={linkClass} end>
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/contacts' className={linkclass} end >
+                <NavLink to='/contacts' className={linkClass}>
                   Contacts
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/favorites' className={linkclass} end >
+                <NavLink to='/favorites' className={linkClass}>
                   Favorites
                 </NavLink>
               </li>
             </ul>
           </nav>
         )}
-        <motion.button 
-          className={classes["theme-button"]} 
-          onClick={changeThemeHandler}
-          whileHover={{ scale: 1.3 }}
-          whileTap={{ rotate: 90 }}
-          transition={{ type: 'spring', stiffness: 500 }} 
-        >
-          {themeMode === 'light' && (
-            <FontAwesomeIcon 
-              icon={faSun} 
-              className={classes["sun-icon"]}
-            />
-          )}
-          {themeMode === 'dark' && (
-            <FontAwesomeIcon 
-              icon={faMoon} 
-              className={classes["moon-icon"]}
-            />
-          )}
-        </motion.button>
+        {themeButton}
         {isMobile && (
           <motion.button 
             className={classes["navigation-menu"]}

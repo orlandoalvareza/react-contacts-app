@@ -99,6 +99,46 @@
   color: var(--theme-one-second-color);
 }
 
+@media screen and (max-width: 480px) {
+  .favorites-list {
+    height: 75vh;
+  }
+
+  .list-item__light,
+  .list-item__dark {
+    height: 46px;
+  }
+
+  .contact-info-container {
+    gap: 0;
+  }
+  
+  .contact-info-container img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .contact-icon__light,
+  .contact-icon__dark {
+    font-size: 40px;
+  }
+  
+  .list-item__light a,
+  .list-item__dark a {
+    font-size: 17px;
+  }
+  
+  .x-mark-icon__light,
+  .x-mark-icon__dark {
+    font-size: 21px;
+  }
+  
+  .empty-list__light,
+  .empty-list__dark {
+    font-size: 16px;
+  }
+}
+
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .list-item__light,
   .list-item__dark {

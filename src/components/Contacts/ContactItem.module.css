@@ -276,6 +276,24 @@
   border: 1px solid var(--theme-three-first-color);
 }
 
+@media screen and (max-width: 480px) {
+  .contact-container__light,
+  .contact-container__dark {
+    width: 100%;
+    height: 100vh;
+    padding: 80px 20px 15px;
+  }
+
+  .delete-information h2 {
+    font-size: 1.7rem;
+    padding: 8px 0;
+  }
+
+  .delete-information p {
+    font-size: 17px;
+  }
+}
+
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .contact-container__light,
   .contact-container__dark {

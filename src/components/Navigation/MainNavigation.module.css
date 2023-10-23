@@ -103,6 +103,14 @@
   color: var(--theme-one-first-color);
 }
 
+@media screen and (max-width: 480px) {
+  .header__light,
+  .header__dark {
+    background: slateblue;
+    height: 60px;
+  }
+}
+
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .header__light,
   .header__dark {

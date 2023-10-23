@@ -81,6 +81,23 @@
   border: 1px solid var(--theme-one-sixth-color);
 }
 
+@media screen and (max-width: 480px) {
+  .hero-content__light h1,
+  .hero-content__dark h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-content__light h3,
+  .hero-content__dark h3 {
+    font-size: 1rem;
+  }
+
+  .hero-content__light a,
+  .hero-content__dark a {
+    font-size: 18px;
+  }
+}
+
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .hero-content__light h1,
   .hero-content__dark h1 {
@@ -94,7 +111,7 @@
 
   .hero-content__light a,
   .hero-content__dark a {
-    font-size: 17px;
+    font-size: 18px;
   }
 }
 

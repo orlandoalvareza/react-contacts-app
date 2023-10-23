@@ -68,6 +68,29 @@
   border: 1px solid var(--theme-one-sixth-color);
 }
 
+@media screen and (max-width: 480px) {
+  .favorites-container__light,
+  .favorites-container__dark {
+    width: 100%;
+    height: 100vh;
+    padding: 80px 15px 15px;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .favorites-header__light h2,
+  .favorites-header__dark h2 {
+    font-size: 1.7rem;
+  }
+
+  .favorites-header__light button,
+  .favorites-header__dark button {
+    font-size: 15px;
+    height: 26px;
+    width: 65px;
+  }
+}
+
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .favorites-container__light,
   .favorites-container__dark {
@@ -80,7 +103,7 @@
 
   .favorites-header__light h2,
   .favorites-header__dark h2 {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
 
   .favorites-header__light button,

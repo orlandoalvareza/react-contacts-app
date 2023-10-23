@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const ThemeContext = React.createContext({
   isLightTheme: true,
@@ -8,8 +8,18 @@ const ThemeContext = React.createContext({
 export const ThemeContextProvider = (props) => {
   const [isLightTheme, setIsLightTheme] = useState(true);
 
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setIsLightTheme(savedTheme === 'true');
+    }
+  }, []);
+
   const changeThemeHandler = () => {
-    setIsLightTheme(isLightTheme => !isLightTheme);
+    const newTheme = !isLightTheme;
+
+    setIsLightTheme(newTheme);
+    localStorage.setItem('theme', newTheme.toString());
   }
 
   return (

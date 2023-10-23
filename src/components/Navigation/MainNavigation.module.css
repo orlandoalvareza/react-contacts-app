@@ -100,13 +100,19 @@
 .close-menu-icon, 
 .open-menu-icon {
   font-size: 20px;
+}
+
+.close-menu-icon {
+  color: var(--theme-two-fourth-color);
+}
+
+.open-menu-icon {
   color: var(--theme-one-first-color);
 }
 
 @media screen and (max-width: 480px) {
   .header__light,
   .header__dark {
-    background: slateblue;
     height: 60px;
   }
 }

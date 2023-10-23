@@ -276,11 +276,11 @@
   }
 
   .extra-information-content:first-child {
-    width: 260px;
+    width: 55%;
   }
 
   .extra-information-content:last-child {
-    width: 140px;
+    width: 40%;
   }
 
   .form__light label,

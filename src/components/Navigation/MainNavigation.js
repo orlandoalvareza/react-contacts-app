@@ -39,6 +39,13 @@ const MainNavigation = () => {
 
   const linkClass = ({isActive}) => isActive ? classes["active"] : undefined;
 
+  const appLogo = (
+    <span className={classes[`app-logo__${themeMode}`]} >
+      T
+      <span>B</span>
+    </span>
+  );
+
   const themeButton = (
     <motion.button 
       className={classes["theme-button"]} 
@@ -65,7 +72,7 @@ const MainNavigation = () => {
   return (
     <header className={classes[`header__${themeMode}`]}>
       <Link to='/' className={classes[`app-name__${themeMode}`]}>
-        {isMobile ? 'TB' : 'TouchBase'}
+        {isMobile ? appLogo : 'TouchBase'}
       </Link>
       <div>
         {!isMobile && (

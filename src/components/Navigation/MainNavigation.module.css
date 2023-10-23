@@ -33,6 +33,7 @@
 .app-name__dark {
   font-size: 2rem;
   font-weight: 600;
+  position: relative;
 }
 
 .app-name__light {
@@ -45,6 +46,21 @@
 
 .app-name__dark:hover {
   color: var(--theme-one-second-color)
+}
+
+.app-logo__light span,
+.app-logo__dark span {
+  position: absolute;
+  top: 7px;
+  left: 12px;
+}
+
+.app-logo__light span {
+  color: var(--theme-one-fifth-color);
+}
+
+.app-logo__dark span {
+  color: var(--theme-two-sixth-color);
 }
 
 .list {

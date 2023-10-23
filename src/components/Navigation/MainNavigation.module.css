@@ -102,12 +102,20 @@
   font-size: 20px;
 }
 
-.close-menu-icon {
+.header__light .close-menu-icon {
   color: var(--theme-two-fourth-color);
 }
 
-.open-menu-icon {
+.header__dark .close-menu-icon {
+  color: var(--theme-one-second-color);
+}
+
+.header__light .open-menu-icon {
   color: var(--theme-one-first-color);
+}
+
+.header__dark .open-menu-icon {
+  color: var(--theme-two-third-color);
 }
 
 @media screen and (max-width: 480px) {

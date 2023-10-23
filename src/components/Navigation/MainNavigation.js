@@ -87,12 +87,17 @@ const MainNavigation = () => {
           )}
         </motion.button>
         {isMobile && (
-          <button onClick={dropdownMenuHandler} className={classes["navigation-menu"]}>
+          <motion.button 
+            className={classes["navigation-menu"]}
+            onClick={dropdownMenuHandler} 
+            whileTap={{ scale: 0.6 }}
+            transition={{ type: 'spring', stiffness: 400 }} 
+          >
             {isMenuOpen 
               ? <FontAwesomeIcon icon={faX} className={classes["close-menu-icon"]}/> 
               : <FontAwesomeIcon icon={faBars} className={classes["open-menu-icon"]}/>
             }
-          </button>
+          </motion.button>
         )}
       </div>
       {isMenuOpen && <DropdownMenu />}

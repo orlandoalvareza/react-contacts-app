@@ -1,6 +1,7 @@
 @import url('../../base.css');
 
-.list {
+.list__light,
+.list__dark {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,34 +10,66 @@
   justify-content: center;
   align-items: center;
   gap: 12px;
-  background: rgba(219, 226, 239, 0.5);
   width: 100%;
   height: 100vh;
   z-index: 20;
   backdrop-filter: blur(5px);
 }
 
-.list li {
-  background: rgba(219, 226, 239, 0.3);
+.list__light {
+  background: rgba(219, 226, 239, 0.5);
+}
+
+.list__dark {
+  background: rgba(32, 35, 42, 0.5);
+}
+
+.list__light li,
+.list__dark li {
   width: 140px;
   padding: 5px;
-  border: 1px solid var(--theme-one-seventh-color);
   border-radius: 8px;
 }
 
-.list a {
+.list__light li {
+  background: rgba(219, 226, 239, 0.3);
+  border: 1px solid var(--theme-one-seventh-color);
+}
+
+.list__dark li {
+  background: rgba(32, 35, 42, 0.3);
+  border: 1px solid rgba(13, 17, 23, 0.2);
+}
+
+.list__light a,
+.list__dark a {
   font-size: 24px;
-  color: var(--theme-one-fourth-color);
   margin-left: 12px;
 }
 
-.list li:first-child a {
+.list__light a {
+  color: var(--theme-one-fourth-color);
+}
+
+.list__dark a {
+  color: var(--theme-one-second-color);
+}
+
+.list__light li:first-child a,
+.list__dark li:first-child a {
   margin-left: 25px;
 }
 
-.home-icon,
-.contacts-icon,
-.favorites-icon {
+.list__light .home-icon,
+.list__light .contacts-icon,
+.list__light .favorites-icon {
   font-size: 23px;
   color: var(--theme-one-fourth-color);
+}
+
+.list__dark .home-icon,
+.list__dark .contacts-icon,
+.list__dark .favorites-icon {
+  font-size: 23px;
+  color: var(--theme-one-second-color);
 }

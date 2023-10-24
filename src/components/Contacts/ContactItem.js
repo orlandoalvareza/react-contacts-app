@@ -80,8 +80,8 @@ const ContactItem = ({ contact }) => {
           <button 
             type='button' 
             onClick={startDeleteHandler}
-            className={contact.id === '-Ngb9S-waKTzueJroyeR' && classes["disabled-delete-action"]}
-            disabled={contact.id === '-Ngb9S-waKTzueJroyeR'}
+            className={contact.id === '-NhYnzJW5Bb_62cz7ygl' && classes["disabled-delete-action"]}
+            disabled={contact.id === '-NhYnzJW5Bb_62cz7ygl'}
           >
             <FontAwesomeIcon icon={faTrash}/>
           </button>

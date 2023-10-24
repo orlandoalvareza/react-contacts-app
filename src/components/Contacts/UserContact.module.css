@@ -17,8 +17,17 @@
   background: var(--theme-two-seventh-color);
 }
 
+.profile-contact__light h2 {
+  color: var(--theme-one-fourth-color)
+}
+
 .profile-contact__dark h2 {
   color: var(--theme-two-sixth-color)
+}
+
+.profile-contact__light h2:hover,
+.profile-contact__dark h2:hover {
+  color: var(--theme-one-third-color)
 }
 
 .profile-contact__light img,

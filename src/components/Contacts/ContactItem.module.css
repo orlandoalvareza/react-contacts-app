@@ -87,6 +87,15 @@
   cursor: pointer;
 }
 
+.disabled-delete-action {
+  cursor: not-allowed !important;
+}
+
+.disabled-delete-action:hover {
+  color: var(--theme-three-first-color) !important;
+  border: none !important;
+}
+
 .back-icon {
   font-size: 18px;
 }

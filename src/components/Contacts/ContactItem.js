@@ -57,8 +57,12 @@ const ContactItem = ({ contact }) => {
         </p>
       </div>
       <div className={classes['delete-actions']}>
-        <button onClick={cancelDeleteHandler}>Cancel</button>
-        <button onClick={deleteHandler}>Delete</button>
+        <button onClick={cancelDeleteHandler}>
+          Cancel
+        </button>
+        <button onClick={deleteHandler}>
+          Delete
+        </button>
       </div>
     </Modal>
   )
@@ -73,7 +77,12 @@ const ContactItem = ({ contact }) => {
           />
         </Link>
         <div className={classes["contact-actions__manipulate"]}>
-          <button type='button' onClick={startDeleteHandler}>
+          <button 
+            type='button' 
+            onClick={startDeleteHandler}
+            className={contact.id === '-Ngb9S-waKTzueJroyeR' && classes["disabled-delete-action"]}
+            disabled={contact.id === '-Ngb9S-waKTzueJroyeR'}
+          >
             <FontAwesomeIcon icon={faTrash}/>
           </button>
           <Link to='edit'>

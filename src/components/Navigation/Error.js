@@ -14,7 +14,8 @@ const Error = ({errorStatus, title, message}) => {
       <h1>{errorStatus}</h1>
       <h2>{title}</h2>
       <p>{message}</p>
-      <Link to='/'>Go Home</Link>
+      {errorStatus && <Link to='/'>Go Home</Link>}
+      {!errorStatus && <Link to='/contacts/new'>New Contact</Link>}
     </div>
   )
 }

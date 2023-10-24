@@ -12,6 +12,14 @@ export async function fetchContactsData() {
     )
   } else {
     const data = await response.json();
+
+    if (!data) {
+      return {
+        title: 'No Contacts Found',
+        message: 'Would you like to add a new contact to your list?'
+      }
+    }
+
     const contacts = extractContactsData(data);
 
     return contacts.sort((firstItem, secondItem) => (

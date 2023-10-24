@@ -82,6 +82,11 @@
   text-decoration: underline;
 }
 
+.header__dark a:hover,
+.header__dark a.active {
+  color: var(--theme-two-sixth-color);
+}
+
 .theme-button {
   background: transparent;
   width: 28px;

@@ -116,6 +116,7 @@
 .close-menu-icon, 
 .open-menu-icon {
   font-size: 20px;
+  cursor: pointer;
 }
 
 .header__light .close-menu-icon {

@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Form, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,13 +8,20 @@ import Modal from '../UI/Modal';
 import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
 import classes from './ContactForm.module.css';
 
-const ContactForm = ({method, contact}) => {
+const ContactForm = ({ method, contact }) => {
   const [isAddingContactPhoto, setIsAddingContactPhoto] = useState(false);
   const [nameIsValid, setNameIsValid] = useState(false);
   const [phoneIsValid, setPhoneIsValid] = useState(false);
   const [isSendingInvalidForm, setIsSendingInvalidForm] = useState(false);
   const { isLightTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (contact) {
+      setNameIsValid(true);
+      setPhoneIsValid(true);
+    }  
+  }, [contact]);
 
   const themeMode = isLightTheme ? 'light' : 'dark';
 

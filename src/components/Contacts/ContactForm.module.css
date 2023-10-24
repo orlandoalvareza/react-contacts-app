@@ -66,6 +66,14 @@
   color: var(--theme-two-sixth-color);
 }
 
+.contact-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
 .contact-photo-container__input {
   display: flex;
   flex-direction: column;

@@ -73,6 +73,14 @@ const ContactForm = ({ method, contact }) => {
     invalidFormMessage = 'The phone number should be 10 digits.';
   }
 
+  const contactIcon = (
+    <FontAwesomeIcon 
+      onClick={addPhotoHandler} 
+      icon={faCircleUser} 
+      className={classes[`contact-icon__${themeMode}`]}
+    />
+  )
+
   const modalContent = (
     <Modal>
       <div className={classes[`invalid-form-information__${themeMode}`]}>
@@ -90,15 +98,21 @@ const ContactForm = ({ method, contact }) => {
       <div 
         className={
           isAddingContactPhoto 
-            ? classes["contact-photo-container"] 
-            : classes[`contact-icon-container__${themeMode}`]
+          ? classes["contact-photo-container"] 
+          : classes[`contact-icon-container__${themeMode}`]
         }
       >
-        <FontAwesomeIcon 
-          onClick={addPhotoHandler} 
-          icon={faCircleUser} 
-          className={classes[`contact-icon__${themeMode}`]}
-        />
+        {contact ? (
+          contact.photo ? (
+            <img 
+              className={classes["contact-image"]} 
+              onClick={addPhotoHandler} 
+              src={contact.photo}
+              alt='contact img'
+            />
+          ) : contactIcon
+          ) : contactIcon
+        }
         {isAddingContactPhoto && (
           <div className={classes["contact-photo-container__input"]}>
             <label htmlFor='photo'>Photo URL</label>

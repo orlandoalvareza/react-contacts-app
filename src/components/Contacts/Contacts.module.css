@@ -30,6 +30,10 @@
   text-align: left;
 }
 
+.contacts-header__light h2 {
+  color: var(--theme-one-fourth-color);
+}
+
 .contacts-header__dark h2 {
   color: var(--theme-one-second-color);
 }

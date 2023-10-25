@@ -1,3 +1,5 @@
+@import url('../../base.css');
+
 .login-container,
 .login-header,
 .login-actions,
@@ -17,56 +19,93 @@
 }
 
 .login-header {
-  background: rebeccapurple;
+  color: var(--theme-two-fourth-color);
+  padding: 15px;
 }
 
 .login-header img {
-  width: 150px;
-  height: 150px;
+  width: 190px;
+  height: 190px;
   object-fit: cover;
   border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.login-header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 3px;
+}
+
+.login-header span {
+  font-size: 13px;
+  margin-left: 5px;
 }
 
 .login-actions {
-  background: sandybrown;
+  background: var(--theme-one-fourth-color);
   width: 300px;
   height: 300px;
-  padding: 8px 10px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .access-code-container {
   flex-direction: row;
   gap: 8px;
-  background: lightcoral;
   width: 100%;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   padding: 10px;
   text-align: center;
+  border-radius: 8px;
 }
 
 .buttons-container {
-  background: rgb(51, 40, 40);
   width: 100%;
   height: 240px;
 }
 
 .buttons-row {
   flex-direction: row;
-  background: #000;
   width: 100%;
   height: 25%;
 }
 
 .buttons-row:not(:last-child) {
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .buttons-row button {
+  font-size: 22px;
+  color: var(--theme-one-fourth-color);
+  background: var(--theme-one-first-color);
   width: 33%;
   height: 100%;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
 }
 
 .buttons-row button:not(:last-child) {
-  margin-right: 5px;
+  margin-right: 4px;
+}
+
+.buttons-row button:hover {
+  color: var(--theme-two-fourth-color);
+  background: var(--theme-one-second-color);
+}
+
+.buttons-row:last-child button:first-child:active,
+.buttons-row:last-child button:last-child:active {
+  color: var(--theme-three-first-color);
+  background: var(--theme-one-first-color);
+  border: 1.5px solid var(--theme-three-first-color);
+}
+
+.buttons-row:last-child button:nth-child(2n):active,
+.buttons-row:not(:last-child) button:active {
+  color: var(--theme-one-third-color);
+  background: var(--theme-one-first-color);
+  border: 1.5px solid var(--theme-one-third-color);
 }

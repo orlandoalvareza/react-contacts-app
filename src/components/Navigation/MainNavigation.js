@@ -8,7 +8,7 @@ import AuthContext from '../../context/auth-context';
 import ThemeContext from '../../context/theme-context';
 import MenuContext from '../../context/dropdown-menu-context';
 import useScreenSize from '../../hooks/use-screen-size';
-import { faBars, faX } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faX, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { faSun, faMoon } from '@fortawesome/free-regular-svg-icons';
 import classes from './MainNavigation.module.css';
 
@@ -110,7 +110,11 @@ const MainNavigation = () => {
       <div>
         {isAuthenticated && !isMobile && navigationMenu}
         {isAuthenticated && <button onClick={logoutHandler}>Logout</button>}
-        {!isAuthenticated && <Link to='/login'>Login</Link>}
+        {!isAuthenticated && (
+          <Link to='/login'>
+            <FontAwesomeIcon icon={faRightToBracket}/>
+          </Link>
+        )}
         {themeButton}
         {isAuthenticated && isMobile && dropdownMenuButton}
       </div>

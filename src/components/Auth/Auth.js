@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import AuthContext from '../../context/auth-context';
-import image from '../../images/vicky-hladynets-uyaTT9u6AvI-unsplash.jpg';
-import classes from './Auth.module.css';
 import CodeIndicator from './CodeIndicator';
+import image from '../../images/vicky-hladynets-uyaTT9u6AvI-unsplash.jpg';
+import { faDeleteLeft, faArrowRotateRight } from '@fortawesome/free-solid-svg-icons';
+import classes from './Auth.module.css';
 
 const Auth = () => {
   const [enteredCode, setEnteredCode] = useState('');
@@ -18,7 +20,8 @@ const Auth = () => {
     }
 
     if (enteredCode.length === 4 && enteredCode !== '1234') {
-      console.log('error');
+      // setEnteredCode('invalid');
+      // setCodeIndicator(0);
     }
 
     if (enteredCode === '1234') {
@@ -46,7 +49,7 @@ const Auth = () => {
     <div className={classes["login-container"]}>
       <div className={classes["login-header"]}>
         <img src={image} alt='contact'/>
-        <h1>Welcome Sam!</h1>
+        <h1>Welcome back, Sam!</h1>
         <h3>
           Please enter your access code.
           <span>(1234)</span>
@@ -76,9 +79,13 @@ const Auth = () => {
             <button onClick={enteredCodeHandler} value='9'>9</button>
           </div>
           <div className={classes["buttons-row"]}>
-            <button onClick={clearEnteredCodeHandler}>Clear</button>
+            <button onClick={clearEnteredCodeHandler}>
+              <FontAwesomeIcon icon={faArrowRotateRight}/>
+            </button>
             <button onClick={enteredCodeHandler} value='0'>0</button>
-            <button onClick={deleteValueHandler}>Delete</button>
+            <button onClick={deleteValueHandler}>
+              <FontAwesomeIcon icon={faDeleteLeft}/>
+            </button>
           </div>
         </div>
       </div>

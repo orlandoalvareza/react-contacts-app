@@ -1,14 +1,19 @@
 .code-indicator,
 .code-indicator-active {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
 }
 
 .code-indicator {
-  background: white;
+  background: transparent;
+  border: 1.4px solid var(--theme-one-first-color);
 }
 
 .code-indicator-active {
-  background: blue;
+  background: var(--theme-one-first-color);
+}
+
+.code-indicator-invalid {
+  background: red;
 }

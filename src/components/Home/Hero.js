@@ -2,11 +2,13 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
+import AuthContext from '../../context/auth-context';
 import ThemeContext from '../../context/theme-context';
 import classes from './Hero.module.css';
 
 const Hero = () => {
   const { scrollY } = useScroll();
+  const { isAuthenticated } = useContext(AuthContext);
   const { isLightTheme } = useContext(ThemeContext);
 
   const scaleText = useTransform(scrollY, [0, 300], [1, 1.1]);
@@ -38,7 +40,9 @@ const Hero = () => {
           whileHover={{ scale: 1.1 }}
           transition={{ type: 'spring', stiffness: 500 }}
         >
-          <Link to='/contacts'>Get Started</Link>
+          <Link to={isAuthenticated ? '/contacts' : '/login'}>
+            Get Started
+          </Link>
         </motion.div>
       </motion.div>
     </motion.div>

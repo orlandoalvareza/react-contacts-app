@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import DropdownMenu from './DropdownMenu';
-import LoginContext from '../../context/login-context';
+import AuthContext from '../../context/auth-context';
 import ThemeContext from '../../context/theme-context';
 import MenuContext from '../../context/dropdown-menu-context';
 import useScreenSize from '../../hooks/use-screen-size';
@@ -13,13 +13,15 @@ import { faSun, faMoon } from '@fortawesome/free-regular-svg-icons';
 import classes from './MainNavigation.module.css';
 
 const MainNavigation = () => {
-  const { isLogin, onLogout } = useContext(LoginContext);
+  const { isAuthenticated, onLogout } = useContext(AuthContext);
   const { isLightTheme, onChangeTheme } = useContext(ThemeContext);
   const { isMenuOpen, onDropdownMenu } = useContext(MenuContext);
   const isMobile = useScreenSize();
+  const navigate = useNavigate();
 
   const logoutHandler = () => {
     onLogout();
+    navigate('/');
   }
 
   const changeThemeHandler = () => {
@@ -64,48 +66,52 @@ const MainNavigation = () => {
     </motion.button>
   )
 
+  const navigationMenu = (
+    <nav>
+      <ul className={classes.list}>
+        <li>
+          <NavLink to='/' className={linkClass} end>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/contacts' className={linkClass}>
+            Contacts
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/favorites' className={linkClass}>
+            Favorites
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+  )
+
+  const dropdownMenuButton = (
+    <motion.button 
+      className={classes["navigation-menu"]}
+      onClick={dropdownMenuHandler} 
+      whileTap={{ scale: 0.6 }}
+      transition={{ type: 'spring', stiffness: 400 }} 
+    >
+      {isMenuOpen 
+        ? <FontAwesomeIcon icon={faX} className={classes["close-menu-icon"]}/> 
+        : <FontAwesomeIcon icon={faBars} className={classes["open-menu-icon"]}/>
+      }
+    </motion.button>
+  )
+
   return (
     <header className={classes[`header__${themeMode}`]}>
       <Link to='/' className={classes[`app-name__${themeMode}`]}>
         {isMobile ? appLogo : 'TouchBase'}
       </Link>
       <div>
-        {!isMobile && (
-          <nav>
-            <ul className={classes.list}>
-              <li>
-                <NavLink to='/' className={linkClass} end>
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to='/contacts' className={linkClass}>
-                  Contacts
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to='/favorites' className={linkClass}>
-                  Favorites
-                </NavLink>
-              </li>
-            </ul>
-          </nav>
-        )}
+        {isAuthenticated && !isMobile && navigationMenu}
         <button onClick={logoutHandler}>Logout</button>
         {themeButton}
-        {isMobile && (
-          <motion.button 
-            className={classes["navigation-menu"]}
-            onClick={dropdownMenuHandler} 
-            whileTap={{ scale: 0.6 }}
-            transition={{ type: 'spring', stiffness: 400 }} 
-          >
-            {isMenuOpen 
-              ? <FontAwesomeIcon icon={faX} className={classes["close-menu-icon"]}/> 
-              : <FontAwesomeIcon icon={faBars} className={classes["open-menu-icon"]}/>
-            }
-          </motion.button>
-        )}
+        {isAuthenticated && isMobile && dropdownMenuButton}
       </div>
       {isMenuOpen && <DropdownMenu />}
     </header>

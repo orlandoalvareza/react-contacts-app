@@ -1,17 +1,17 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 
-import LoginContext from '../../context/login-context';
+import AuthContext from '../../context/auth-context';
 import image from '../../images/vicky-hladynets-uyaTT9u6AvI-unsplash.jpg';
-import classes from './Login.module.css';
+import classes from './Auth.module.css';
 
-const Login = () => {
+const Auth = () => {
   const [enteredCode, setEnteredCode] = useState('');
-  const { isLogin, onLogin } = useContext(LoginContext);
+  const { onLogin } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (enteredCode.length === 4) {
+    if (enteredCode.length === 4 && enteredCode !== '1234') {
       console.log('error');
     }
 
@@ -75,4 +75,4 @@ const Login = () => {
   )
 }
 
-export default Login;
+export default Auth;

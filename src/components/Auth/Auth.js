@@ -9,19 +9,15 @@ import { faDeleteLeft, faArrowRotateRight } from '@fortawesome/free-solid-svg-ic
 import classes from './Auth.module.css';
 
 const Auth = () => {
-  const [enteredCode, setEnteredCode] = useState('');
-  const [codeIndicator, setCodeIndicator] = useState(0);
   const { onLogin } = useContext(AuthContext);
+  const [enteredCode, setEnteredCode] = useState('');
+  const [isCodeValid, setIsCodeValid] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (enteredCode.length > 0) {
-      setCodeIndicator(enteredCode.length);
-    }
-
     if (enteredCode.length === 4 && enteredCode !== '1234') {
-      // setEnteredCode('invalid');
-      // setCodeIndicator(0);
+      setEnteredCode('');
+      setIsCodeValid(false);
     }
 
     if (enteredCode === '1234') {
@@ -31,17 +27,17 @@ const Auth = () => {
   }, [enteredCode, navigate, onLogin])
 
   const enteredCodeHandler = (event) => {
-    const value = event.target.value;    
+    const value = event.target.value;  
+
+    setIsCodeValid(true);  
     setEnteredCode(enteredCode + value);
   }
 
   const deleteValueHandler = () => {
-    setCodeIndicator(codeIndicator - 1);
     setEnteredCode(enteredCode.substring(0, enteredCode.length - 1));
   }
 
   const clearEnteredCodeHandler = () => {
-    setCodeIndicator(0);
     setEnteredCode('');
   }
 
@@ -57,10 +53,10 @@ const Auth = () => {
       </div>
       <div className={classes["login-actions"]}>
         <div className={classes["access-code-container"]}>
-          <CodeIndicator indicator={codeIndicator} numberIndicator={1}/>
-          <CodeIndicator indicator={codeIndicator} numberIndicator={2}/>
-          <CodeIndicator indicator={codeIndicator} numberIndicator={3}/>
-          <CodeIndicator indicator={codeIndicator} numberIndicator={4}/>
+          <CodeIndicator indicator={enteredCode.length} numberIndicator={1} isValid={isCodeValid}/>
+          <CodeIndicator indicator={enteredCode.length} numberIndicator={2} isValid={isCodeValid}/>
+          <CodeIndicator indicator={enteredCode.length} numberIndicator={3} isValid={isCodeValid}/>
+          <CodeIndicator indicator={enteredCode.length} numberIndicator={4} isValid={isCodeValid}/>
         </div>
         <div className={classes["buttons-container"]}>
           <div className={classes["buttons-row"]}>

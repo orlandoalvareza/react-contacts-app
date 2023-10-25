@@ -1,0 +1,14 @@
+.code-indicator,
+.code-indicator-active {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.code-indicator {
+  background: white;
+}
+
+.code-indicator-active {
+  background: blue;
+}

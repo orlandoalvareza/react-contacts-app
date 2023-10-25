@@ -109,7 +109,8 @@ const MainNavigation = () => {
       </Link>
       <div>
         {isAuthenticated && !isMobile && navigationMenu}
-        <button onClick={logoutHandler}>Logout</button>
+        {isAuthenticated && <button onClick={logoutHandler}>Logout</button>}
+        {!isAuthenticated && <Link to='/login'>Login</Link>}
         {themeButton}
         {isAuthenticated && isMobile && dropdownMenuButton}
       </div>

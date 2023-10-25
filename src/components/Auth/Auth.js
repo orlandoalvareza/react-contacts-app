@@ -4,13 +4,19 @@ import { useNavigate } from 'react-router';
 import AuthContext from '../../context/auth-context';
 import image from '../../images/vicky-hladynets-uyaTT9u6AvI-unsplash.jpg';
 import classes from './Auth.module.css';
+import CodeIndicator from './CodeIndicator';
 
 const Auth = () => {
   const [enteredCode, setEnteredCode] = useState('');
+  const [codeIndicator, setCodeIndicator] = useState(0);
   const { onLogin } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (enteredCode.length > 0) {
+      setCodeIndicator(enteredCode.length);
+    }
+
     if (enteredCode.length === 4 && enteredCode !== '1234') {
       console.log('error');
     }
@@ -27,10 +33,12 @@ const Auth = () => {
   }
 
   const deleteValueHandler = () => {
-    setEnteredCode(enteredCode.substring(0, enteredCode.length - 1))
+    setCodeIndicator(codeIndicator - 1);
+    setEnteredCode(enteredCode.substring(0, enteredCode.length - 1));
   }
 
   const clearEnteredCodeHandler = () => {
+    setCodeIndicator(0);
     setEnteredCode('');
   }
 
@@ -46,7 +54,10 @@ const Auth = () => {
       </div>
       <div className={classes["login-actions"]}>
         <div className={classes["access-code-container"]}>
-          {enteredCode}
+          <CodeIndicator indicator={codeIndicator} numberIndicator={1}/>
+          <CodeIndicator indicator={codeIndicator} numberIndicator={2}/>
+          <CodeIndicator indicator={codeIndicator} numberIndicator={3}/>
+          <CodeIndicator indicator={codeIndicator} numberIndicator={4}/>
         </div>
         <div className={classes["buttons-container"]}>
           <div className={classes["buttons-row"]}>

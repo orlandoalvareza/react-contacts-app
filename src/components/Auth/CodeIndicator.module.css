@@ -1,6 +1,5 @@
 .code-indicator,
-.code-indicator-active,
-.invalid-code {
+.code-indicator-active {
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -13,8 +12,4 @@
 
 .code-indicator-active {
   background: var(--theme-one-first-color);
-}
-
-.invalid-code {
-  background: red
 }

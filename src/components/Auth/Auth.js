@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
+import { motion } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import AuthContext from '../../context/auth-context';
@@ -41,6 +42,11 @@ const Auth = () => {
     setEnteredCode('');
   }
 
+  const animation = {
+    x: [-10, 10, -5, 5, 0],
+    transition: { duration: 0.5, times: [0, 0.2, 0.4, 0.6, 1] }
+  };
+
   return (
     <div className={classes["login-container"]}>
       <div className={classes["login-header"]}>
@@ -52,12 +58,15 @@ const Auth = () => {
         </h3>
       </div>
       <div className={classes["login-actions"]}>
-        <div className={classes["access-code-container"]}>
-          <CodeIndicator indicator={enteredCode.length} numberIndicator={1} isValid={isCodeValid}/>
-          <CodeIndicator indicator={enteredCode.length} numberIndicator={2} isValid={isCodeValid}/>
-          <CodeIndicator indicator={enteredCode.length} numberIndicator={3} isValid={isCodeValid}/>
-          <CodeIndicator indicator={enteredCode.length} numberIndicator={4} isValid={isCodeValid}/>
-        </div>
+        <motion.div 
+          className={classes["access-code-container"]}
+          animate={isCodeValid ? { x: 0 } : animation}
+        >
+          <CodeIndicator indicator={enteredCode.length} numberIndicator={1}/>
+          <CodeIndicator indicator={enteredCode.length} numberIndicator={2}/>
+          <CodeIndicator indicator={enteredCode.length} numberIndicator={3}/>
+          <CodeIndicator indicator={enteredCode.length} numberIndicator={4}/>
+        </motion.div>
         <div className={classes["buttons-container"]}>
           <div className={classes["buttons-row"]}>
             <button onClick={enteredCodeHandler} value='1'>1</button>

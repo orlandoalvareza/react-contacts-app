@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import classes from './CodeIndicator.module.css';
 
-const CodeIndicator = ({ indicator, numberIndicator, isValid }) => {
+const CodeIndicator = ({ indicator, numberIndicator }) => {
   let IndicatorClass;
 
   if (indicator >= numberIndicator) {
@@ -9,10 +8,6 @@ const CodeIndicator = ({ indicator, numberIndicator, isValid }) => {
   } else {
     IndicatorClass = classes["code-indicator"]
   }
-
-  if (!isValid) {
-    IndicatorClass = classes["invalid-code"];
-  }  
 
   return (
     <div className={IndicatorClass}></div>

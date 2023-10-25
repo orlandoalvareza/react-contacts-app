@@ -5,6 +5,7 @@ import ThemeContext from './context/theme-context';
 import RootLayout from './pages/Root';
 import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
+import LoginPage from './pages/Login';
 import ContactsRootLayout from './pages/ContactsRoot';
 import ContactsPage from './pages/Contacts';
 import NewContactPage from './pages/NewContact';
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
         loader: fetchContactsData 
       },
     ]
+  }, 
+  {
+    path: '/login',
+    element: <LoginPage/>
   }
 ]);
 

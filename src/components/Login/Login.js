@@ -1,39 +1,70 @@
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
+
 import image from '../../images/vicky-hladynets-uyaTT9u6AvI-unsplash.jpg';
 import classes from './Login.module.css';
 
 const Login = () => {
+  const [enteredCode, setEnteredCode] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (enteredCode.length === 4) {
+      console.log('error');
+    }
+
+    if (enteredCode === '1234') {
+      navigate('../contacts');
+    }
+  }, [enteredCode, navigate])
+
+  const enteredCodeHandler = (event) => {
+    const value = event.target.value;    
+    setEnteredCode(enteredCode + value);
+  }
+
+  const deleteValueHandler = () => {
+    setEnteredCode(enteredCode.substring(0, enteredCode.length - 1))
+  }
+
+  const clearEnteredCodeHandler = () => {
+    setEnteredCode('');
+  }
+
   return (
     <div className={classes["login-container"]}>
       <div className={classes["login-header"]}>
         <img src={image} alt='contact'/>
         <h1>Welcome Sam!</h1>
-        <h2>
+        <h3>
           Please enter your access code.
           <span>(1234)</span>
-        </h2>
+        </h3>
       </div>
       <div className={classes["login-actions"]}>
-        <div className={classes["access-code-container"]}>Input</div>
+        <div className={classes["access-code-container"]}>
+          {enteredCode}
+        </div>
         <div className={classes["buttons-container"]}>
           <div className={classes["buttons-row"]}>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
+            <button onClick={enteredCodeHandler} value='1'>1</button>
+            <button onClick={enteredCodeHandler} value='2'>2</button>
+            <button onClick={enteredCodeHandler} value='3'>3</button>
           </div>
           <div className={classes["buttons-row"]}>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
+            <button onClick={enteredCodeHandler} value='4'>4</button>
+            <button onClick={enteredCodeHandler} value='5'>5</button>
+            <button onClick={enteredCodeHandler} value='6'>6</button>
           </div>
           <div className={classes["buttons-row"]}>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
+            <button onClick={enteredCodeHandler} value='7'>7</button>
+            <button onClick={enteredCodeHandler} value='8'>8</button>
+            <button onClick={enteredCodeHandler} value='9'>9</button>
           </div>
           <div className={classes["buttons-row"]}>
-            <button>delete</button>
-            <button>0</button>
-            <button>login</button>
+            <button onClick={clearEnteredCodeHandler}>Clear</button>
+            <button onClick={enteredCodeHandler} value='0'>0</button>
+            <button onClick={deleteValueHandler}>Delete</button>
           </div>
         </div>
       </div>

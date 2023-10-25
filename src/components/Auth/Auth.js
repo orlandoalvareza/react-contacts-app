@@ -1,13 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { motion } from "framer-motion";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import AuthContext from '../../context/auth-context';
 import CodeIndicator from './CodeIndicator';
-import image from '../../images/vicky-hladynets-uyaTT9u6AvI-unsplash.jpg';
-import { faDeleteLeft, faArrowRotateRight } from '@fortawesome/free-solid-svg-icons';
+import AuthButtons from './AuthButtons';
 import classes from './Auth.module.css';
+import AuthHeader from './AuthHeader';
 
 const Auth = () => {
   const { onLogin } = useContext(AuthContext);
@@ -49,14 +48,7 @@ const Auth = () => {
 
   return (
     <div className={classes["login-container"]}>
-      <div className={classes["login-header"]}>
-        <img src={image} alt='contact'/>
-        <h1>Welcome back, Sam!</h1>
-        <h3>
-          Please enter your access code.
-          <span>(1234)</span>
-        </h3>
-      </div>
+      <AuthHeader/>
       <div className={classes["login-actions"]}>
         <motion.div 
           className={classes["access-code-container"]}
@@ -67,32 +59,11 @@ const Auth = () => {
           <CodeIndicator indicator={enteredCode.length} numberIndicator={3}/>
           <CodeIndicator indicator={enteredCode.length} numberIndicator={4}/>
         </motion.div>
-        <div className={classes["buttons-container"]}>
-          <div className={classes["buttons-row"]}>
-            <button onClick={enteredCodeHandler} value='1'>1</button>
-            <button onClick={enteredCodeHandler} value='2'>2</button>
-            <button onClick={enteredCodeHandler} value='3'>3</button>
-          </div>
-          <div className={classes["buttons-row"]}>
-            <button onClick={enteredCodeHandler} value='4'>4</button>
-            <button onClick={enteredCodeHandler} value='5'>5</button>
-            <button onClick={enteredCodeHandler} value='6'>6</button>
-          </div>
-          <div className={classes["buttons-row"]}>
-            <button onClick={enteredCodeHandler} value='7'>7</button>
-            <button onClick={enteredCodeHandler} value='8'>8</button>
-            <button onClick={enteredCodeHandler} value='9'>9</button>
-          </div>
-          <div className={classes["buttons-row"]}>
-            <button onClick={clearEnteredCodeHandler}>
-              <FontAwesomeIcon icon={faArrowRotateRight}/>
-            </button>
-            <button onClick={enteredCodeHandler} value='0'>0</button>
-            <button onClick={deleteValueHandler}>
-              <FontAwesomeIcon icon={faDeleteLeft}/>
-            </button>
-          </div>
-        </div>
+        <AuthButtons 
+          onEnteredCode={enteredCodeHandler}
+          onClear={clearEnteredCodeHandler}
+          onDelete={deleteValueHandler}
+        />
       </div>
     </div>
   )

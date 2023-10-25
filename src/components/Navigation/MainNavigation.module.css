@@ -87,6 +87,28 @@
   color: var(--theme-two-sixth-color);
 }
 
+.logout-link,
+.login-link {
+  background: transparent;
+  padding: 4px 5px;
+  border-radius: 50%;
+}
+
+.logout-link {
+  border: none;
+  cursor: pointer;
+}
+
+.logout-icon {
+  font-size: 17px;
+  color: var(--theme-one-first-color);
+}
+
+.login-icon {
+  font-size: 20px;
+  color: var(--theme-one-second-color);
+}
+
 .theme-button {
   background: transparent;
   width: 28px;

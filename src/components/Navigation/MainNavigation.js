@@ -4,17 +4,23 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import DropdownMenu from './DropdownMenu';
-import MenuContext from '../../context/dropdown-menu-context';
+import LoginContext from '../../context/login-context';
 import ThemeContext from '../../context/theme-context';
+import MenuContext from '../../context/dropdown-menu-context';
 import useScreenSize from '../../hooks/use-screen-size';
 import { faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import { faSun, faMoon } from '@fortawesome/free-regular-svg-icons';
 import classes from './MainNavigation.module.css';
 
 const MainNavigation = () => {
+  const { isLogin, onLogout } = useContext(LoginContext);
   const { isLightTheme, onChangeTheme } = useContext(ThemeContext);
   const { isMenuOpen, onDropdownMenu } = useContext(MenuContext);
   const isMobile = useScreenSize();
+
+  const logoutHandler = () => {
+    onLogout();
+  }
 
   const changeThemeHandler = () => {
     onChangeTheme();
@@ -85,6 +91,7 @@ const MainNavigation = () => {
             </ul>
           </nav>
         )}
+        <button onClick={logoutHandler}>Logout</button>
         {themeButton}
         {isMobile && (
           <motion.button 

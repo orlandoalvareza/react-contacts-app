@@ -10,10 +10,12 @@ export const LoginContextProvider = (props) => {
   const [isLogin, setIsLogin] = useState(false);
 
   const loginHandler = () => {
+    localStorage.setItem('isLogin', 'true');
     setIsLogin(true);
   }
 
   const logoutHandler = () => {
+    localStorage.removeItem('isLogin');
     setIsLogin(false);
   }
 

@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 
+import LoginContext from '../../context/login-context';
 import image from '../../images/vicky-hladynets-uyaTT9u6AvI-unsplash.jpg';
 import classes from './Login.module.css';
 
 const Login = () => {
   const [enteredCode, setEnteredCode] = useState('');
+  const { isLogin, onLogin } = useContext(LoginContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,9 +16,10 @@ const Login = () => {
     }
 
     if (enteredCode === '1234') {
+      onLogin();
       navigate('../contacts');
     }
-  }, [enteredCode, navigate])
+  }, [enteredCode, navigate, onLogin])
 
   const enteredCodeHandler = (event) => {
     const value = event.target.value;    

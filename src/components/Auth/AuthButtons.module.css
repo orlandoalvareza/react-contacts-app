@@ -1,7 +1,8 @@
 @import url('../../base.css');
 
 .buttons-container,
-.buttons-row {
+.buttons-row__light, 
+.buttons-row__dark {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,19 +14,20 @@
   height: 240px;
 }
 
-.buttons-row {
+.buttons-row__light, 
+.buttons-row__dark {
   width: 100%;
   height: 25%;
 }
 
-.buttons-row:not(:last-child) {
+.buttons-row__light:not(:last-child), 
+.buttons-row__dark:not(:last-child) {
   margin-bottom: 4px;
 }
 
-.buttons-row button {
+.buttons-row__light button, 
+.buttons-row__dark button {
   font-size: 22px;
-  color: var(--theme-one-fourth-color);
-  background: var(--theme-one-first-color);
   width: 33%;
   height: 100%;
   border: none;
@@ -33,25 +35,32 @@
   cursor: pointer;
 }
 
-.buttons-row button:not(:last-child) {
+.buttons-row__light button {
+  color: var(--theme-one-fourth-color);
+  background: var(--theme-one-first-color);
+}
+
+.buttons-row__dark button {
+  color: var(--theme-one-second-color);
+  background: rgba(0, 153, 255, 0.35);
+}
+
+.buttons-row__light button:not(:last-child), 
+.buttons-row__dark button:not(:last-child) {
   margin-right: 4px;
 }
 
-.buttons-row button:hover {
+.buttons-row__light button:hover {
   color: var(--theme-two-fourth-color);
   background: var(--theme-one-second-color);
 }
-
-.buttons-row:last-child button:first-child:active,
-.buttons-row:last-child button:last-child:active {
-  color: var(--theme-three-first-color);
-  background: var(--theme-one-first-color);
-  border: 1.5px solid var(--theme-three-first-color);
+ 
+.buttons-row__dark button:hover {
+  color: var(--theme-one-first-color);
+  background: rgba(0, 153, 255, 0.45);
 }
 
-.buttons-row:last-child button:nth-child(2n):active,
-.buttons-row:not(:last-child) button:active {
-  color: var(--theme-one-third-color);
-  background: var(--theme-one-first-color);
-  border: 1.5px solid var(--theme-one-third-color);
+.buttons-row__light button:active, 
+.buttons-row__dark button:active {
+  border: 1.5px solid var(--theme-one-fourth-color);
 }

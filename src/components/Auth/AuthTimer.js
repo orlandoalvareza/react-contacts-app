@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
+import ThemeContext from "../../context/theme-context";
 import classes from './AuthTimer.module.css';
 
 const AuthTimer = ({ onRestartCounter }) => {
-  const [totalTime, setTotalTime] = useState(700);
+  const [totalTime, setTotalTime] = useState(5);
   const [isTimeOver, setIsTimeOver] = useState(false);
+  const { isLightTheme } = useContext(ThemeContext);
+  
+  const themeMode = isLightTheme ? 'light' : 'dark';
 
   useEffect(() => {
     const timerInterval = setInterval(() => {
@@ -40,11 +44,11 @@ const AuthTimer = ({ onRestartCounter }) => {
 
   return (
     <div className={classes["timer-container"]}>
-      <div className={classes["progress-container"]}>
+      <div className={classes[`progress-container__${themeMode}`]}>
         <div className={classes["progress"]}>
         </div>
       </div>
-      <div className={classes["timer"]}>
+      <div className={classes[`timer__${themeMode}`]}>
         {formattedTimer()}
       </div>
     </div>

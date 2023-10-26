@@ -9,12 +9,20 @@
   height: 120px;
 }
 
-.progress-container {
+.progress-container__light,
+.progress-container__dark {
   width: 90px;
   height: 90px;
-  border: 6px solid var(--theme-two-seventh-color);
   border-radius: 50%;
   animation: spin 5s linear infinite;
+}
+
+.progress-container__light {
+  border: 6px solid var(--theme-two-seventh-color);
+}
+
+.progress-container__dark {
+  border: 6px solid var(--theme-one-seventh-color);
 }
 
 @keyframes spin {
@@ -27,18 +35,22 @@
 }
 
 .progress {
-  background: var(--theme-one-third-color);
+  background: var(--theme-three-first-color);
   width: 11px;
   height: 11px;
   border-radius: 50%;
   margin: 4px;
 }
 
-.timer {
+.timer__light, 
+.timer__dark {
   font-size: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
-  color: var(--theme-one-fourth-color);
   transform: translate(-50%, -50%);
+}
+
+.timer__dark {
+  color: var(--theme-one-first-color);
 }

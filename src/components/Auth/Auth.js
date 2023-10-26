@@ -9,9 +9,11 @@ import AuthButtons from './AuthButtons';
 import Modal from '../UI/Modal';
 import AuthTimer from './AuthTimer';
 import classes from './Auth.module.css';
+import ThemeContext from '../../context/theme-context';
 
 const Auth = () => {
   const { onLogin } = useContext(AuthContext);
+  const { isLightTheme } = useContext(ThemeContext);
   const [enteredCode, setEnteredCode] = useState('');
   const [isCodeValid, setIsCodeValid] = useState(true);
   const [attemptsCounter, setAttemptsCounter] = useState(0);
@@ -29,6 +31,8 @@ const Auth = () => {
       navigate('../contacts');
     }
   }, [enteredCode, attemptsCounter, navigate, onLogin])
+
+  const themeMode = isLightTheme ? 'light' : 'dark';
 
   const enteredCodeHandler = (event) => {
     const value = event.target.value;  
@@ -58,7 +62,9 @@ const Auth = () => {
     <Modal>
       <div className={classes["failed-information"]}>
         <h2>Access Denied</h2>
-        <p>Please, try again in a moment.</p>
+        <p className={classes[`failed-message__${themeMode}`]}>
+          Please, try again in a moment.
+        </p>
       </div>
       <AuthTimer onRestartCounter={restartAttemptsHandler}/>
     </Modal>
@@ -67,7 +73,7 @@ const Auth = () => {
   return (
     <div className={classes["login-container"]}>
       <AuthHeader/>
-      <div className={classes["login-actions"]}>
+      <div className={classes[`login-actions__${themeMode}`]}>
         <motion.div 
           className={classes["access-code-container"]}
           animate={isCodeValid ? { x: 0 } : animation}

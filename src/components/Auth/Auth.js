@@ -6,9 +6,9 @@ import AuthContext from '../../context/auth-context';
 import AuthHeader from './AuthHeader';
 import CodeIndicator from './CodeIndicator';
 import AuthButtons from './AuthButtons';
-import classes from './Auth.module.css';
 import Modal from '../UI/Modal';
-import AuthTime from './AuthTime';
+import AuthTimer from './AuthTimer';
+import classes from './Auth.module.css';
 
 const Auth = () => {
   const { onLogin } = useContext(AuthContext);
@@ -58,9 +58,9 @@ const Auth = () => {
     <Modal>
       <div className={classes["failed-information"]}>
         <h2>Access Denied</h2>
-        <p>You've reached the maximum attempts. Please try again later.</p>
+        <p>Please, try again in a moment.</p>
       </div>
-      <AuthTime onRestartCounter={restartAttemptsHandler}/>
+      <AuthTimer onRestartCounter={restartAttemptsHandler}/>
     </Modal>
   )
 

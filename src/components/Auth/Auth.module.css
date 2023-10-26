@@ -33,3 +33,21 @@
   text-align: center;
   border-radius: 8px;
 }
+
+.failed-information {
+  text-align: center;
+}
+
+.failed-information h2 {
+  color: var(--theme-one-first-color);
+  background: var(--theme-one-third-color);
+  padding: 6px;
+  border-radius: 6px 6px 0 0;
+  margin-bottom: 10px;
+}
+
+.failed-information p {
+  font-size: 16px;
+  color: var(--theme-one-fourth-color);
+  padding: 0 25px;
+}

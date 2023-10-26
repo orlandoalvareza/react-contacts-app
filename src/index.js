@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 
 import { AuthContextProvider } from './context/auth-context';
 import { ThemeContextProvider } from './context/theme-context';
-import { MenuContextProvider } from './context/dropdown-menu-context';
 import App from './App';
 import './index.css';
 
@@ -12,9 +11,7 @@ root.render(
   <React.StrictMode>
     <AuthContextProvider>
       <ThemeContextProvider>
-        <MenuContextProvider>
-          <App />
-        </MenuContextProvider>
+        <App />
       </ThemeContextProvider>
     </AuthContextProvider>
   </React.StrictMode>

@@ -3,13 +3,11 @@ import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import ThemeContext from '../../context/theme-context';
-import MenuContext from '../../context/dropdown-menu-context';
 import { faHouse, faUsers, faStar } from '@fortawesome/free-solid-svg-icons';
 import classes from './DropdownMenu.module.css';
 
-const DropdownMenu = () => {
+const DropdownMenu = ({ onDropdownMenu }) => {
   const { isLightTheme } = useContext(ThemeContext);
-  const { onDropdownMenu } = useContext(MenuContext);
 
   const closeMenuHandler = () => {
     onDropdownMenu();

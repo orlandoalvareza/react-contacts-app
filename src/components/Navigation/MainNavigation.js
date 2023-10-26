@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DropdownMenu from './DropdownMenu';
 import AuthContext from '../../context/auth-context';
 import ThemeContext from '../../context/theme-context';
-import MenuContext from '../../context/dropdown-menu-context';
 import useScreenSize from '../../hooks/use-screen-size';
 import { 
   faBars, 
@@ -20,7 +19,7 @@ import classes from './MainNavigation.module.css';
 const MainNavigation = () => {
   const { isAuthenticated, onLogout } = useContext(AuthContext);
   const { isLightTheme, onChangeTheme } = useContext(ThemeContext);
-  const { isMenuOpen, onDropdownMenu } = useContext(MenuContext);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useScreenSize();
   const navigate = useNavigate();
 
@@ -34,7 +33,7 @@ const MainNavigation = () => {
   }
 
   const dropdownMenuHandler = () => {
-    onDropdownMenu();
+    setIsMenuOpen(isMenuOpen => !isMenuOpen)
   }
 
   const themeMode = isLightTheme ? 'light' : 'dark';
@@ -144,7 +143,7 @@ const MainNavigation = () => {
         {themeButton}
         {isAuthenticated && isMobile && dropdownMenuButton}
       </div>
-      {isMenuOpen && <DropdownMenu />}
+      {isMenuOpen && <DropdownMenu onDropdownMenu={dropdownMenuHandler}/>}
     </header>
   )
 }

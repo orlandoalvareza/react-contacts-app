@@ -8,7 +8,7 @@ const AuthHeader = () => {
       <h1>Welcome back, Sam!</h1>
       <h3>
         Please enter your access code.
-        <span>(1234)</span>
+        <span>(123456)</span>
       </h3>
     </div>
   )

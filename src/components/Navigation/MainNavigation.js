@@ -115,20 +115,31 @@ const MainNavigation = () => {
       <div>
         {isAuthenticated && !isMobile && navigationMenu}
         {isAuthenticated && (
-          <button onClick={logoutHandler} className={classes["logout-link"]}>
+          <motion.button 
+            className={classes["logout-button"]}
+            onClick={logoutHandler} 
+            whileHover={{ x: 2, opacity: 0.8 }}
+            whileTap={{ scale: 0.8 }}
+          >
             <FontAwesomeIcon 
               className={classes["logout-icon"]}
               icon={faArrowRightFromBracket}
             />
-          </button>
+          </motion.button>
         )}
         {!isAuthenticated && (
-          <Link to='/login' className={classes["login-link"]}>
-            <FontAwesomeIcon 
-              className={classes["login-icon"]}
-              icon={faRightToBracket} 
-            />
-          </Link>
+          <motion.button 
+            className={classes["login-button"]}
+            whileHover={{ x: 2, opacity: 0.8 }}
+            whileTap={{ scale: 0.8 }}
+          >
+            <Link to='/login' className={classes["login-link"]}>
+              <FontAwesomeIcon 
+                className={classes["login-icon"]}
+                icon={faRightToBracket} 
+              />
+            </Link>
+          </motion.button>
         )}
         {themeButton}
         {isAuthenticated && isMobile && dropdownMenuButton}

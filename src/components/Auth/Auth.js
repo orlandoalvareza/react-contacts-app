@@ -3,28 +3,32 @@ import { useNavigate } from 'react-router';
 import { motion } from "framer-motion";
 
 import AuthContext from '../../context/auth-context';
+import AuthHeader from './AuthHeader';
 import CodeIndicator from './CodeIndicator';
 import AuthButtons from './AuthButtons';
 import classes from './Auth.module.css';
-import AuthHeader from './AuthHeader';
+import Modal from '../UI/Modal';
+import AuthTime from './AuthTime';
 
 const Auth = () => {
   const { onLogin } = useContext(AuthContext);
   const [enteredCode, setEnteredCode] = useState('');
   const [isCodeValid, setIsCodeValid] = useState(true);
+  const [attemptsCounter, setAttemptsCounter] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (enteredCode.length === 4 && enteredCode !== '1234') {
+    if (enteredCode.length === 6 && enteredCode !== '123456') {
+      setAttemptsCounter(attemptsCounter + 1)
       setEnteredCode('');
       setIsCodeValid(false);
     }
 
-    if (enteredCode === '1234') {
+    if (enteredCode === '123456') {
       onLogin();
       navigate('../contacts');
     }
-  }, [enteredCode, navigate, onLogin])
+  }, [enteredCode, attemptsCounter, navigate, onLogin])
 
   const enteredCodeHandler = (event) => {
     const value = event.target.value;  
@@ -41,10 +45,24 @@ const Auth = () => {
     setEnteredCode('');
   }
 
+  const restartAttemptsHandler = () => {
+    setAttemptsCounter(0);
+  }
+
   const animation = {
     x: [-10, 10, -5, 5, 0],
     transition: { duration: 0.5, times: [0, 0.2, 0.4, 0.6, 1] }
   };
+
+  const failedAccessCode = (
+    <Modal>
+      <div className={classes["failed-information"]}>
+        <h2>Access Denied</h2>
+        <p>You've reached the maximum attempts. Please try again later.</p>
+      </div>
+      <AuthTime onRestartCounter={restartAttemptsHandler}/>
+    </Modal>
+  )
 
   return (
     <div className={classes["login-container"]}>
@@ -58,6 +76,8 @@ const Auth = () => {
           <CodeIndicator indicator={enteredCode.length} numberIndicator={2}/>
           <CodeIndicator indicator={enteredCode.length} numberIndicator={3}/>
           <CodeIndicator indicator={enteredCode.length} numberIndicator={4}/>
+          <CodeIndicator indicator={enteredCode.length} numberIndicator={5}/>
+          <CodeIndicator indicator={enteredCode.length} numberIndicator={6}/>
         </motion.div>
         <AuthButtons 
           onEnteredCode={enteredCodeHandler}
@@ -65,6 +85,7 @@ const Auth = () => {
           onDelete={deleteValueHandler}
         />
       </div>
+      {attemptsCounter === 3 && failedAccessCode}
     </div>
   )
 }

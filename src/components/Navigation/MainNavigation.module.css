@@ -87,14 +87,16 @@
   color: var(--theme-two-sixth-color);
 }
 
-.logout-link,
+.logout-button,
 .login-link {
   background: transparent;
   padding: 4px 5px;
   border-radius: 50%;
 }
 
-.logout-link {
+.logout-button,
+.login-button {
+  background: transparent;
   border: none;
   cursor: pointer;
 }

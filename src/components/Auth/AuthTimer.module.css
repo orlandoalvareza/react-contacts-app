@@ -54,3 +54,23 @@
 .timer__dark {
   color: var(--theme-one-first-color);
 }
+
+
+@media screen and (max-width: 480px) {
+  .progress-container__light,
+  .progress-container__dark {
+    width: 75px;
+    height: 75px;
+  }
+  
+  .progress {
+    width: 10px;
+    height: 10px;
+    margin: 2px;
+  }
+  
+  .timer__light, 
+  .timer__dark {
+    font-size: 18px;
+  }
+}

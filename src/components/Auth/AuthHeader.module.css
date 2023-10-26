@@ -42,3 +42,39 @@
   font-size: 13px;
   margin-left: 5px;
 }
+
+@media screen and (max-width: 480px) {
+  .login-header__light img,
+  .login-header__dark img {
+    width: 170px;
+    height: 170px;
+  }
+
+  .login-header__light h1,
+  .login-header__dark h1 {
+    font-size: 2.1rem;
+  }
+
+  .login-header__light h3,
+  .login-header__dark h3 {
+    font-size: 18px;
+  }
+  
+  .login-header__light span,
+  .login-header__dark span {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .login-header__light img,
+  .login-header__dark img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .login-header__light h1,
+  .login-header__dark h1 {
+    font-size: 2.6rem;
+  }
+}

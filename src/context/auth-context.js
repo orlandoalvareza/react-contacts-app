@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const AuthContext = React.createContext({
   isAuthenticated: false,
@@ -8,6 +8,14 @@ const AuthContext = React.createContext({
 
 export const AuthContextProvider = (props) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const savedAuth = localStorage.getItem('isAuthenticated');
+    
+    if (savedAuth) {
+      setIsAuthenticated(savedAuth === 'true');
+    }
+  }, []);
 
   const loginHandler = () => {
     localStorage.setItem('isAuthenticated', 'true');

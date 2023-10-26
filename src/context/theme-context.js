@@ -10,6 +10,7 @@ export const ThemeContextProvider = (props) => {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
+    
     if (savedTheme) {
       setIsLightTheme(savedTheme === 'true');
     }

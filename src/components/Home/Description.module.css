@@ -95,6 +95,7 @@
 .benefits-section__light p,
 .benefits-section__dark p {
   font-size: 1.1rem;
+  line-height: 22px;
   padding: 12px;
 }
 

@@ -1,6 +1,6 @@
 import { json, redirect } from "react-router-dom";
 
-const databaseURL = 'https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts/.json';
+const databaseURL = `https://${process.env.REACT_APP_DB_KEY}/contacts/.json`;
 
 export async function fetchContactsData() {
   const response = await fetch(databaseURL);
@@ -53,7 +53,7 @@ export async function saveContact({ request, params }) {
   if (method === 'PATCH') {
     const id = params.contactId;
 
-    url = `https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts/${id}.json`
+    url = `https://${process.env.REACT_APP_DB_KEY}/contacts/${id}.json`
   }
 
   const response = await fetch(url, {
@@ -90,7 +90,7 @@ function getContactDataForm(data) {
 export async function deleteContact({ params }) {
   const id = params.contactId;
   
-  const response = await fetch(`https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts/${id}.json`, {
+  const response = await fetch(`https://${process.env.REACT_APP_DB_KEY}/contacts/${id}.json`, {
     method: 'DELETE',
   })
   
@@ -111,7 +111,7 @@ export async function favoriteMarked(id, contactData) {
     contactData.isFavorite = 'on';
   }
 
-  const response = await fetch(`https://react-contacts-app-77469-default-rtdb.firebaseio.com/contacts/${id}.json`, {
+  const response = await fetch(`https://${process.env.REACT_APP_DB_KEY}/contacts/${id}.json`, {
     method: 'PATCH', 
     headers: {
       'Content-Type': 'application/json',

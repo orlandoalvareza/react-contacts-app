@@ -73,7 +73,7 @@ const Auth = () => {
   return (
     <div className={classes["login-container"]}>
       <AuthHeader/>
-      <div className={classes[`login-actions__${themeMode}`]}>
+      <div className={classes["login-actions"]}>
         <motion.div 
           className={classes["access-code-container"]}
           animate={isCodeValid ? { x: 0 } : animation}

@@ -18,6 +18,10 @@ const ContactForm = ({ method, contact }) => {
 
   useEffect(() => {
     if (contact) {
+      if (contact.photo) {
+        setIsAddingContactPhoto(true);
+      }
+
       setNameIsValid(true);
       setPhoneIsValid(true);
     }  
@@ -116,7 +120,12 @@ const ContactForm = ({ method, contact }) => {
         {isAddingContactPhoto && (
           <div className={classes["contact-photo-container__input"]}>
             <label htmlFor='photo'>Photo URL</label>
-            <input type='text' id='photo' name="photo"/>
+            <input 
+              type='text' 
+              id='photo' 
+              name="photo" 
+              defaultValue={contact ? contact.photo : ''}
+            />
           </div>
         )}
       </div>

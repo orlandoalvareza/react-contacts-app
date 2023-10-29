@@ -26,7 +26,7 @@ You can check out a live demo of the app here: https://touchbase-app.netlify.app
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/react-contacts-app.git
+   git clone https://github.com/orlandoalvareza/react-contacts-app
    ```
 
 2. Navigate to the project directory:

@@ -38,13 +38,15 @@ You can check out a live demo of the app here: https://touchbase-app.netlify.app
    ```bash
    npm install
    ```
+
+4. You need to add your own database URL in util/http.js and replace it with the URL in the file
    
-4. Start the development server:
+5. Start the development server:
    ```bash
     npm start
    ```
    
-5. Open your web browser and visit http://localhost:3000 to use the app locally.
+6. Open your web browser and visit http://localhost:3000 to use the app locally.
 
 ## Usage
 

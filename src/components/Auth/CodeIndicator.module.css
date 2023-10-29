@@ -1,15 +1,22 @@
 .code-indicator,
-.code-indicator-active {
+.code-indicator-active__light,
+.code-indicator-active__dark {
   width: 16px;
   height: 16px;
   border-radius: 50%;
 }
 
 .code-indicator {
-  background: transparent;
-  border: 1.4px solid var(--theme-one-first-color);
+  background: var(--theme-one-first-color);
+  border: 1px solid var(--theme-one-fourth-color);
 }
 
-.code-indicator-active {
-  background: var(--theme-one-first-color);
+.code-indicator-active__light {
+  background: var(--theme-one-third-color);
+  border: 1.1px solid var(--theme-one-fourth-color);
+}
+
+.code-indicator-active__dark {
+  background: #6899ca;
+  border: 1.1px solid var(--theme-one-fourth-color);
 }
